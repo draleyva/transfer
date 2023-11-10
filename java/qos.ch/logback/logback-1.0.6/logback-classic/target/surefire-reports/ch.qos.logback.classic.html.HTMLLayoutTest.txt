@@ -1,5 +1,0 @@
--------------------------------------------------------------------------------
-Test set: ch.qos.logback.classic.html.HTMLLayoutTest
--------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.186 sec
-testAppendThrowable(ch.qos.logback.classic.html.HTMLLayoutTest)  Time elapsed: 0.006 sectestPresentationHeader(ch.qos.logback.classic.html.HTMLLayoutTest)  Time elapsed: 0.096 sectestConversionRuleSupportInHtmlLayout(ch.qos.logback.classic.html.HTMLLayoutTest)  Time elapsed: 0.014 sectestDoLayout(ch.qos.logback.classic.html.HTMLLayoutTest)  Time elapsed: 0.027 secrawLimit(ch.qos.logback.classic.html.HTMLLayoutTest) skippedtestHeader(ch.qos.logback.classic.html.HTMLLayoutTest)  Time elapsed: 0.017 seclayoutWithException(ch.qos.logback.classic.html.HTMLLayoutTest)  Time elapsed: 0.022 sec

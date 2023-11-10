@@ -1,5 +1,0 @@
--------------------------------------------------------------------------------
-Test set: ch.qos.logback.core.sift.ScenarioBasedAppenderTrackerTest
--------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.233 sec
-shortTest(ch.qos.logback.core.sift.ScenarioBasedAppenderTrackerTest)  Time elapsed: 0 secmediumTest(ch.qos.logback.core.sift.ScenarioBasedAppenderTrackerTest)  Time elapsed: 0 seclongTest(ch.qos.logback.core.sift.ScenarioBasedAppenderTrackerTest) skippedmediumTestWithRemovals(ch.qos.logback.core.sift.ScenarioBasedAppenderTrackerTest)  Time elapsed: 0 secshortTestWithRemovals(ch.qos.logback.core.sift.ScenarioBasedAppenderTrackerTest)  Time elapsed: 0 sec

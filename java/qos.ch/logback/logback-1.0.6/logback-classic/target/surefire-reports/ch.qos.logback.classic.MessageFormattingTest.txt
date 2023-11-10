@@ -1,5 +1,0 @@
--------------------------------------------------------------------------------
-Test set: ch.qos.logback.classic.MessageFormattingTest
--------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
-testNoFormatting(ch.qos.logback.classic.MessageFormattingTest)  Time elapsed: 0 sectestFormattingTwoArg(ch.qos.logback.classic.MessageFormattingTest)  Time elapsed: 0 sectestFormattingOneArg(ch.qos.logback.classic.MessageFormattingTest)  Time elapsed: 0 sectestNoFormatting2(ch.qos.logback.classic.MessageFormattingTest)  Time elapsed: 0 sectestMessageConverter(ch.qos.logback.classic.MessageFormattingTest)  Time elapsed: 0 sec

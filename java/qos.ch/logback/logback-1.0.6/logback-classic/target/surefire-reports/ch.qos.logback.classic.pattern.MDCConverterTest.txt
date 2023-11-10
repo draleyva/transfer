@@ -1,5 +1,0 @@
--------------------------------------------------------------------------------
-Test set: ch.qos.logback.classic.pattern.MDCConverterTest
--------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
-testConverWithMultipleEntries(ch.qos.logback.classic.pattern.MDCConverterTest)  Time elapsed: 0 sectestConverWithOneEntry(ch.qos.logback.classic.pattern.MDCConverterTest)  Time elapsed: 0 sec

@@ -1,5 +1,0 @@
--------------------------------------------------------------------------------
-Test set: ch.qos.logback.classic.net.SMTPAppender_SubethaSMTPTest
--------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 3, Time elapsed: 0.769 sec
-htmlLong(ch.qos.logback.classic.net.SMTPAppender_SubethaSMTPTest)  Time elapsed: 0.436 secsmoke(ch.qos.logback.classic.net.SMTPAppender_SubethaSMTPTest)  Time elapsed: 0.08 secauthenticatedGmailStartTLS(ch.qos.logback.classic.net.SMTPAppender_SubethaSMTPTest) skippedauthenticatedGmail_SSL(ch.qos.logback.classic.net.SMTPAppender_SubethaSMTPTest) skippedtestMultipleTo(ch.qos.logback.classic.net.SMTPAppender_SubethaSMTPTest)  Time elapsed: 0.077 secauthenticated(ch.qos.logback.classic.net.SMTPAppender_SubethaSMTPTest)  Time elapsed: 0.088 secauthenticatedSSL(ch.qos.logback.classic.net.SMTPAppender_SubethaSMTPTest) skippedhtml(ch.qos.logback.classic.net.SMTPAppender_SubethaSMTPTest)  Time elapsed: 0.086 sec

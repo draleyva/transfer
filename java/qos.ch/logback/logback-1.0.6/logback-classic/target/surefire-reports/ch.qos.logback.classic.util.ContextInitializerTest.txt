@@ -1,5 +1,0 @@
--------------------------------------------------------------------------------
-Test set: ch.qos.logback.classic.util.ContextInitializerTest
--------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.022 sec
-autoConfigFromSystemProperties(ch.qos.logback.classic.util.ContextInitializerTest)  Time elapsed: 0.013 secautoOnConsoleStatusListener(ch.qos.logback.classic.util.ContextInitializerTest)  Time elapsed: 0.009 secautoStatusListener(ch.qos.logback.classic.util.ContextInitializerTest)  Time elapsed: 0 secatoconfig(ch.qos.logback.classic.util.ContextInitializerTest) skippedreset(ch.qos.logback.classic.util.ContextInitializerTest) skipped

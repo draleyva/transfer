@@ -1,5 +1,0 @@
--------------------------------------------------------------------------------
-Test set: ch.qos.logback.core.joran.spi.DefaultNestedComponentRegistryTest
--------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec
-smoke(ch.qos.logback.core.joran.spi.DefaultNestedComponentRegistryTest)  Time elapsed: 0 secabsent(ch.qos.logback.core.joran.spi.DefaultNestedComponentRegistryTest)  Time elapsed: 0 sec

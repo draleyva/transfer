@@ -1,5 +1,0 @@
--------------------------------------------------------------------------------
-Test set: ch.qos.logback.core.joran.spi.CaseCombinatorTest
--------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
-other(ch.qos.logback.core.joran.spi.CaseCombinatorTest)  Time elapsed: 0 secsmoke(ch.qos.logback.core.joran.spi.CaseCombinatorTest)  Time elapsed: 0 sec

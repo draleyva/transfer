@@ -1,5 +1,0 @@
--------------------------------------------------------------------------------
-Test set: ch.qos.logback.classic.pattern.TargetLengthBasedClassNameAbbreviatorTest
--------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
-testShortName(ch.qos.logback.classic.pattern.TargetLengthBasedClassNameAbbreviatorTest)  Time elapsed: 0 sectestXDot(ch.qos.logback.classic.pattern.TargetLengthBasedClassNameAbbreviatorTest)  Time elapsed: 0 sectest3Dot(ch.qos.logback.classic.pattern.TargetLengthBasedClassNameAbbreviatorTest)  Time elapsed: 0 sectestTwoDot(ch.qos.logback.classic.pattern.TargetLengthBasedClassNameAbbreviatorTest)  Time elapsed: 0 sectestOneDot(ch.qos.logback.classic.pattern.TargetLengthBasedClassNameAbbreviatorTest)  Time elapsed: 0 sectestNoDot(ch.qos.logback.classic.pattern.TargetLengthBasedClassNameAbbreviatorTest)  Time elapsed: 0 sec

@@ -1,4 +1,0 @@
-Testsuite: ch.qos.logback.classic.util.InitializationIntegrationTest
-Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0,163 sec
-
-Testcase: smoke took 0,147 sec

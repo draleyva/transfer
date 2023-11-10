@@ -1,5 +1,0 @@
--------------------------------------------------------------------------------
-Test set: ch.qos.logback.classic.gaffer.GafferConfiguratorTest
--------------------------------------------------------------------------------
-Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.495 sec
-smoke(ch.qos.logback.classic.gaffer.GafferConfiguratorTest)  Time elapsed: 0.093 seconTheFly(ch.qos.logback.classic.gaffer.GafferConfiguratorTest)  Time elapsed: 0.032 seccontextName(ch.qos.logback.classic.gaffer.GafferConfiguratorTest)  Time elapsed: 0.019 secconversionRule(ch.qos.logback.classic.gaffer.GafferConfiguratorTest)  Time elapsed: 0.07 seccontextProperty(ch.qos.logback.classic.gaffer.GafferConfiguratorTest)  Time elapsed: 0.02 secevaluatorWithMatcher(ch.qos.logback.classic.gaffer.GafferConfiguratorTest)  Time elapsed: 0.115 secpropertyCascading0(ch.qos.logback.classic.gaffer.GafferConfiguratorTest)  Time elapsed: 0.048 secpropertyCascading1(ch.qos.logback.classic.gaffer.GafferConfiguratorTest)  Time elapsed: 0.041 secpropertyCascading2(ch.qos.logback.classic.gaffer.GafferConfiguratorTest)  Time elapsed: 0.05 sec

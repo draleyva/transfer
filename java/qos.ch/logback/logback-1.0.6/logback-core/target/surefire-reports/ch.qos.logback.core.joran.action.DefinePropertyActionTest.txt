@@ -1,5 +1,0 @@
--------------------------------------------------------------------------------
-Test set: ch.qos.logback.core.joran.action.DefinePropertyActionTest
--------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.409 sec
-good(ch.qos.logback.core.joran.action.DefinePropertyActionTest)  Time elapsed: 0 secnoName(ch.qos.logback.core.joran.action.DefinePropertyActionTest)  Time elapsed: 0 secnoClass(ch.qos.logback.core.joran.action.DefinePropertyActionTest)  Time elapsed: 0 sectestBadClass(ch.qos.logback.core.joran.action.DefinePropertyActionTest)  Time elapsed: 0 sec

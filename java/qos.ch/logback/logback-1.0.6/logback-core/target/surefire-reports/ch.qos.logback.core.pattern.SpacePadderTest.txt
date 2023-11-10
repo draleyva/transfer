@@ -1,5 +1,0 @@
--------------------------------------------------------------------------------
-Test set: ch.qos.logback.core.pattern.SpacePadderTest
--------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
-smoke(ch.qos.logback.core.pattern.SpacePadderTest)  Time elapsed: 0 seclengthyPad(ch.qos.logback.core.pattern.SpacePadderTest)  Time elapsed: 0 seclongString(ch.qos.logback.core.pattern.SpacePadderTest)  Time elapsed: 0 secnullString(ch.qos.logback.core.pattern.SpacePadderTest)  Time elapsed: 0 sec

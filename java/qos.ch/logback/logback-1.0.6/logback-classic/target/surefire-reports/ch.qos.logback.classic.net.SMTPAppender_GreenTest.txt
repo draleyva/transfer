@@ -1,5 +1,0 @@
--------------------------------------------------------------------------------
-Test set: ch.qos.logback.classic.net.SMTPAppender_GreenTest
--------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.343 sec
-htmlLong(ch.qos.logback.classic.net.SMTPAppender_GreenTest)  Time elapsed: 0.496 secsmoke(ch.qos.logback.classic.net.SMTPAppender_GreenTest)  Time elapsed: 0.12 secbufferShouldBeResetBetweenMessages(ch.qos.logback.classic.net.SMTPAppender_GreenTest)  Time elapsed: 0.12 secLBCLASSIC_104(ch.qos.logback.classic.net.SMTPAppender_GreenTest)  Time elapsed: 0.12 sectestCustomEvaluator(ch.qos.logback.classic.net.SMTPAppender_GreenTest)  Time elapsed: 0.114 sectestCustomBufferSize(ch.qos.logback.classic.net.SMTPAppender_GreenTest)  Time elapsed: 0.123 sectestMultipleTo(ch.qos.logback.classic.net.SMTPAppender_GreenTest)  Time elapsed: 0.114 sechtml(ch.qos.logback.classic.net.SMTPAppender_GreenTest)  Time elapsed: 0.133 sec

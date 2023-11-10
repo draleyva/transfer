@@ -1,5 +1,0 @@
--------------------------------------------------------------------------------
-Test set: ch.qos.logback.core.status.StatusCheckerTest
--------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
-statusListShouldReturnLastResetTime(ch.qos.logback.core.status.StatusCheckerTest)  Time elapsed: 0 secemptyStatusListShouldResultInNotFound(ch.qos.logback.core.status.StatusCheckerTest)  Time elapsed: 0 secwithoutResetsCheckerShouldReturnNotFound(ch.qos.logback.core.status.StatusCheckerTest)  Time elapsed: 0 sec

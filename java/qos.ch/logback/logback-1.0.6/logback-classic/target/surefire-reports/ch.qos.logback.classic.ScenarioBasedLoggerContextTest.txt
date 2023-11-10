@@ -1,5 +1,0 @@
--------------------------------------------------------------------------------
-Test set: ch.qos.logback.classic.ScenarioBasedLoggerContextTest
--------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.091 sec
-testLengthLong(ch.qos.logback.classic.ScenarioBasedLoggerContextTest) skippedtestLength_20000(ch.qos.logback.classic.ScenarioBasedLoggerContextTest)  Time elapsed: 0.09 sectestLength_30(ch.qos.logback.classic.ScenarioBasedLoggerContextTest)  Time elapsed: 0 sectestLen3(ch.qos.logback.classic.ScenarioBasedLoggerContextTest)  Time elapsed: 0 sec

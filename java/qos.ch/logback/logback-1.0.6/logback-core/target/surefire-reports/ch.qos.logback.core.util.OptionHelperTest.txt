@@ -1,5 +1,0 @@
--------------------------------------------------------------------------------
-Test set: ch.qos.logback.core.util.OptionHelperTest
--------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.004 sec
-testLiteral(ch.qos.logback.core.util.OptionHelperTest)  Time elapsed: 0 sectestSubstVarsVariableNotClosed(ch.qos.logback.core.util.OptionHelperTest)  Time elapsed: 0 sectestSubstVarsSystemProperties(ch.qos.logback.core.util.OptionHelperTest)  Time elapsed: 0 secdefaultValueReferencingAVariable(ch.qos.logback.core.util.OptionHelperTest) skippedtestUndefinedValues(ch.qos.logback.core.util.OptionHelperTest)  Time elapsed: 0 sectestSubstVarsWithDefault(ch.qos.logback.core.util.OptionHelperTest)  Time elapsed: 0 sectestSubstVarsRecursive(ch.qos.logback.core.util.OptionHelperTest)  Time elapsed: 0 sectestSubstVarsContextOnly(ch.qos.logback.core.util.OptionHelperTest)  Time elapsed: 0 sec

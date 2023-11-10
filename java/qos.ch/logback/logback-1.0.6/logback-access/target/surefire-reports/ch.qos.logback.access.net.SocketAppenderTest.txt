@@ -1,5 +1,0 @@
--------------------------------------------------------------------------------
-Test set: ch.qos.logback.access.net.SocketAppenderTest
--------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.109 sec
-testStartFailNoRemoteHost(ch.qos.logback.access.net.SocketAppenderTest)  Time elapsed: 0.002 sectestRecieveMessage(ch.qos.logback.access.net.SocketAppenderTest)  Time elapsed: 0.107 sec

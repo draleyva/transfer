@@ -1,5 +1,0 @@
--------------------------------------------------------------------------------
-Test set: ch.qos.logback.classic.net.DilutedSMTPAppenderTest
--------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec
-testStart(ch.qos.logback.classic.net.DilutedSMTPAppenderTest)  Time elapsed: 0.002 sectestEntryConditionsCheckNoMessage(ch.qos.logback.classic.net.DilutedSMTPAppenderTest)  Time elapsed: 0.002 sectestEntryConditionsCheckNoLayout(ch.qos.logback.classic.net.DilutedSMTPAppenderTest)  Time elapsed: 0.003 sectestAppendNonTriggeringEvent(ch.qos.logback.classic.net.DilutedSMTPAppenderTest)  Time elapsed: 0.003 sectestEntryConditionsCheck(ch.qos.logback.classic.net.DilutedSMTPAppenderTest)  Time elapsed: 0.002 sectestTriggeringPolicy(ch.qos.logback.classic.net.DilutedSMTPAppenderTest)  Time elapsed: 0.003 sec

@@ -1,5 +1,0 @@
--------------------------------------------------------------------------------
-Test set: ch.qos.logback.core.spi.ScenarioBasedCyclicBufferTrackerTest
--------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.185 sec
-shortTest(ch.qos.logback.core.spi.ScenarioBasedCyclicBufferTrackerTest)  Time elapsed: 0 secmediumTest(ch.qos.logback.core.spi.ScenarioBasedCyclicBufferTrackerTest)  Time elapsed: 0 seclongTest(ch.qos.logback.core.spi.ScenarioBasedCyclicBufferTrackerTest)  Time elapsed: 0 sec

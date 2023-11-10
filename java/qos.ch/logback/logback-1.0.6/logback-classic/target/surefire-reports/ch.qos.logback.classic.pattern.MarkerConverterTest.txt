@@ -1,5 +1,0 @@
--------------------------------------------------------------------------------
-Test set: ch.qos.logback.classic.pattern.MarkerConverterTest
--------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
-testWithMarker(ch.qos.logback.classic.pattern.MarkerConverterTest)  Time elapsed: 0 sectestWithNullMarker(ch.qos.logback.classic.pattern.MarkerConverterTest)  Time elapsed: 0 sectestWithSeveralChildMarker(ch.qos.logback.classic.pattern.MarkerConverterTest)  Time elapsed: 0 sectestWithOneChildMarker(ch.qos.logback.classic.pattern.MarkerConverterTest)  Time elapsed: 0 sec

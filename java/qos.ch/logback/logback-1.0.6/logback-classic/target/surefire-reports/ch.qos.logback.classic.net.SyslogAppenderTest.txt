@@ -1,5 +1,0 @@
--------------------------------------------------------------------------------
-Test set: ch.qos.logback.classic.net.SyslogAppenderTest
--------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.558 sec
-basic(ch.qos.logback.classic.net.SyslogAppenderTest)  Time elapsed: 0.104 sectException(ch.qos.logback.classic.net.SyslogAppenderTest)  Time elapsed: 0.103 secLBCLASSIC_50(ch.qos.logback.classic.net.SyslogAppenderTest)  Time elapsed: 0.009 seclarge(ch.qos.logback.classic.net.SyslogAppenderTest)  Time elapsed: 0.338 sec
