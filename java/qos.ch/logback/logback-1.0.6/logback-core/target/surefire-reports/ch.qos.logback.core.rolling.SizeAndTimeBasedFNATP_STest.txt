@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP_STest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.75 sec
+noCompression_FileBlank_WithStopStart_3(ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP_STest)  Time elapsed: 0.006 secnoCompression_FileSet_WithStopStart_4(ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP_STest)  Time elapsed: 0.007 secwithGZCompression_FileSet_NoRestart_5(ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP_STest)  Time elapsed: 0.008 secwithGZCompression_FileBlank_NoRestart_6(ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP_STest)  Time elapsed: 0 secwithZipCompression_FileSet_NoRestart_7(ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP_STest)  Time elapsed: 0.005 secnoCompression_FileSet_NoRestart_1(ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP_STest)  Time elapsed: 0 secnoCompression_FileBlank_NoRestart_2(ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP_STest)  Time elapsed: 0 sec

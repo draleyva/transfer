@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.classic.spi.LoggingEventSerializationTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 sec
+serializeLargeArgs(ch.qos.logback.classic.spi.LoggingEventSerializationTest)  Time elapsed: 0.006 secextendendeThrowable(ch.qos.logback.classic.spi.LoggingEventSerializationTest)  Time elapsed: 0.007 sec_Throwable(ch.qos.logback.classic.spi.LoggingEventSerializationTest)  Time elapsed: 0.004 secupdatedMDC(ch.qos.logback.classic.spi.LoggingEventSerializationTest)  Time elapsed: 0.001 secsmoke(ch.qos.logback.classic.spi.LoggingEventSerializationTest)  Time elapsed: 0.001 secMDC(ch.qos.logback.classic.spi.LoggingEventSerializationTest)  Time elapsed: 0.001 secnonSerializableParameters(ch.qos.logback.classic.spi.LoggingEventSerializationTest)  Time elapsed: 0.001 seccontext(ch.qos.logback.classic.spi.LoggingEventSerializationTest)  Time elapsed: 0.002 sec

@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.core.FileAppenderResilienceTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 1.061 sec
+smoke(ch.qos.logback.core.FileAppenderResilienceTest)  Time elapsed: 0 secmanual(ch.qos.logback.core.FileAppenderResilienceTest) skipped

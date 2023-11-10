@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.classic.db.DBAppenderHSQLTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.665 sec
+testAppendThrowable(ch.qos.logback.classic.db.DBAppenderHSQLTest)  Time elapsed: 0.301 sectestContextInfo(ch.qos.logback.classic.db.DBAppenderHSQLTest)  Time elapsed: 0.112 sectestAppendLoggingEvent(ch.qos.logback.classic.db.DBAppenderHSQLTest)  Time elapsed: 0.109 sectestAppendMultipleEvents(ch.qos.logback.classic.db.DBAppenderHSQLTest)  Time elapsed: 0.14 sec

@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.core.joran.action.IncludeActionTest
+-------------------------------------------------------------------------------
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.779 sec
+basicResource(ch.qos.logback.core.joran.action.IncludeActionTest)  Time elapsed: 0 secwithCorruptFile(ch.qos.logback.core.joran.action.IncludeActionTest)  Time elapsed: 0.003 secnestedInclude(ch.qos.logback.core.joran.action.IncludeActionTest)  Time elapsed: 0 secbasicFile(ch.qos.logback.core.joran.action.IncludeActionTest)  Time elapsed: 0 secbasicURL(ch.qos.logback.core.joran.action.IncludeActionTest)  Time elapsed: 0 secnoFileFound(ch.qos.logback.core.joran.action.IncludeActionTest)  Time elapsed: 0.01 secmalformedURL(ch.qos.logback.core.joran.action.IncludeActionTest)  Time elapsed: 0.001 secunknownURL(ch.qos.logback.core.joran.action.IncludeActionTest)  Time elapsed: 0.01 secmultiInclude(ch.qos.logback.core.joran.action.IncludeActionTest)  Time elapsed: 0 sec

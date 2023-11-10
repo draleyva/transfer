@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.classic.net.JMSTopicAppenderTest
+-------------------------------------------------------------------------------
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+testAppendOk(ch.qos.logback.classic.net.JMSTopicAppenderTest)  Time elapsed: 0.01 sectestBuildEnvPropertiesWithPkgNull(ch.qos.logback.classic.net.JMSTopicAppenderTest)  Time elapsed: 0 sectestBuildEnvProperties(ch.qos.logback.classic.net.JMSTopicAppenderTest)  Time elapsed: 0 sectestBuildEnvPropertiesWithNullProviderURL(ch.qos.logback.classic.net.JMSTopicAppenderTest)  Time elapsed: 0 sectestBuildEnvPropertiesWithNullCredentials(ch.qos.logback.classic.net.JMSTopicAppenderTest)  Time elapsed: 0 sectestStartFails(ch.qos.logback.classic.net.JMSTopicAppenderTest)  Time elapsed: 0 sectestStartUserPass(ch.qos.logback.classic.net.JMSTopicAppenderTest)  Time elapsed: 0 sectestStartMinimalInfo(ch.qos.logback.classic.net.JMSTopicAppenderTest)  Time elapsed: 0 sectestAppendFailure(ch.qos.logback.classic.net.JMSTopicAppenderTest)  Time elapsed: 0 sec

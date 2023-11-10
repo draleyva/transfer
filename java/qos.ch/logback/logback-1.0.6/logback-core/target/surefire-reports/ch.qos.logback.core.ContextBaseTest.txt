@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.core.ContextBaseTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+renameDefault(ch.qos.logback.core.ContextBaseTest)  Time elapsed: 0 secidempotentNameTest(ch.qos.logback.core.ContextBaseTest)  Time elapsed: 0 seccontextNameProperty(ch.qos.logback.core.ContextBaseTest)  Time elapsed: 0 secrenameTest(ch.qos.logback.core.ContextBaseTest)  Time elapsed: 0 secresetTest(ch.qos.logback.core.ContextBaseTest)  Time elapsed: 0 sec

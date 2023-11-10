@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.core.boolex.MatcherTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 sec
+testFullRegion(ch.qos.logback.core.boolex.MatcherTest)  Time elapsed: 0 sectestPartRegion(ch.qos.logback.core.boolex.MatcherTest)  Time elapsed: 0 sectestCaseInsensitive(ch.qos.logback.core.boolex.MatcherTest)  Time elapsed: 0 sectestCaseSensitive(ch.qos.logback.core.boolex.MatcherTest)  Time elapsed: 0 sec

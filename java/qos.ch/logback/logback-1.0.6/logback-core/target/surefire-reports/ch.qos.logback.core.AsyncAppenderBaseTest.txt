@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.core.AsyncAppenderBaseTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.469 sec
+workerShouldStopEvenIfInterruptExceptionConsumedWithinSubappender(ch.qos.logback.core.AsyncAppenderBaseTest)  Time elapsed: 0 seclossyAppenderShouldBeNonLossyIfDiscardingThresholdIsZero(ch.qos.logback.core.AsyncAppenderBaseTest)  Time elapsed: 0 secinvalidQueueCapacityShouldResultInNonStartedAppender(ch.qos.logback.core.AsyncAppenderBaseTest)  Time elapsed: 0 secsmoke(ch.qos.logback.core.AsyncAppenderBaseTest)  Time elapsed: 0 secnoEventLoss(ch.qos.logback.core.AsyncAppenderBaseTest)  Time elapsed: 0 secexceptionsShouldNotCauseHalting(ch.qos.logback.core.AsyncAppenderBaseTest)  Time elapsed: 0 secemptyQueueShouldBeStoppable(ch.qos.logback.core.AsyncAppenderBaseTest)  Time elapsed: 0.001 seclossyAppenderShouldOnlyLooseCertainEvents(ch.qos.logback.core.AsyncAppenderBaseTest)  Time elapsed: 0 sec

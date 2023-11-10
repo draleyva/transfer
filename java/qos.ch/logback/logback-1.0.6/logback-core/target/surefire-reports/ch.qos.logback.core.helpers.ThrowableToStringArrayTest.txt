@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.core.helpers.ThrowableToStringArrayTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec
+smoke(ch.qos.logback.core.helpers.ThrowableToStringArrayTest)  Time elapsed: 0 secmultiNested(ch.qos.logback.core.helpers.ThrowableToStringArrayTest)  Time elapsed: 0 secnested(ch.qos.logback.core.helpers.ThrowableToStringArrayTest)  Time elapsed: 0 sec

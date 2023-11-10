@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.classic.issue.lbclassic135.lbclassic139.LB139_DeadlockTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.51 sec
+test(ch.qos.logback.classic.issue.lbclassic135.lbclassic139.LB139_DeadlockTest)  Time elapsed: 0.509 sec

@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.access.servlet.TeeFilterTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+defaultCase(ch.qos.logback.access.servlet.TeeFilterTest)  Time elapsed: 0 secwithIncludesOnly(ch.qos.logback.access.servlet.TeeFilterTest)  Time elapsed: 0 secextractNameList(ch.qos.logback.access.servlet.TeeFilterTest)  Time elapsed: 0 secwithExcludesOnly(ch.qos.logback.access.servlet.TeeFilterTest)  Time elapsed: 0 secwithIncludesAndExcludes(ch.qos.logback.access.servlet.TeeFilterTest)  Time elapsed: 0 sec

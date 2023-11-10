@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.classic.joran.conditional.ConditionalTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.067 sec
+conditionalInclusionWithInexistentFile(ch.qos.logback.classic.joran.conditional.ConditionalTest)  Time elapsed: 0.018 secconditionalConsoleApp_IF_THEN_False(ch.qos.logback.classic.joran.conditional.ConditionalTest)  Time elapsed: 0.013 secconditionalConsoleApp_IF_THEN_ELSE(ch.qos.logback.classic.joran.conditional.ConditionalTest)  Time elapsed: 0.011 secconditionalInclusionWithExistingFile(ch.qos.logback.classic.joran.conditional.ConditionalTest)  Time elapsed: 0.015 secconditionalConsoleApp_IF_THEN_True(ch.qos.logback.classic.joran.conditional.ConditionalTest)  Time elapsed: 0.009 sec

@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.access.db.DBAppenderIntegrationTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.024 sec
+mysql(ch.qos.logback.access.db.DBAppenderIntegrationTest)  Time elapsed: 0.001 secoracle11g(ch.qos.logback.access.db.DBAppenderIntegrationTest) skippedoracle10g(ch.qos.logback.access.db.DBAppenderIntegrationTest) skippedsqlserver(ch.qos.logback.access.db.DBAppenderIntegrationTest)  Time elapsed: 0 secpostgres(ch.qos.logback.access.db.DBAppenderIntegrationTest)  Time elapsed: 0.001 sec

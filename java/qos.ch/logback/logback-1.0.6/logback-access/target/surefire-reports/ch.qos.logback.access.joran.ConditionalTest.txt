@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.access.joran.ConditionalTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 sec
+conditionalConsoleApp_ELSE(ch.qos.logback.access.joran.ConditionalTest)  Time elapsed: 0.047 secconditionalConsoleApp_IF_THEN_False(ch.qos.logback.access.joran.ConditionalTest)  Time elapsed: 0.005 secconditionalConsoleApp_IF_THEN_True(ch.qos.logback.access.joran.ConditionalTest)  Time elapsed: 0.032 sec

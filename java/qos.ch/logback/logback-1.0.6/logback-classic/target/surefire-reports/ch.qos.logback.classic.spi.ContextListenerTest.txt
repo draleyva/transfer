@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.classic.spi.ContextListenerTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+testNotifyOnReset(ch.qos.logback.classic.spi.ContextListenerTest)  Time elapsed: 0.001 sectestNotifyOnStart(ch.qos.logback.classic.spi.ContextListenerTest)  Time elapsed: 0 sectestLevelChange(ch.qos.logback.classic.spi.ContextListenerTest)  Time elapsed: 0 sectestNotifyOnStopNotResistant(ch.qos.logback.classic.spi.ContextListenerTest)  Time elapsed: 0 sectestNotifyOnStopResistant(ch.qos.logback.classic.spi.ContextListenerTest)  Time elapsed: 0 sec

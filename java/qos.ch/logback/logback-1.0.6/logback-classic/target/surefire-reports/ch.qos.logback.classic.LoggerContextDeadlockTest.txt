@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.classic.LoggerContextDeadlockTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.573 sec
+testLBCLASSIC_81(ch.qos.logback.classic.LoggerContextDeadlockTest)  Time elapsed: 0.571 sec

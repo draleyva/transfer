@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.core.rolling.helper.CompressTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 sec
+test3(ch.qos.logback.core.rolling.helper.CompressTest)  Time elapsed: 0 sectest2(ch.qos.logback.core.rolling.helper.CompressTest)  Time elapsed: 0 sectest1(ch.qos.logback.core.rolling.helper.CompressTest)  Time elapsed: 0 sec

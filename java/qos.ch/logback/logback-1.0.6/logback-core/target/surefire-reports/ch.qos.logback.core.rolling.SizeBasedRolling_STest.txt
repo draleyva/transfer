@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.core.rolling.SizeBasedRolling_STest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.759 sec
+smoke(ch.qos.logback.core.rolling.SizeBasedRolling_STest)  Time elapsed: 0 secgz(ch.qos.logback.core.rolling.SizeBasedRolling_STest)  Time elapsed: 0 secactiveFileNameNotSet(ch.qos.logback.core.rolling.SizeBasedRolling_STest)  Time elapsed: 0 seczipped(ch.qos.logback.core.rolling.SizeBasedRolling_STest)  Time elapsed: 0 sec

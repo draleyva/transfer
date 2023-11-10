@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.core.joran.SkippingInInterpreterTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.168 sec
+testSkippingRuntimeExInBadEnd(ch.qos.logback.core.joran.SkippingInInterpreterTest)  Time elapsed: 0 sectestSkippingActionExInBadBegin(ch.qos.logback.core.joran.SkippingInInterpreterTest)  Time elapsed: 0 sectestSkippingRuntimeExInBadBegin(ch.qos.logback.core.joran.SkippingInInterpreterTest)  Time elapsed: 0 sectestSkippingActionExInBadEnd(ch.qos.logback.core.joran.SkippingInInterpreterTest)  Time elapsed: 0 sec

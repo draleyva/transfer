@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.access.net.URLEvaluatorTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+testExpectTrueMultiple(ch.qos.logback.access.net.URLEvaluatorTest)  Time elapsed: 0 sectestExpectTrue(ch.qos.logback.access.net.URLEvaluatorTest)  Time elapsed: 0 sectestExpectFalse(ch.qos.logback.access.net.URLEvaluatorTest)  Time elapsed: 0 sec

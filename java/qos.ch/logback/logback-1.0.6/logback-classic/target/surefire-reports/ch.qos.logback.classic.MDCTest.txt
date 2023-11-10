@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.classic.MDCTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+testLBCLASSIC_98(ch.qos.logback.classic.MDCTest)  Time elapsed: 0 sectest(ch.qos.logback.classic.MDCTest)  Time elapsed: 0.001 sec

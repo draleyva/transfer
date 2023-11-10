@@ -1,0 +1,1 @@
+<configuration scan="true" scanPeriod="50 millisecond"><include file="target/test-output/reconfigureOnChangeConfig_inner-913669121.xml"/></configuration> 

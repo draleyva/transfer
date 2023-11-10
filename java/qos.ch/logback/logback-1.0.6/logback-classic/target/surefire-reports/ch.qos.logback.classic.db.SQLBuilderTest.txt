@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.classic.db.SQLBuilderTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+shouldReturnDefaultSqlInsertExceptionQuery(ch.qos.logback.classic.db.SQLBuilderTest)  Time elapsed: 0 secshouldReturnSimpleSqlInsertLoggingEventQuery(ch.qos.logback.classic.db.SQLBuilderTest)  Time elapsed: 0 secshouldReturnSimpleSqlInsertExceptionQuery(ch.qos.logback.classic.db.SQLBuilderTest)  Time elapsed: 0 secshouldReturnDefaultSqlInsertLoggingEventQuery(ch.qos.logback.classic.db.SQLBuilderTest)  Time elapsed: 0 secshouldReturnDefaultSqlInsertLoggingPropertyQuery(ch.qos.logback.classic.db.SQLBuilderTest)  Time elapsed: 0 secshouldReturnSimpleSqlInsertLoggingPropertyQuery(ch.qos.logback.classic.db.SQLBuilderTest)  Time elapsed: 0 sec

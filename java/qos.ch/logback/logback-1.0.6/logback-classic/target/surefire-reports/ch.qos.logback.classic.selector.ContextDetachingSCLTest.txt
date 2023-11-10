@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.classic.selector.ContextDetachingSCLTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec
+testDetach(ch.qos.logback.classic.selector.ContextDetachingSCLTest)  Time elapsed: 0.009 sectestDetachWithMissingContext(ch.qos.logback.classic.selector.ContextDetachingSCLTest)  Time elapsed: 0.006 sec

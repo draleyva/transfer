@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.classic.AsyncAppenderTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.092 sec
+settingIncludeCallerDataPropertyCausedCallerDataToBeIncluded(ch.qos.logback.classic.AsyncAppenderTest)  Time elapsed: 0.022 seceventWasPreparedForDeferredProcessing(ch.qos.logback.classic.AsyncAppenderTest)  Time elapsed: 0.001 sec

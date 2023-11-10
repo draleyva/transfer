@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.core.spi.AppenderAttachableImplTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+testAddAppender(ch.qos.logback.core.spi.AppenderAttachableImplTest)  Time elapsed: 0 secgetGetAppender(ch.qos.logback.core.spi.AppenderAttachableImplTest)  Time elapsed: 0 sectestIsAttached(ch.qos.logback.core.spi.AppenderAttachableImplTest)  Time elapsed: 0 sectestDetachAppender(ch.qos.logback.core.spi.AppenderAttachableImplTest)  Time elapsed: 0 sectestIteratorForAppenders(ch.qos.logback.core.spi.AppenderAttachableImplTest)  Time elapsed: 0 sectestDetachAppenderByName(ch.qos.logback.core.spi.AppenderAttachableImplTest)  Time elapsed: 0 sectestDetachAndStopAllAppenders(ch.qos.logback.core.spi.AppenderAttachableImplTest)  Time elapsed: 0 sec

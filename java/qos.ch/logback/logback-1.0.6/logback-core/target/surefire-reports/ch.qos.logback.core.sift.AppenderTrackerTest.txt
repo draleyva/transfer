@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.core.sift.AppenderTrackerTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+smoke(ch.qos.logback.core.sift.AppenderTrackerTest)  Time elapsed: 0 secempty0(ch.qos.logback.core.sift.AppenderTrackerTest)  Time elapsed: 0 secempty1(ch.qos.logback.core.sift.AppenderTrackerTest)  Time elapsed: 0 secremoveNow(ch.qos.logback.core.sift.AppenderTrackerTest)  Time elapsed: 0 sec

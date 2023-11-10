@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.core.pattern.parser.CompilerTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec
+testBasic(ch.qos.logback.core.pattern.parser.CompilerTest)  Time elapsed: 0 sectestCompositeFormatting(ch.qos.logback.core.pattern.parser.CompilerTest)  Time elapsed: 0 sectestComposite(ch.qos.logback.core.pattern.parser.CompilerTest)  Time elapsed: 0 sectestUnknownWord(ch.qos.logback.core.pattern.parser.CompilerTest)  Time elapsed: 0 sectestWithNopEscape(ch.qos.logback.core.pattern.parser.CompilerTest)  Time elapsed: 0 sectestFormat(ch.qos.logback.core.pattern.parser.CompilerTest)  Time elapsed: 0 sectestLiteral(ch.qos.logback.core.pattern.parser.CompilerTest)  Time elapsed: 0 sec

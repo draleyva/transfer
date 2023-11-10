@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.core.rolling.helper.FileNamePatternTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec
+asRegex(ch.qos.logback.core.rolling.helper.FileNamePatternTest)  Time elapsed: 0 secflowingI(ch.qos.logback.core.rolling.helper.FileNamePatternTest)  Time elapsed: 0 sectestSmoke(ch.qos.logback.core.rolling.helper.FileNamePatternTest)  Time elapsed: 0 secasRegexByDate(ch.qos.logback.core.rolling.helper.FileNamePatternTest)  Time elapsed: 0 secobjectListConverter(ch.qos.logback.core.rolling.helper.FileNamePatternTest)  Time elapsed: 0 secwithBackslash(ch.qos.logback.core.rolling.helper.FileNamePatternTest)  Time elapsed: 0 secconvertMultipleDates(ch.qos.logback.core.rolling.helper.FileNamePatternTest)  Time elapsed: 0 secdate(ch.qos.logback.core.rolling.helper.FileNamePatternTest)  Time elapsed: 0 sec

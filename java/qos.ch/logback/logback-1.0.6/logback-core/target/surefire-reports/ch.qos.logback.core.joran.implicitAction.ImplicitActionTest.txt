@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.core.joran.implicitAction.ImplicitActionTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.307 sec
+nestedComplexWithoutClassAtrribute(ch.qos.logback.core.joran.implicitAction.ImplicitActionTest)  Time elapsed: 0 secnestedComplexCollection(ch.qos.logback.core.joran.implicitAction.ImplicitActionTest)  Time elapsed: 0 secnestedComplex(ch.qos.logback.core.joran.implicitAction.ImplicitActionTest)  Time elapsed: 0 secnestedComplexCollectionWithoutClassAtrribute(ch.qos.logback.core.joran.implicitAction.ImplicitActionTest)  Time elapsed: 0 sec

@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.classic.net.SocketAppenderTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.718 sec
+receiveWithContext(ch.qos.logback.classic.net.SocketAppenderTest)  Time elapsed: 0.36 secmessageWithMDC(ch.qos.logback.classic.net.SocketAppenderTest)  Time elapsed: 0.356 secwithCallerData(ch.qos.logback.classic.net.SocketAppenderTest)  Time elapsed: 0.357 secmessageWithMarker(ch.qos.logback.classic.net.SocketAppenderTest)  Time elapsed: 0.353 seclateServerLaunch(ch.qos.logback.classic.net.SocketAppenderTest)  Time elapsed: 1.559 secreceiveMessage(ch.qos.logback.classic.net.SocketAppenderTest)  Time elapsed: 0.363 secmessageWithUpdatedMDC(ch.qos.logback.classic.net.SocketAppenderTest)  Time elapsed: 0.364 secstartFailNoRemoteHost(ch.qos.logback.classic.net.SocketAppenderTest)  Time elapsed: 0 sec

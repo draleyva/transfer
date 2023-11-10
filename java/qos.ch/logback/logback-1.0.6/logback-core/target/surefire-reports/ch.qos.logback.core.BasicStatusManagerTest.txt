@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.core.BasicStatusManagerTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 sec
+many(ch.qos.logback.core.BasicStatusManagerTest)  Time elapsed: 0 secsmoke(ch.qos.logback.core.BasicStatusManagerTest)  Time elapsed: 0 sec

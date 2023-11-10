@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.classic.turbo.LRUMessageCacheTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+testEldestEntriesRemoval(ch.qos.logback.classic.turbo.LRUMessageCacheTest)  Time elapsed: 0 sec

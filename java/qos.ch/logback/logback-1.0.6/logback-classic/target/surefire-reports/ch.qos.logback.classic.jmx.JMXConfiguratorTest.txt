@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.classic.jmx.JMXConfiguratorTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 sec
+testNonRemovalOfPreviousIntanceFromTheContextListenerList(ch.qos.logback.classic.jmx.JMXConfiguratorTest)  Time elapsed: 0.005 seccontextStop(ch.qos.logback.classic.jmx.JMXConfiguratorTest)  Time elapsed: 0.002 seccontextReset(ch.qos.logback.classic.jmx.JMXConfiguratorTest)  Time elapsed: 0.001 secgetLoggerLevel_LBCLASSIC_78(ch.qos.logback.classic.jmx.JMXConfiguratorTest)  Time elapsed: 0 secsetLoggerLevel_LBCLASSIC_79(ch.qos.logback.classic.jmx.JMXConfiguratorTest)  Time elapsed: 0 sec

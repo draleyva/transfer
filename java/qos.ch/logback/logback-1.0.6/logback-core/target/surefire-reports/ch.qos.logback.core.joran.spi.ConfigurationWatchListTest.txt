@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.core.joran.spi.ConfigurationWatchListTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+fileToURLAndBack(ch.qos.logback.core.joran.spi.ConfigurationWatchListTest)  Time elapsed: 0 sec

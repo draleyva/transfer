@@ -1,0 +1,5 @@
+-------------------------------------------------------------------------------
+Test set: ch.qos.logback.classic.encoder.LayoutInsteadOfEncoderTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.126 sec
+layoutInsteadOfEncoer(ch.qos.logback.classic.encoder.LayoutInsteadOfEncoderTest)  Time elapsed: 0.111 sec
