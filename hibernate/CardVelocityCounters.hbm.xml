@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 07-Jun-2006 15:08:54 by Hibernate Tools 3.1.0.beta5 -->
+<hibernate-mapping>
+  <class name="com.nomadsoft.cortex.domain.card.basic.BasicCardVelocityCounters"
+    entity-name="com.nomadsoft.cortex.domain.card.CardVelocityCounters" table="CRDVEL" optimistic-lock="version">
+    
+    <composite-id name="id" class="com.nomadsoft.cortex.domain.card.CardVelocityCountersId">
+      <key-many-to-one name="card" class="com.nomadsoft.cortex.domain.card.Card" column="crddet_id" access="field" />
+      <key-many-to-one name="currency" class="com.nomadsoft.cortex.domain.money.Currency" column="CURRCODE" access="field" />
+    </composite-id>
+    
+    <version name="versionNumber" column="VERNO_CTX" access="field"></version>
+
+    <property name="firstDate" type="date" column="DATE1" not-null="true" />
+    <component name="firstDayCashAmount" class="com.nomadsoft.cortex.domain.money.Money">
+      <property name="amount" column="VAL_CASH1" not-null="true" access="field" />
+      <many-to-one name="currency" class="com.nomadsoft.cortex.domain.money.Currency" cascade="none" access="field" insert="false"
+        update="false">
+        <column name="CURRCODE" />
+      </many-to-one>
+    </component>
+    <property name="firstDayCashNumber" type="short" column="NUM_CASH1" not-null="true" />
+    <component name="firstDayPurchaseAmount" class="com.nomadsoft.cortex.domain.money.Money">
+      <property name="amount" column="VAL_PURCH1" not-null="true" access="field" />
+      <many-to-one name="currency" class="com.nomadsoft.cortex.domain.money.Currency" cascade="none" access="field" insert="false"
+        update="false">
+        <column name="CURRCODE" />
+      </many-to-one>
+    </component>
+    <property name="firstDayPurchaseNumber" type="short" column="NUM_PURCH1" not-null="true" />
+
+    <property name="secondDate" type="date" column="DATE2" not-null="true" />
+    <component name="secondDayCashAmount" class="com.nomadsoft.cortex.domain.money.Money">
+      <property name="amount" column="VAL_CASH2" not-null="true" access="field" />
+      <many-to-one name="currency" class="com.nomadsoft.cortex.domain.money.Currency" cascade="none" access="field" insert="false"
+        update="false">
+        <column name="CURRCODE" />
+      </many-to-one>
+    </component>
+    <property name="secondDayCashNumber" type="short" column="NUM_CASH2" not-null="true" />
+    <component name="secondDayPurchaseAmount" class="com.nomadsoft.cortex.domain.money.Money">
+      <property name="amount" column="VAL_PURCH2" not-null="true" access="field" />
+      <many-to-one name="currency" class="com.nomadsoft.cortex.domain.money.Currency" cascade="none" access="field" insert="false"
+        update="false">
+        <column name="CURRCODE" />
+      </many-to-one>
+    </component>
+    <property name="secondDayPurchaseNumber" type="short" column="NUM_PURCH2" not-null="true" />
+
+    <property name="thirdDate" type="date" column="DATE3" not-null="true" />
+    <component name="thirdDayCashAmount" class="com.nomadsoft.cortex.domain.money.Money">
+      <property name="amount" column="VAL_CASH3" not-null="true" access="field" />
+      <many-to-one name="currency" class="com.nomadsoft.cortex.domain.money.Currency" cascade="none" access="field" insert="false"
+        update="false">
+        <column name="CURRCODE" />
+      </many-to-one>
+    </component>
+    <property name="thirdDayCashNumber" type="short" column="NUM_CASH3" not-null="true" />
+    <component name="thirdDayPurchaseAmount" class="com.nomadsoft.cortex.domain.money.Money">
+      <property name="amount" column="VAL_PURCH3" not-null="true" access="field" />
+      <many-to-one name="currency" class="com.nomadsoft.cortex.domain.money.Currency" cascade="none" access="field" insert="false"
+        update="false">
+        <column name="CURRCODE" />
+      </many-to-one>
+    </component>
+    <property name="thirdDayPurchaseNumber" type="short" column="NUM_PURCH3" not-null="true" />
+
+    <property name="forthDate" type="date" column="DATE4" not-null="true" />
+    <component name="forthDayCashAmount" class="com.nomadsoft.cortex.domain.money.Money">
+      <property name="amount" column="VAL_CASH4" not-null="true" access="field" />
+      <many-to-one name="currency" class="com.nomadsoft.cortex.domain.money.Currency" cascade="none" access="field" insert="false"
+        update="false">
+        <column name="CURRCODE" />
+      </many-to-one>
+    </component>
+    <property name="forthDayCashNumber" type="short" column="NUM_CASH4" not-null="true" />
+    <component name="forthDayPurchaseAmount" class="com.nomadsoft.cortex.domain.money.Money">
+      <property name="amount" column="VAL_PURCH4" not-null="true" access="field" />
+      <many-to-one name="currency" class="com.nomadsoft.cortex.domain.money.Currency" cascade="none" access="field" insert="false"
+        update="false">
+        <column name="CURRCODE" />
+      </many-to-one>
+    </component>
+    <property name="forthDayPurchaseNumber" type="short" column="NUM_PURCH4" not-null="true" />
+  </class>
+</hibernate-mapping>

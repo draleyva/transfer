@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.nomadsoft.cortex.domain.card.basic.BasicVirtualPanBatch" 
+    entity-name="com.nomadsoft.cortex.domain.card.VirtualPanBatch" table="vpan_batch" lazy="true" dynamic-update="true" optimistic-lock="version">
+	
+	<id name="id" type="long">
+           <column name="id" />
+            <generator class="${id.generator.class}">
+              <param name="sequence">${vpan_batch_id.generator.sequence}</param>
+            </generator>
+    </id>
+    
+    <version name="versionNumber" column="verno_ctx" access="field"/>
+    
+   	<property name="requested" column="requested" not-null="true" type="int" access="field"/>
+    <property name="generated" column="generated" not-null="true" type="int" access="field"/>
+    <property name="status" column="batch_status" not-null="true" type="short" access="field"/>
+    <property name="source" column="source" not-null="true" type="char" length="1" access="field"/>
+    <property name="dateStart" column="dt_start" not-null="true" type="string" length="17" access="field"/>
+    <property name="dateEnd" column="dt_end" not-null="true" type="string" length="17" access="field"/>
+   
+    <many-to-one name="virtualPanProfile"
+        class="com.nomadsoft.cortex.domain.card.VirtualPanProfile"
+        column="vpan_profile_id" cascade="none" access="field" insert="false" update="false">
+    </many-to-one>
+    
+    </class>
+</hibernate-mapping>

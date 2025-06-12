@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+  <class name="com.nomadsoft.cortex.domain.auditlogger.basic.AuditLogRecord" table="ACSLOG" mutable="false" optimistic-lock="version">
+
+    <id type="long" column="ID">
+      <generator class="${id.generator.class}">
+           <param name="sequence">${acslog_id.generator.sequence}</param>
+      </generator>
+    </id>
+    <version name="versionNumber" column="VERNO_CTX" access="field"></version>
+
+    <property name="date" column="ACSDATE" type="date" not-null="true" access="field" />
+
+    <property name="time" column="ACSTIME" not-null="true" access="field" />
+
+    <property name="username" column="ACSUSR" not-null="true" access="field" />
+
+    <property name="description" column="DESCR" not-null="true" access="field" />
+
+  </class>
+
+</hibernate-mapping>

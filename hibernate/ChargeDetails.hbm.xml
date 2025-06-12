@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.nomadsoft.cortex.domain.charge.basic.BasicChargeDetails"
+		entity-name="com.nomadsoft.cortex.domain.charge.ChargeDetails" table="fc_chargedet"
+		lazy="true" dynamic-update="true" optimistic-lock="version">
+
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="${id.generator.class}">
+				<param name="sequence">${fc_chargedet_id.generator.sequence}</param>
+			</generator>
+		</id>
+
+		<version name="versionNumber" column="verno_ctx" access="field" />
+
+		<many-to-one name="institution"
+			class="com.nomadsoft.cortex.domain.institution.Institution" column="inst_id"
+			cascade="none" />
+
+		<property name="chargeTag" column="chargetag" not-null="true"
+			type="string" length="8" access="field" />
+
+		<many-to-one name="chargeCurrency"
+			class="com.nomadsoft.cortex.domain.money.Currency" column="curcharge"
+			access="field" cascade="none" />
+
+		<many-to-one name="threshold"
+			class="com.nomadsoft.cortex.domain.common.Threshold" column="threshold_id"
+			unique="true" cascade="all" />
+
+		<property name="amountType" column="amttype" not-null="true"
+			access="field"
+			type="com.nomadsoft.cortex.infrastructure.hibernate.types.ChargeAmountTypeUserEnumType" />
+		<property name="percentage" column="percent" not-null="true"
+			access="field" />
+		<property name="minimumValue" column="minval" not-null="true"
+			access="field" />
+		<property name="maximumValue" column="maxval" not-null="true"
+			access="field" />
+		<property name="flatValue" column="flatval" not-null="true"
+			access="field" />
+		<property name="applyOffset" column="offset_apply" not-null="true"
+			type="short" access="field" />
+		<property name="chargeType" column="chargetype" not-null="true"
+			type="short" access="field" />
+
+		<bag name="chargeDetailsOverridesList" order-by="scopedet_id,priority desc"
+			inverse="true" cascade="all" lazy="false" fetch="select" access="field">
+			<key column="fc_chargedet_id" />
+			<one-to-many
+				class="com.nomadsoft.cortex.domain.charge.ChargeDetailsOverride" />
+		</bag>
+		
+		 <property name="applRule" column="applrule"  type="int" access="field"/>
+		 <property name="applPriority" column="applpriority"  type="int" access="field"/>
+		 <property name="expOffset" column="expoffset"  type="int" access="field"/>
+
+	</class>
+
+</hibernate-mapping>

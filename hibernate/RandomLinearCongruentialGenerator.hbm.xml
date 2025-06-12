@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.nomadsoft.cortex.domain.card.basic.BasicRandomLinearCongruentialGenerator" 
+    entity-name="com.nomadsoft.cortex.domain.card.RandomLinearCongruentialGenerator" table="lcg_random" lazy="true" dynamic-update="true" optimistic-lock="version">
+    
+	<id name="id" type="long">
+           <column name="id" />
+            <generator class="${id.generator.class}">
+              <param name="sequence">${lcg_random_id.generator.sequence}</param>
+            </generator>
+    </id>
+    
+    <version name="versionNumber" column="verno_ctx" access="field"/>
+  
+    <property name="modulus" column="modulus" not-null="true" type="int" access="field"/>	
+    <property name="multiplier" column="multiplier" not-null="true" type="int" access="field"/>	
+    <property name="incrementValue" column="inc_value" not-null="true" type="int" access="field"/>	
+    <property name="xnValue" column="xn_value" not-null="true" type="int" access="field"/>	
+    <property name="numbersUsed" column="numbers_used" not-null="true" type="int" access="field"/>	
+    <property name="description" column="descr" not-null="true" type="string" length="80" access="field"/>	
+    	
+    </class>
+</hibernate-mapping>

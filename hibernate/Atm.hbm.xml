@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.nomadsoft.cortex.domain.atm.basic.BasicAtm"
+		entity-name="com.nomadsoft.cortex.domain.atm.Atm" table="TERMATM" optimistic-lock="version">
+		
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="native">
+				<param name="sequence">${termatm_id.generator.sequence}</param>
+			</generator>
+		</id>
+		
+        <version name="versionNumber" column="VERNO_CTX" access="field"></version>
+
+        <!-- may not need this as in the id -->
+        <property name="terminalCode" type="string">
+            <column name="TERMCODE" length="8" not-null="true"/>
+        </property>
+        
+        <property name="terminalNumber" column="termno" not-null="true" type="short" access="field"/>
+        
+    	<many-to-one name="branch" class="com.nomadsoft.cortex.domain.branch.Branch"
+    		column="branch_id" access="field" cascade="none"/>	
+
+        <many-to-one name="currency"
+            class="com.nomadsoft.cortex.domain.money.Currency" cascade="none"
+            access="field">
+            <column name="CURRCODE" length="3" not-null="true" />
+        </many-to-one>
+        
+        <property name="location" type="string">
+            <column name="LOCATION" length="20" not-null="true" />
+        </property>
+        
+        <property name="remoteAddress" type="string">
+            <column name="REMOTEADDR" length="15" not-null="true" />
+        </property>
+        
+        <property name="locationCity" type="string">
+            <column name="LOC_CITY" length="20" not-null="true" />
+        </property> 
+        
+	</class>
+    <query name="Atm.findAll">
+        <![CDATA[ from Atm ]]>
+    </query>
+	<query name="Atm.findByRemoteAddress">
+		<![CDATA[ from Atm a where a.remoteAddress = :remoteAddress ]]>
+	</query>
+
+</hibernate-mapping>

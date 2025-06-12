@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.nomadsoft.cortex.domain.risk.basic.BasicIssuerRiskCategory" 
+    entity-name="com.nomadsoft.cortex.domain.risk.IssuerRiskCategory" table="cat_issrisk" lazy="true" dynamic-update="true" optimistic-lock="version">
+	
+		<id name="id" type="long">
+	           <column name="id" />
+	            <generator class="${id.generator.class}">
+	              <param name="sequence">${cat_issrisk_id.generator.sequence}</param>
+	            </generator>
+	    </id>
+	    
+	    <version name="versionNumber" column="verno_ctx" generated="always" access="field"/>
+		
+		<property name="category" column="catvalue" not-null="true" type="string" length="12" access="field"/>	
+	   	<property name="description" column="descr" not-null="true" type="string" length="48" access="field"/>
+		<property name="institutionId" column="inst_id" not-null="true" type="long" length="12" access="field"/>
+
+    </class>
+</hibernate-mapping>

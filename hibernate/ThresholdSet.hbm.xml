@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.nomadsoft.cortex.domain.common.basic.BasicThresholdSet"
+		entity-name="com.nomadsoft.cortex.domain.common.ThresholdSet" table="threshold_set"
+		dynamic-update="true" optimistic-lock="version">
+
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="${id.generator.class}">
+				<param name="sequence">${threshold_set_id.generator.sequence}</param>
+			</generator>
+		</id>
+
+		<version name="versionNumber" column="verno_ctx" generated="always" access="field" />
+
+		<many-to-one name="institution"
+			class="com.nomadsoft.cortex.domain.institution.Institution" column="inst_id"
+			cascade="none" />
+
+		<property name="code" column="set_code" not-null="true" type="string"
+			length="16" access="field" />
+
+		<property name="description" column="descr" not-null="true"
+			type="string" length="127" access="field" />
+
+		<many-to-one name="evaluationSet"
+			class="com.nomadsoft.cortex.domain.rule.EvaluationSet" column="evalset_id"
+			unique="true" access="field" cascade="none" />
+
+		<many-to-one name="aggregateDefinition"
+			class="com.nomadsoft.cortex.domain.aggregate.AggregateDefinition"
+			column="aggr_def_id" unique="true" cascade="all" />
+
+		<many-to-one name="currency"
+			class="com.nomadsoft.cortex.domain.money.Currency" column="currcode"
+			access="field" lazy="false" cascade="none" />
+
+		<bag name="thresholds" order-by="priority desc" cascade="all,delete-orphan"
+			inverse="true" access="field">
+			<key column="set_id" />
+			<one-to-many class="com.nomadsoft.cortex.domain.common.Threshold" />
+		</bag>
+
+	</class>
+
+</hibernate-mapping>

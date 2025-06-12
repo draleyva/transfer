@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.nomadsoft.cortex.domain.card.basic.BasicVirtualPanProfile"
+    entity-name="com.nomadsoft.cortex.domain.card.VirtualPanProfile" table="vpan_profile" lazy="true" dynamic-update="true" optimistic-lock="version">
+    
+	<id name="id" type="long">
+           <column name="id" />
+            <generator class="${id.generator.class}">
+              <param name="sequence">${vpan_profile_id.generator.sequence}</param>
+            </generator>
+    </id>
+    
+    <version name="versionNumber" column="verno_ctx" access="field"/>
+    
+    <property name="cardFormatId" column="crdformat_id" not-null="true" type="long" access="field"/>	
+   	<property name="virtualPanPrefix" column="vpan_prefix" not-null="true" type="string" length="11" access="field"/>
+    <property name="minimumThreshold" column="min_threshold" not-null="true" type="int" access="field"/>
+    <property name="maximumThreshold" column="max_threshold" not-null="true" type="int" access="field"/>
+    <property name="defaultJobSize" column="default_job_size" not-null="true" type="int" access="field"/>
+    <property name="roundRobin" column="roundrobin" not-null="true" type="short" access="field"/>
+    <property name="useLuhn" column="useluhn" not-null="true" type="short" access="field"/>
+    <property name="defaultMaxPans" column="default_max_pans" not-null="true" type="int" access="field"/>
+	<property name="virtualPanFormatTemplate" column="vpanfmt" not-null="true" type="string" length="19" access="field"/>
+    <property name="virtualPanGenerationMode" column="gen_mode" not-null="true" type="string" length="1" access="field"/>
+    <property name="virtualPanLength" column="vpanlen" not-null="false" type="short" access="field"/>
+    
+	<many-to-one name="virtualPanSequenceNumber" class="com.nomadsoft.cortex.domain.card.VirtualPanSequenceNumber"
+		column="vpan_seqno_id" 	cascade="save-update"/>
+    
+    <many-to-one name="institution" class="com.nomadsoft.cortex.domain.institution.Institution"
+         column="inst_id" cascade="none"/>
+
+    <many-to-one name="cardFormat" class="com.nomadsoft.cortex.domain.card.CardFormat"
+        	 column="crdformat_id" insert="false" update="false" cascade="none"/>
+        	 
+    <set name="binRangeSet" inverse="true" cascade="delete" access="field">
+      <key>
+        <column name="vpan_profile_id"  not-null="true"/>
+      </key>
+      <one-to-many class="com.nomadsoft.cortex.domain.card.BinRange" />
+    </set>
+    
+    <set name="virtualPanSet" access="field" lazy="true" inverse="true" >
+      <key>
+        <column name="vpan_profile_id"/>
+      </key>
+      <one-to-many class="com.nomadsoft.cortex.domain.card.VirtualPan" />
+    </set>
+    
+    <set name="batchSet" inverse="true" cascade="delete" access="field">
+      <key>
+        <column name="vpan_profile_id"  not-null="true"/>
+      </key>
+      <one-to-many class="com.nomadsoft.cortex.domain.card.VirtualPanBatch" />
+    </set>
+    
+    </class>
+    
+</hibernate-mapping>

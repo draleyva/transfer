@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.nomadsoft.cortex.domain.charge.basic.BasicCardTypeCycle" 
+    entity-name="com.nomadsoft.cortex.domain.charge.CardTypeCycle" table="fc_cardtypecycle" lazy="true" dynamic-update="true" optimistic-lock="version">
+	
+		<id name="id" type="long">
+	           <column name="id" />
+	            <generator class="${id.generator.class}">
+	              <param name="sequence">${fc_cardtypecycle_id.generator.sequence}</param>
+	            </generator>
+	    </id>
+	    
+	    <version name="versionNumber" column="verno_ctx" generated="always" access="field"/>
+		
+		<many-to-one name="institution" class="com.nomadsoft.cortex.domain.institution.Institution"
+         column="inst_id" cascade="none"/>
+         
+		<many-to-one name="category" class="com.nomadsoft.cortex.domain.charge.CyclicFeeCategory"
+	        column="cat_isscycfee_id" cascade="save-update"/>
+	         
+		<many-to-one name="cardProduct" class="com.nomadsoft.cortex.domain.card.CardProduct"
+	         column="crdproduct_id" cascade="none"/>
+	         
+		<many-to-one name="type" class="com.nomadsoft.cortex.domain.rule.DimensionValue"
+	         column="type_id" cascade="save-update"/>
+
+		<many-to-one name="cycle" class="com.nomadsoft.cortex.domain.common.Cycle"
+	         column="cycledet_id" cascade="none"/>
+
+	    <property name="inProgress" column="in_progress" not-null="true" type="short" access="field"/>     
+	   	<property name="nextStartEPOCH" column="nextstart_epoch" not-null="true" type="long" access="field"/>
+	   	<property name="lastProcessedEPOCH" column="last_proc_epoch" not-null="true" type="long" access="field"/>
+	    <property name="noRepeatDays" column="no_repeat_days" not-null="true" type="int" access="field"/>
+	    <property name="activityId" column="activity_id" not-null="true" type="int" access="field"/>
+
+    </class>
+</hibernate-mapping>

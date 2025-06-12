@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.nomadsoft.cortex.domain.aggregate.basic.BasicAggregate" 
+    entity-name="com.nomadsoft.cortex.domain.aggregate.Aggregate" table="aggr_agg" dynamic-update="true" optimistic-lock="version">
+	
+    <id name="id" type="long">
+           <column name="id" />
+            <generator class="${id.generator.class}">
+              <param name="sequence">${aggr_agg_id.generator.sequence}</param>
+            </generator>
+    </id>
+    
+    <version name="versionNumber" column="verno_ctx" generated="always" access="field"/>
+    
+    <property name="scopeKey" column="scopekey" not-null="true" type="string" length="60" access="field"/>	
+   	<property name="aggregateCount" column="agg_count" not-null="true" type="long" access="field"/>
+    <property name="aggregateValue" column="agg_value" not-null="true" access="field"/>
+    <property name="aggregateDays" column="agg_days" not-null="true" type="long" access="field"/>
+    <property name="expiryDate" column="expdate_epoch" not-null="true" type="long" access="field"/>
+    
+    <many-to-one name="aggregateDefinition" class="com.nomadsoft.cortex.domain.aggregate.AggregateDefinition"
+         column="aggr_def_id" cascade="none"/>
+
+    <many-to-one name="currency" class="com.nomadsoft.cortex.domain.money.Currency"
+        column="currcode" access="field" cascade="none"/>
+        
+    </class>
+    
+</hibernate-mapping>

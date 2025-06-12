@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.nomadsoft.cortex.domain.common.basic.BasicThreshold"
+		entity-name="com.nomadsoft.cortex.domain.common.Threshold" table="threshold"
+		dynamic-update="true" optimistic-lock="version">
+
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="${id.generator.class}">
+				<param name="sequence">${threshold_id.generator.sequence}</param>
+			</generator>
+		</id>
+
+		<version name="versionNumber" column="verno_ctx" generated="always" access="field" />
+
+		<many-to-one name="set"
+			class="com.nomadsoft.cortex.domain.common.ThresholdSet" column="set_id"
+			access="field" cascade="none" />
+
+		<property name="description" column="descr" not-null="true"
+			type="string" length="127" access="field" />
+
+		<property name="priority" column="priority" not-null="true"
+			type="short" access="field" />
+
+		<property name="maximumAmount" column="max_value" not-null="true"
+			access="field" />
+
+		<property name="maximumCount" column="max_count" not-null="true"
+			type="long" access="field" />
+
+		<property name="timePeriod" column="time_period" not-null="true"
+			type="long" access="field" />
+
+		<bag name="thresholdOverridesList" order-by="scopedet_id,priority desc"
+			inverse="true" cascade="all,delete-orphan" lazy="true" fetch="select" access="field">
+			<key column="threshold_id" />
+			<one-to-many class="com.nomadsoft.cortex.domain.common.ThresholdOverride" />
+		</bag>
+
+	</class>
+
+</hibernate-mapping>

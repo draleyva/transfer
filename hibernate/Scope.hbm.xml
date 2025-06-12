@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.nomadsoft.cortex.domain.common.basic.BasicScope" 
+    entity-name="com.nomadsoft.cortex.domain.common.Scope" table="scopedet" dynamic-update="true" optimistic-lock="version">		        
+	    <id name="id" type="long">
+	           <column name="id" />
+	            <generator class="${id.generator.class}">
+	              <param name="sequence">${scopedet_id.generator.sequence}</param>
+	            </generator>
+	    </id>
+	    
+	    <version name="versionNumber" column="verno_ctx" generated="always" access="field"/>
+	
+	    <property name="description" column="descr" not-null="true" type="string" length="10" access="field"/>    
+	    <property name="keyFormat" column="keyfmtstr" not-null="true" type="string" length="60" access="field"/>  
+	    <property name="currencyField" column="currfld" not-null="true" type="string" length="15" access="field"/>  
+	    <property name="fullDescription" column="descr_full" not-null="true" type="string" length="60" access="field"/>	
+	    <property name="scopeType" column="scope_type" not-null="true" type="short" access="field"/> 
+	    <property name="priority" column="priority" not-null="true" type="short" access="field"/> 
+	 
+    </class>
+   
+</hibernate-mapping>

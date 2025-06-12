@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.nomadsoft.cortex.domain.access.basic.BasicScreen"
+		entity-name="com.nomadsoft.cortex.domain.access.Screen" table="acsitem"
+		dynamic-update="true" optimistic-lock="version">
+
+		<id name="acsItem" type="string" access="field">
+			<column name="acsItem" />
+		</id>
+
+	</class>
+
+</hibernate-mapping>

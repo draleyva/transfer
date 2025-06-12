@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class
+		name="com.nomadsoft.cortex.domain.common.basic.BasicThresholdOverride"
+		entity-name="com.nomadsoft.cortex.domain.common.ThresholdOverride"
+		table="threshold_ovrd" dynamic-update="true" optimistic-lock="version">
+
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="${id.generator.class}">
+				<param name="sequence">${threshold_ovrd_id.generator.sequence}</param>
+			</generator>
+		</id>
+
+		<version name="versionNumber" column="verno_ctx" generated="always" access="field" />
+
+		<many-to-one name="threshold"
+			class="com.nomadsoft.cortex.domain.common.Threshold" column="threshold_id" not-null="true"
+			cascade="none" />
+
+		<many-to-one name="scope"
+			class="com.nomadsoft.cortex.domain.common.Scope" column="scopedet_id"
+			lazy="false" fetch="join" cascade="none" />
+
+		<property name="scopeKey" column="scopekey" not-null="true"
+			type="string" length="60" access="field" />
+
+		<property name="maximumValue" column="max_value" not-null="true"
+			access="field" />
+
+		<property name="maximumCount" column="max_count" not-null="true"
+			type="long" access="field" />
+
+		<property name="timePeriod" column="time_period" not-null="true"
+			type="long" access="field" />
+
+		<property name="priority" column="priority" not-null="true"
+			type="short" access="field" />
+
+		<property name="effectiveDate" column="effdate" not-null="true"
+			type="date" access="field" />
+
+		<property name="purgeDate" column="purgedate" not-null="true"
+			type="date" access="field" />
+
+		<property name="globalOverrideAll" column="global_ovrd_all" not-null="true"
+			type="short" access="field" />
+	</class>
+
+</hibernate-mapping>

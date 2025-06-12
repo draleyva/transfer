@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+   <class name="com.nomadsoft.cortex.domain.msc.basic.BasicNumberedDescription" 
+    entity-name="com.nomadsoft.cortex.domain.msc.NumberedDescription" table="numdescr" lazy="true" dynamic-update="true" optimistic-lock="version">
+    
+    <composite-id name="id" class="com.nomadsoft.cortex.identities.NumberedDescriptionId">
+      <key-property name="language" column="lang" type="string" length="2" access="field" />
+      <key-property name="descriptionType" column="descrtype" type="string" length="6" access="field" />
+      <key-property name="id" column="id" type="short" access="field" />
+    </composite-id>
+    
+    <version name="versionNumber" column="verno_ctx" access="field"/>   
+    <property name="description" column="descr" not-null="true" type="string" length="160" access="field"/>
+    </class>
+
+</hibernate-mapping>

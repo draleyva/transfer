@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class
+		name="com.nomadsoft.cortex.domain.charge.basic.BasicChargeDetailsOverride"
+		entity-name="com.nomadsoft.cortex.domain.charge.ChargeDetailsOverride"
+		table="fc_chargedet_ovrd" lazy="true" dynamic-update="true"
+		optimistic-lock="version">
+
+		<id name="id" type="long">
+	           <column name="id" />
+	            <generator class="${id.generator.class}">
+	              <param name="sequence">${fc_chargedet_ovrd_id.generator.sequence}</param>
+	            </generator>
+	    </id>
+	    
+	    <version name="versionNumber" column="verno_ctx" generated="always" access="field"/>
+		
+		<many-to-one name="chargeDetails" class="com.nomadsoft.cortex.domain.charge.ChargeDetails"
+	         column="fc_chargedet_id" cascade="none"/>
+	
+	    <many-to-one name="scope" class="com.nomadsoft.cortex.domain.common.Scope"
+	         column="scopedet_id" cascade="none"/>
+	
+	    <property name="scopeKey" column="scopekey" not-null="true" type="string" length="60" access="field"/>	
+	    <property name="percentage" column="percent" not-null="true" access="field"/>
+	    <property name="minimumValue" column="minval" not-null="true" access="field"/>
+	    <property name="maximumValue" column="maxval" not-null="true" access="field"/>
+	    <property name="flatValue" column="flatval" not-null="true" access="field"/>
+	    <property name="priority" column="priority" not-null="true" type="short" access="field"/>
+	    <property name="effectiveDate" column="effdate" not-null="true" type="date" access="field"/>
+	    <property name="purgeDate" column="purgedate" not-null="true" type="date" access="field"/>
+	    <property name="activityId" column="activity_id" not-null="true" type="int" access="field"/>
+
+    </class>
+</hibernate-mapping>

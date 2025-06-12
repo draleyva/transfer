@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.nomadsoft.cortex.domain.langtranslation.basic.BasicLanguage"
+    entity-name="com.nomadsoft.cortex.domain.langtranslation.Language" table="STRDESCR" optimistic-lock="version">
+    <composite-id>
+      <key-property name="descrtype" column="DESCRTYPE" type="string" access="field" />
+      <key-property name="lang" column="LANG" type="string" length="2" access="field" />
+      <key-property name="tag" column="TAG" type="string" length="64" access="field" />
+    </composite-id>
+    <version name="versionNumber" column="VERNO_CTX" access="field"></version>
+
+    <property name="description" column="DESCR" type="string" length="72" not-null="true" access="field" />
+  </class>
+</hibernate-mapping>

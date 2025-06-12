@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.nomadsoft.cortex.domain.cardbatch.basic.BasicCardBatch"
+    entity-name="com.nomadsoft.cortex.domain.cardbatch.CardBatch" table="CRDBTCH" optimistic-lock="version">
+    <id name="id">
+      <column name="BATCH" length="4" />
+    </id>
+    <version name="versionNumber" column="VERNO_CTX" access="field"></version>
+
+    <many-to-one name="institution" class="com.nomadsoft.cortex.domain.institution.Institution"
+    	column="inst_id" access="field" cascade="none"/>	
+    	
+    <many-to-one name="cardProduct" column="crdproduct_id" class="com.nomadsoft.cortex.domain.card.CardProduct"
+      not-null="true" />
+      
+    <property name="batchStatus" type="com.nomadsoft.cortex.infrastructure.hibernate.CardBatchStatusUserType">
+      <column name="STATUS" length="2" not-null="true" />
+    </property>
+    <property name="createDate" type="date">
+      <column name="CREATEDATE" not-null="true" />
+    </property>
+    <property name="user" type="string">
+      <column name="usr" length="15" not-null="true" />
+    </property>
+    <property name="cardCount" type="int">
+      <column name="CARDCOUNT" length="15" not-null="true" />
+    </property>
+    <property name="cardsProducedOn" type="date">
+      <column name="DATE_CARDPRO" not-null="true" />
+    </property>
+    <property name="pinsProducedOn" type="date">
+      <column name="DATE_PINPRO" not-null="true" />
+    </property>
+    <property name="priority" type="com.nomadsoft.cortex.infrastructure.hibernate.CardBatchPriorityUserType">
+      <column name="PRIORITY" length="1" not-null="true" />
+    </property>
+    <property name="batchType" type="com.nomadsoft.cortex.infrastructure.hibernate.CardBatchTypeUserType">
+      <column name="BTCHTYP" length="2" not-null="true" />
+    </property>
+    <property name="deliveryAddress" type="string">
+      <column name="DELVADDR" length="1" not-null="true" />
+    </property>
+  </class>
+</hibernate-mapping>

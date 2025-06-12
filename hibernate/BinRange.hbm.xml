@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+   <class name="com.nomadsoft.cortex.domain.card.basic.BasicBinRange" 
+    entity-name="com.nomadsoft.cortex.domain.card.BinRange" table="bin_range" lazy="true" dynamic-update="true" optimistic-lock="version">
+    
+	<id name="id" type="long">
+           <column name="id" />
+            <generator class="${id.generator.class}">
+              <param name="sequence">${bin_range_id.generator.sequence}</param>
+            </generator>
+    </id>
+    
+    <version name="versionNumber" column="verno_ctx" access="field"/>
+   
+    <property name="rangeLow" column="range_low" not-null="true" type="string" length="19" access="field"/>
+    <property name="rangeHigh" column="range_high" not-null="true" type="string" length="19" access="field"/>
+    <property name="totalPans" column="total_pans" not-null="true" type="int" access="field"/>
+    <property name="maxPans" column="max_pans" not-null="true" type="int" access="field"/>
+    <property name="profileId" column="vpan_profile_id" not-null="true" type="long" access="field"/>
+	
+	<many-to-one name="randomLinearCongruentialGenerator" class="com.nomadsoft.cortex.domain.card.RandomLinearCongruentialGenerator"
+		column="lcg_random_id" 	cascade="save-update,delete" unique="true"/>
+
+    <many-to-one name="virtualPanProfile" class="com.nomadsoft.cortex.domain.card.VirtualPanProfile"
+                    update="false" foreign-key="vpan_profile_id" insert="false" fetch="select" not-found="ignore">
+                    <formula>vpan_profile_id</formula>
+    </many-to-one>
+    </class>
+
+</hibernate-mapping>

@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.nomadsoft.cortex.domain.rule.basic.BasicEvaluationSet"
+		entity-name="com.nomadsoft.cortex.domain.rule.EvaluationSet" table="rule_evalset"
+		dynamic-update="true" optimistic-lock="version">
+
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="native">
+				<param name="sequence">${rule_evalset_id.generator.sequence}</param>
+			</generator>
+		</id>
+
+		<!-- version name="versionNumber" column="verno_ctx" access="field"/ -->
+
+    	<many-to-one name="institution" class="com.nomadsoft.cortex.domain.institution.Institution"
+    		column="inst_id" access="field" cascade="none"/>
+    		
+		<property name="evaluationCode" column="evalcode" not-null="true"
+			type="string" length="16" access="field" />
+		<property name="priority" column="priority" not-null="true"
+			type="short" access="field" />
+		<property name="description" column="descr" not-null="true"
+			type="string" length="127" access="field" />
+		<property name="enabled" column="enabled" not-null="true"
+			type="short" access="field" />
+		<property name="evaluation" column="evaluation" not-null="true"
+			type="short" access="field" />
+		<property name="returnValue0" column="ret_data0" not-null="true"
+			type="string" length="255" access="field" />
+		<property name="returnValue1" column="ret_data1" not-null="true"
+			type="string" length="255" access="field" />
+		<property name="returnValue2" column="ret_data2" not-null="true"
+			type="string" length="255" access="field" />
+		<property name="returnValue3" column="ret_data3" not-null="true"
+			type="string" length="255" access="field" />
+		<property name="returnValue4" column="ret_data4" not-null="true"
+			type="string" length="255" access="field" />
+		<property name="returnValue5" column="ret_data5" not-null="true"
+			type="string" length="255" access="field" />
+		<property name="returnValue6" column="ret_data6" not-null="true"
+			type="string" length="255" access="field" />
+		<property name="returnValue7" column="ret_data7" not-null="true"
+			type="string" length="255" access="field" />
+
+		<bag name="ruleSet" table="rule_evalrulelink"
+			lazy="false" cascade="save-update" access="field">
+			<key column="evalset_id" />
+			<many-to-many class="com.nomadsoft.cortex.domain.rule.Rule" order-by="ruleName" 
+				column="rule_id" />
+		</bag>
+		
+		<bag name="evaluationDimensionLinkSet" table="rule_evaldimlink"
+			cascade="save-update" access="field">
+			<key column="evalset_id" />
+			<many-to-many class="com.nomadsoft.cortex.domain.rule.DimensionValue"
+				column="dimvalue_id" />
+		</bag>
+
+	    <bag name="dimensionLevelEvaluationSet" table="rule_dimlvllink" inverse="true" lazy="false" cascade="none" access="field" >
+	        <key column="evalset_id"/>
+	        <many-to-many class="com.nomadsoft.cortex.domain.rule.DimensionValue" column="dimvalue_id"/>
+	    </bag>	    
+	    
+	</class>
+
+</hibernate-mapping>

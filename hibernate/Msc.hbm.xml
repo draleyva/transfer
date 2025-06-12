@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.nomadsoft.cortex.domain.msc.basic.BasicMsc" 
+    entity-name="com.nomadsoft.cortex.domain.msc.Msc" table="msc" dynamic-update="true">
+        <cache usage="nonstrict-read-write"/>
+    <composite-id name="id"
+      class="com.nomadsoft.cortex.domain.msc.MscId">
+      <key-property name="tag" type="string">
+        <column name="tag" length="25" not-null="true" />
+      </key-property>
+      <key-property name="idx" type="short">
+        <column name="idx" not-null="true" />
+      </key-property>
+    </composite-id>
+    
+    <property name="description" type="integer" column="descr" not-null="true" />
+    <property name="date" column="date_t" not-null="true" type="date" length="4" access="field"/>	
+   	<property name="longValue" column="long_t" not-null="true" type="long" access="field"/>
+   	<property name="stringValue" column="string_t" not-null="true" type="string" access="field"/>
+    </class>
+</hibernate-mapping>

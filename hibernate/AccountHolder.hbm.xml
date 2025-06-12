@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.nomadsoft.cortex.domain.accountholder.basic.BasicAccountHolder"
+    entity-name="com.nomadsoft.cortex.domain.accountholder.AccountHolder" table="CUSTDET" lazy="false" optimistic-lock="version">
+
+	<id name="id" type="long">
+		<column name="id" />
+		<generator class="native">
+			<param name="sequence">${custdet_id.generator.sequence}</param>
+		</generator>
+	</id>
+	    
+    <version name="versionNumber" column="VERNO_CTX" access="field"></version>
+
+    <set name="accounts" inverse="true" access="field" cascade="save-update">
+      <key>
+        <column name="custdet_id" />
+      </key>
+      <one-to-many class="com.nomadsoft.cortex.domain.account.Account" />
+    </set>
+
+    <set name="cards" inverse="true" access="field">
+      <key>
+        <column name="custdet_id" />
+      </key>
+      <one-to-many class="com.nomadsoft.cortex.domain.card.Card" />
+    </set>
+    
+    <many-to-one name="institution" class="com.nomadsoft.cortex.domain.institution.Institution"
+    	column="inst_id" access="field" cascade="none"/>
+    	
+    <property name="customerCode" column="custcode" type="string" length="12" not-null="true" />
+
+    <property name="addressIndicator" column="ADDRIND" not-null="true" />
+
+    <property name="collectionZone" column="COLLECTION_ZONE" not-null="true" />
+
+    <property name="dateAccepted" column="DATE_ACCEPTED" type="date" not-null="true" />
+
+    <property name="emailAddress" column="EMAIL" not-null="true" />
+
+    <property name="firstName" column="FIRSTNAME" not-null="true" />
+
+    <property name="dateOfBirth" column="DATE_BIRTH" type="date" not-null="true" />
+
+    <component name="homeAddress" class="com.nomadsoft.cortex.domain.accountholder.basic.BasicAddress">
+      <property name="addressLine1" column="ADDRL1" not-null="true" access="field" />
+      <property name="addressLine2" column="ADDRL2" not-null="true" access="field" />
+      <property name="addressLine3" column="ADDRL3" not-null="true" access="field" />
+      <property name="city" column="HOME_CITY" not-null="true" access="field" />
+      <property name="postCode" column="POSTCODE" not-null="true" access="field"/>
+    </component>
+
+    <property name="homeTelephoneNumber" column="HOME_TEL" not-null="true" />
+
+    <property name="idNumber" column="ID_NUMBER" not-null="true"
+      type="com.nomadsoft.cortex.infrastructure.hibernate.FixedCharToStringUserType" />
+
+    <property name="lastName" column="LASTNAME" not-null="true" />
+
+    <property name="mailShots" column="MAILSHOTS" not-null="true" />
+
+    <property name="maritalStatus" column="MARRIED" not-null="true" />
+
+    <property name="memo" column="MEMO" />
+
+    <property name="numberBouncedChequesPrimaryCurrency" column="NUM_BOUNCED1" not-null="true" />
+
+    <property name="numberBouncedChequesSecondaryCurrency" column="NUM_BOUNCED2" not-null="true" />
+
+    <property name="POBox" column="PO_BOX" not-null="true" />
+
+    <property name="preferredLanguage" column="PRFLANG" type="string" length="2"/>
+
+    <property name="professionCode" column="PROF_CODE" not-null="true" />
+
+    <property name="refuseCheque" column="REFUSE_CHEQUE" not-null="true" />
+
+    <property name="sex" column="SEX" not-null="true" />
+
+    <property name="statementCode" column="STMT_CODE" not-null="true" />
+
+    <property name="title" column="TITLE" not-null="true"
+      type="com.nomadsoft.cortex.infrastructure.hibernate.FixedCharToStringUserType" />
+
+    <property name="customerType" column="TYPEID" not-null="true" />
+
+    <property name="userData1" column="USRDATA1" not-null="true" />
+
+    <property name="userData2" column="USRDATA2" not-null="true" />
+
+    <property name="userData3" column="USRDATA3" not-null="true" />
+    
+    <property name="userData4" column="USRDATA4" not-null="true" />
+
+    <component name="workAddress" class="com.nomadsoft.cortex.domain.accountholder.basic.BasicAddress">
+      <property name="addressLine1" column="WORK_ADDR1" not-null="true" access="field" />
+      <property name="addressLine2" column="WORK_ADDR2" not-null="true" access="field" />
+      <property name="addressLine3" column="WORK_ADDR3" not-null="true" access="field" />
+      <property name="city" column="WORK_CITY" not-null="true" access="field" />
+      <property name="postCode" column="WORK_POSTCODE" not-null="true"  access="field"/>
+    </component>
+
+    <property name="workTelephoneNumber" column="WORK_TEL" not-null="true" />
+    
+     <property name="faxNumber" column="FAX" not-null="true" />
+    
+    <property name="catParams" column="CAT_PARAMS" not-null="true" />
+		
+	<property name="latinTitle" column="LATIN_TITLE" not-null="true" />
+		
+	<property name="latinFirstName" column="LATIN_FIRSTNAME"
+			not-null="true" />
+			
+	<property name="latinLastName" column="LATIN_LASTNAME"
+			not-null="true" />
+			
+	<property name="ucFirstName" column="UC_FIRSTNAME" not-null="true" />
+		
+	<property name="ucLastName" column="UC_LASTNAME" not-null="true" />
+    
+    <property name="nationalityId" type="string">
+			<column name="NATIONAL_ID" length="22" />
+		</property>
+
+  </class>
+
+  <query name="AccountHolder.findAllWithCards">
+    <![CDATA[ from AccountHolder ah where size(ah.cards) > 0 ]]>
+  </query>
+  <query name="AccountHolder.findAllWithoutWorkCountry">
+    <![CDATA[ from AccountHolder ah ]]>
+  </query>
+</hibernate-mapping>

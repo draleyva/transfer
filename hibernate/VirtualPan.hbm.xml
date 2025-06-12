@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.nomadsoft.cortex.domain.card.basic.BasicVirtualPan" 
+    entity-name="com.nomadsoft.cortex.domain.card.VirtualPan" table="vpandet" dynamic-update="true" optimistic-lock="version">
+	
+	<id name="id" type="long">
+           <column name="id" />
+            <generator class="${id.generator.class}">
+              <param name="sequence">${vpandet_id.generator.sequence}</param>
+            </generator>
+    </id>
+    
+    <version name="versionNumber" column="verno_ctx" access="field"/>
+    
+    <many-to-one name="profile"
+        class="com.nomadsoft.cortex.domain.card.VirtualPanProfile"
+        column="vpan_profile_id" cascade="none" access="field" insert="false" update="false">
+    </many-to-one>
+    
+    <many-to-one name="batch"
+        class="com.nomadsoft.cortex.domain.card.VirtualPanBatch"
+        cascade="none" access="field" insert="false" update="false">
+        <column name="vpan_batch_id" />
+    </many-to-one>
+    
+    <many-to-one name="status"
+        class="com.nomadsoft.cortex.domain.card.VirtualPanStatus"
+        cascade="none" access="field" insert="false" update="false">
+        <column name="vpan_status_id" />
+    </many-to-one>
+    
+    <property name="pan" column="pan" not-null="true" type="string" length="19" access="field"/>	
+   	<property name="displayPan" column="pan_display" not-null="true" type="string" length="19" access="field"/>
+   	<property name="virtualPan" column="vpan" not-null="true" type="string" length="32" access="field"/>
+   
+   
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.nomadsoft.cortex.domain.markup.basic.BasicMarkupDefination" 
+    entity-name="com.nomadsoft.cortex.domain.markup.MarkupDefination" table="MARKUPDEF" lazy="true" dynamic-update="true" optimistic-lock="version">
+	
+		<id name="id" type="long">
+	           <column name="id" />
+	            <generator class="${id.generator.class}">
+	              <param name="sequence">${markupdef_id.generator.sequence}</param>
+	            </generator>
+	    </id>
+	    
+	    <version name="versionNumber" column="verno_ctx" generated="always" access="field"/>
+	    
+	     <many-to-one name="institution" class="com.nomadsoft.cortex.domain.institution.Institution"
+    	column="inst_id" access="field" cascade="none"/>	
+		
+		<many-to-one name="currencyofMinimumValue"
+			class="com.nomadsoft.cortex.domain.money.Currency" column="curmin"
+			access="field" cascade="none" />
+	   	<property name="percent" column="percent" not-null="true"  length="126" access="field"/>
+	   	<property name="markedUpMin" column="mrkdupmin" not-null="true"  length="126" access="field"/>
+
+    </class>
+</hibernate-mapping>

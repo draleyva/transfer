@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 01-Jun-2006 12:26:12 by Hibernate Tools 3.1.0.beta5 -->
+<hibernate-mapping>
+	<class name="com.nomadsoft.cortex.domain.card.basic.BasicCardLimitOverride"
+		entity-name="com.nomadsoft.cortex.domain.card.CardLimitOverride" table="CRDLIMOVER" dynamic-update ="true" optimistic-lock="version">
+		
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="native">
+				<param name="sequence">${crdlimover_id.generator.sequence}</param>
+			</generator>
+		</id>
+		
+		<version name="versionNumber" column="VERNO_CTX" access="field"></version>		
+		
+		<many-to-one name="card" class="com.nomadsoft.cortex.domain.card.Card" column="crddet_id" cascade="none"  access="field"/>
+
+		<property name="effectiveDate" type="date" access="field" column="EFFDATE" />
+		<property name="effectiveTime" type="string" access="field" column="EFFTIME" />
+		<property name="status" type="short" access="field" column="STATUS"/>
+		
+		<property name="user" type="string"> 
+			<column name="USR" length="15" not-null="true" />
+		</property>
+		<property name="overrideValueLimit" type="double"> 
+			<column name="AMT" not-null="true" />
+		</property>
+		<property name="inDate" type="date"> 
+			<column name="INDATE" not-null="true" />
+		</property>
+		<property name="inTime"> 
+			<column name="INTIME" not-null="true" />
+		</property>
+		<property name="purgeDate" type="date"> 
+			<column name="PURGEDATE" not-null="true" />
+		</property>
+		<property name="whySet" type="string"> 
+			<column name="WHY_SET"/>
+		</property>
+		<property name="originalId"> 
+			<column name="ORIGINAL_ID"/>
+		</property>
+	</class>
+</hibernate-mapping>

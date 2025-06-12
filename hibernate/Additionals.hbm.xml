@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.nomadsoft.cortex.domain.card.basic.BasicAdditionals"
+		entity-name="com.nomadsoft.cortex.domain.card.Additionals" table="ADDITIONALS"
+		optimistic-lock="version">
+		<composite-id name="id" class="com.nomadsoft.cortex.domain.card.AdditionalsId">
+			<key-property name="primaryCard" type="long" column="CRDDET_ID" access="field" />
+			<key-property name="additionalCard" type="long" column="ADD_CRDDET_ID" access="field" />
+		</composite-id>
+		<version name="versionNumber" column="VERNO_CTX" access="field"></version>
+		<property name="additionalsno" column="ADDITIONALNO" access="field" length="5" />
+	</class>
+</hibernate-mapping>

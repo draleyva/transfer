@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.nomadsoft.cortex.domain.rule.basic.EvaluationRules" 
+    entity-name="com.nomadsoft.cortex.domain.rule.EvaluationRules" table="rule_evalrulesvw">
+	<cache usage="read-only"/>
+	
+    <composite-id name="id"
+      class="com.nomadsoft.cortex.domain.rule.EvaluationRulesId">
+      <key-property name="evaluationSetId" type="long">
+        <column name="evalset_id"/>
+      </key-property>
+      <key-property name="contextId" type="long">
+        <column name="context_id" />
+      </key-property>
+      <key-property name="ruleId" type="long">
+        <column name="rule_id"  />
+      </key-property>
+    </composite-id>
+    
+   	<property name="evaluationCode" column="evalcode"  type="string" length="16" access="field"/>
+    <property name="ruleName" column="rulename" type="string" length="16" access="field"/>
+    <property name="ruleDescription" column="ruledescr" type="string" length="80" access="field"/>
+    <property name="ruleExpression" column="ruleexpr" type="blob" access="field"/>
+    
+    </class>
+</hibernate-mapping>

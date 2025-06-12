@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class
+    name="com.nomadsoft.cortex.domain.transactionlog.basic.BasicTransactionLog"
+    entity-name="com.nomadsoft.cortex.domain.transactionlog.TransactionLog"
+    table="TLOG" optimistic-lock="version">
+    <composite-id name="id"
+      class="com.nomadsoft.cortex.domain.transactionlog.TransactionLogId">
+      <key-property name="incomingBatchId" column="INBTCHID"
+        access="field" />
+      <key-property name="incomingBatchSequenceNumber"
+        column="INBTCHSEQ" access="field" />
+      <key-property name="systemDate" column="ctxdate" type="date"
+        access="field" />
+    </composite-id>
+    <version name="versionNumber" column="VERNO_CTX" access="field"></version>
+
+    <property name="tlogId" column="ID" />
+    <property name="acquiringFinEntity" column="AFE" />
+    <component name="amountBilled"
+      class="com.nomadsoft.cortex.domain.money.Money">
+      <property name="amount" column="AMTBILL" not-null="true"
+        access="field" />
+      <many-to-one name="currency"
+        class="com.nomadsoft.cortex.domain.money.Currency"
+        cascade="none" access="field">
+        <column name="CURBILL" />
+      </many-to-one>
+    </component>
+    <property name="cardAcceptorId" column="crdacptid" not-null="true" />
+    <property name="cardHolderAuthenticationMethod" column="POSCHAM"
+      not-null="true"
+      type="com.nomadsoft.cortex.infrastructure.hibernate.CardHolderAuthenticationMethodTypeUserType" />
+    <property name="cardHolderPresent" column="POSCHP" not-null="true"
+      type="com.nomadsoft.cortex.infrastructure.hibernate.CardHolderPresentTypeUserType" />
+    <property name="cardAuthenticationMethod" column="POSCHAC"
+      not-null="true"
+      type="com.nomadsoft.cortex.infrastructure.hibernate.CardAuthenticationMethodTypeUserType" />
+    <property name="cardPresent" type="boolean">
+      <column name="POSCP" length="1" />
+    </property>
+    <property name="cardInputMethod" column="POSCDIM" not-null="true"
+      type="com.nomadsoft.cortex.infrastructure.hibernate.CardInputMethodTypeUserType" />
+    <component name="cashBack"
+      class="com.nomadsoft.cortex.domain.money.Money">
+      <property name="amount" column="AMTTXNCB" not-null="true"
+        access="field" />
+      <many-to-one name="currency"
+        class="com.nomadsoft.cortex.domain.money.Currency"
+        cascade="none" access="field" insert="false" update="false">
+        <column name="CURTXN" />
+      </many-to-one>
+    </component>
+    <property name="city" insert="false" update="false">
+      <column name="CRDACPTLOC" />
+      <type
+        name="com.nomadsoft.cortex.infrastructure.hibernate.CardAcceptorLocationUserType">
+        <param name="fieldName">CITY</param>
+      </type>
+    </property>
+    <component name="commission"
+      class="com.nomadsoft.cortex.domain.money.Money">
+      <property name="amount" column="AMTCOM" not-null="true"
+        access="field" />
+      <many-to-one name="currency"
+        class="com.nomadsoft.cortex.domain.money.Currency"
+        cascade="none" access="field" insert="false" update="false">
+        <column name="CURTXN" />
+      </many-to-one>
+    </component>
+    <property name="merchantName" insert="false" update="false">
+      <column name="CRDACPTLOC" />
+      <type
+        name="com.nomadsoft.cortex.infrastructure.hibernate.CardAcceptorLocationUserType">
+        <param name="fieldName">MERCHANT_NAME</param>
+      </type>
+    </property>
+    <property name="merchantNameUpperCase" type="string" insert="false"
+      update="false">
+      <column name="CRDACPTLOC" />
+    </property>
+    <property name="pan" column="PAN" />
+    <property name="postCode" insert="false" update="false">
+      <column name="CRDACPTLOC" />
+      <type
+        name="com.nomadsoft.cortex.infrastructure.hibernate.CardAcceptorLocationUserType">
+        <param name="fieldName">POSTCODE</param>
+      </type>
+    </property>
+    <property name="region" insert="false" update="false">
+      <column name="CRDACPTLOC" />
+      <type
+        name="com.nomadsoft.cortex.infrastructure.hibernate.CardAcceptorLocationUserType">
+        <param name="fieldName">REGION</param>
+      </type>
+    </property>
+    <property name="rejectionReason" column="REJREASON" />
+    <property name="responseCode" not-null="true" column="RSPCODE" />
+    <property name="retrievalRefNum" column="RRN" />
+    <property name="street" insert="false" update="false">
+      <column name="CRDACPTLOC" />
+      <type
+        name="com.nomadsoft.cortex.infrastructure.hibernate.CardAcceptorLocationUserType">
+        <param name="fieldName">STREET</param>
+      </type>
+    </property>
+    <component name="transactionAmount"
+      class="com.nomadsoft.cortex.domain.money.Money">
+      <property name="amount" column="amttxn" not-null="true"
+        access="field" />
+      <many-to-one name="currency"
+        class="com.nomadsoft.cortex.domain.money.Currency"
+        cascade="none" access="field" insert="false" update="false">
+        <column name="curtxn" />
+      </many-to-one>
+    </component>
+    <property name="transactionCode" column="TXNCODE" not-null="true" />
+    <property name="transactionDate"
+      type="com.nomadsoft.cortex.infrastructure.hibernate.SoaDateTimeUserType">
+      <column name="DATELOCAL" />
+      <column name="TIMELOCAL" />
+    </property>
+    <property name="transactionStatus" column="TXNSTATUS"
+      not-null="true" />
+    <property name="actionCode" column="ACTIONCODE" not-null="true"
+      type="com.nomadsoft.cortex.infrastructure.hibernate.TransactionActionCodeUserType" />
+    <many-to-one name="country" insert="false" update="false"
+      class="com.nomadsoft.cortex.domain.country.Country" cascade="none"
+      fetch="select">
+      <formula>(SUBSTR(crdacptloc, LENGTH(TRIM(crdacptloc)) - 2, 3))</formula>
+    </many-to-one>    
+  </class>
+  <query name="TransactionLog.findAll">
+    <![CDATA[  from TransactionLog  ]]>
+  </query>
+</hibernate-mapping>

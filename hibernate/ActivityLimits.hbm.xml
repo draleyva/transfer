@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 07-Jun-2006 15:08:54 by Hibernate Tools 3.1.0.beta5 -->
+<hibernate-mapping>
+  <class name="com.nomadsoft.cortex.domain.card.basic.BasicActivityLimits"
+    entity-name="com.nomadsoft.cortex.domain.card.ActivityLimits" table="ACTLIM" optimistic-lock="version">
+    
+    <composite-id name="id" class="com.nomadsoft.cortex.domain.card.ActivityLimitsId">
+      <key-many-to-one name="cardFormat" class="com.nomadsoft.cortex.domain.card.CardFormat" column="crdformat_id" access="field" />
+      <key-many-to-one name="currency" class="com.nomadsoft.cortex.domain.money.Currency" column="CURRCODE" access="field" />
+    </composite-id>
+    
+    <version name="versionNumber" column="VERNO_CTX" access="field"></version>
+
+    <component name="dailyCashAmount" class="com.nomadsoft.cortex.domain.money.Money">
+      <property name="amount" column="VAL_CASH_DAY" not-null="true" access="field" />
+      <many-to-one name="currency" class="com.nomadsoft.cortex.domain.money.Currency" cascade="none" access="field" insert="false"
+        update="false">
+        <column name="CURRCODE" />
+      </many-to-one>
+    </component>
+    <property name="dailyCashNumber" type="short" column="NUM_CASH_DAY" not-null="true" />
+
+    <component name="dailyPurchaseAmount" class="com.nomadsoft.cortex.domain.money.Money">
+      <property name="amount" column="VAL_PURCH_DAY" not-null="true" access="field" />
+      <many-to-one name="currency" class="com.nomadsoft.cortex.domain.money.Currency" cascade="none" access="field" insert="false"
+        update="false">
+        <column name="CURRCODE" />
+      </many-to-one>
+    </component>
+    <property name="dailyPurchaseNumber" type="short" column="NUM_PURCH_DAY" not-null="true" />
+
+    <component name="accumulatedCashAmount" class="com.nomadsoft.cortex.domain.money.Money">
+      <property name="amount" column="VAL_CASH_ACC" not-null="true" access="field" />
+      <many-to-one name="currency" class="com.nomadsoft.cortex.domain.money.Currency" cascade="none" access="field" insert="false"
+        update="false">
+        <column name="CURRCODE" />
+      </many-to-one>
+    </component>
+    <property name="accumulatedCashNumber" type="short" column="NUM_CASH_ACC" not-null="true" />
+
+    <component name="accumulatedPurchaseAmount" class="com.nomadsoft.cortex.domain.money.Money">
+      <property name="amount" column="VAL_PURCH_ACC" not-null="true" access="field" />
+      <many-to-one name="currency" class="com.nomadsoft.cortex.domain.money.Currency" cascade="none" access="field" insert="false"
+        update="false">
+        <column name="CURRCODE" />
+      </many-to-one>
+    </component>
+    <property name="accumulatedPurchaseNumber" type="short" column="NUM_PURCH_ACC" not-null="true" />
+    
+  </class>
+</hibernate-mapping>

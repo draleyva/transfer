@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.nomadsoft.cortex.domain.rule.basic.BasicDimension"
+		entity-name="com.nomadsoft.cortex.domain.rule.Dimension" table="rule_dimension"
+		dynamic-update="true" optimistic-lock="version">
+
+		<id name="id" type="long" unsaved-value="0">
+			<column name="id" />
+			<generator class="native">
+				<param name="sequence">${rule_dimension_id.generator.sequence}</param>
+			</generator>
+		</id>
+
+		<!--discriminator column="dimvalue_linktype" /-->
+
+		<version name="versionNumber" column="verno_ctx" generated="always" access="field" />
+
+		<property name="type" column="dimvalue_linktype" access="field" />
+
+		<property name="dimensionLevel" column="dimlvl" not-null="true"
+			type="short" access="field" />
+		<property name="description" column="descr" not-null="true"
+			type="string" length="127" access="field" />
+
+		<many-to-one name="ruleContext"
+			class="com.nomadsoft.cortex.domain.rule.RuleContext" cascade="none"
+			access="field">
+			<column name="context_id" />
+		</many-to-one>
+
+		<many-to-one name="scope"
+			class="com.nomadsoft.cortex.domain.common.Scope" fetch="join"
+			cascade="none" access="field">
+			<column name="scopedet_id" />
+		</many-to-one>
+
+		<bag name="dimensionValues" order-by="dimvalue" inverse="true"
+			cascade="all-delete-orphan" lazy="false" fetch="select" access="field">
+			<key column="dimension_id" />
+			<one-to-many class="com.nomadsoft.cortex.domain.rule.DimensionValue" />
+		</bag>
+
+	</class>
+
+</hibernate-mapping>

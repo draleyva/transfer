@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.nomadsoft.cortex.domain.rule.basic.BasicRule" 
+    entity-name="com.nomadsoft.cortex.domain.rule.Rule" table="rule_rule" dynamic-update="true" optimistic-lock="version">
+	
+	<id name="id" type="long">
+           <column name="id" />
+            <generator class="native">
+              <param name="sequence">${rule_rule_id.generator.sequence}</param>
+            </generator>
+    </id>
+	
+    <version name="versionNumber" column="verno_ctx" generated="always" access="field"/>
+
+   	<property name="ruleName" column="rulename" not-null="true" type="string" length="32" access="field"/>
+   	<property name="ruleExpression" column="ruleexpr" not-null="true" type="string" access="field"/>
+    <property name="description" column="descr" not-null="true" type="string" length="80" access="field"/>
+   
+    <many-to-one name="institution" class="com.nomadsoft.cortex.domain.institution.Institution"
+         column="inst_id" cascade="none"/>
+         
+    <many-to-one name="ruleContext"
+        class="com.nomadsoft.cortex.domain.rule.RuleContext"
+        cascade="none" access="field">
+        <column name="context_id" />
+    </many-to-one>
+    
+    </class>
+</hibernate-mapping>

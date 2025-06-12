@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.nomadsoft.cortex.domain.cortexparameter.basic.BasicCortexParameter"
+    entity-name="com.nomadsoft.cortex.domain.cortexparameter.CortexParameter" table="MSC" optimistic-lock="version">
+    <composite-id name="id"
+      class="com.nomadsoft.cortex.domain.cortexparameter.CortexParameterId">
+      <key-property name="tag" column="TAG" access="field"/>
+      <key-property name="index" column="IDX" access="field"/>
+    </composite-id>
+    <discriminator column="MASK" type="string"/>
+    <version name="versionNumber" column="VERNO_CTX" access="field"></version>
+    
+    
+    <property name="descriptionId" column="DESCR" not-null="true"/>
+    
+    <property name="module" column="MSCMODULE" not-null="true"/>
+    
+    <subclass name="com.nomadsoft.cortex.domain.cortexparameter.basic.BasicDateCortexParameter"
+    	discriminator-value="16">
+    	<property name="value" column="DATE_T" type="date"/>
+    </subclass>
+    
+    <subclass name="com.nomadsoft.cortex.domain.cortexparameter.basic.BasicDoubleCortexParameter"
+    	discriminator-value="8">
+    	<property name="value" column="DOUBLE_T" type="double"/>
+    </subclass>
+    
+    <subclass name="com.nomadsoft.cortex.domain.cortexparameter.basic.BasicLongCortexParameter"
+    	discriminator-value="2">
+    	<property name="value" column="LONG_T" type="long"/>
+    </subclass>
+    
+    <subclass name="com.nomadsoft.cortex.domain.cortexparameter.basic.BasicShortCortexParameter"
+    	discriminator-value="4">
+    	<property name="value" column="SHORT_T" type="short"/>
+    </subclass>
+    
+    <subclass name="com.nomadsoft.cortex.domain.cortexparameter.basic.BasicStringCortexParameter"
+    	discriminator-value="1">
+    	<property name="value" column="STRING_T" type="string"/>
+    </subclass>
+  </class>
+</hibernate-mapping>
