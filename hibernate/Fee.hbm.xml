@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping">
+<!-- Generated 2006-09-16 10:49:57 by Hibernate Tools 3.2.0.beta7 -->
+<hibernate-mapping>
+    <class name="com.metavante.cortex.domain.ccs.fee.basic.BasicFee" table="ccsfee" 
+            proxy="com.metavante.cortex.domain.ccs.fee.basic.BasicFee" 
+            dynamic-update="true" dynamic-insert="true">
+        <cache usage="read-write"/>
+        <composite-id name="id" class="com.metavante.cortex.identities.FeeId">
+			<key-many-to-one name="institution" class="com.fis.cortex.domain.core.institution.Institution" column="inst_id" access="field" lazy="false" />      
+            <key-property name="feeSet" column="feeset" />
+            <key-property name="feeType" column="feetype" />
+            <key-property name="condition1" column="cond1" />
+            <key-property name="condition2" column="cond2" />
+        </composite-id>
+
+        <!-- version name="versionNumber" column="verno_ctx" access="field"/ --> 	
+        <property name="feeSet" type="short" column="feeset" insert="false" update="false" not-null="true" />
+
+        <property name="feeType" type="short" column="feetype" insert="false" update="false" not-null="true" />
+
+        <property name="condition1" type="short" column="cond1" insert="false" update="false" not-null="true" />
+
+        <property name="condition2" type="string" column="cond2" insert="false" update="false" length="32" not-null="true" />
+
+        <property name="flatAmount" type="double" column="flat_amt" not-null="true" />
+
+        <property name="percent" type="double" column="percent" not-null="true" />
+
+        <property name="minimumAmount" type="double" column="min_amt" not-null="true" />
+
+        <property name="maximumAmount" type="double" column="max_amt" not-null="true" />
+
+        <property name="description" type="string" column="descr" length="64" not-null="true" />
+
+    </class>
+</hibernate-mapping>

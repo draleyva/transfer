@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping">
+
+<hibernate-mapping>
+
+	<class name="com.fis.cortex.crdbase.domain.cardeventpintype.basic.BasicCardEventPinType"
+		entity-name="com.fis.cortex.crdbase.domain.cardeventpintype.CardEventPinType" table="crdevent_pintyp"
+		dynamic-update="true" optimistic-lock="version">
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="native">
+				<param name="sequence_name">${crdevent_pintyp_id.generator.sequence}</param>
+			</generator>
+		</id>
+		<version name="versionNumber" column="verno_ctx" generated="always" access="field" />
+
+		<property name="cardEventId" column="CRDEVENT_ID" type="long" not-null="true" access="field" />
+		<property name="cardPinType" column="CRDPINTYPE" type="short" not-null="true" access="field" />
+		<property name="status" column="STATUS" type="short" not-null="true" access="field" />
+	</class>
+
+</hibernate-mapping>
+
+

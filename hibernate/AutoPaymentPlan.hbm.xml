@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping">
+
+<hibernate-mapping>
+
+	<class
+		name="com.metavante.cortex.domain.ccs.paymentplan.basic.BasicAutoPaymentPlan"
+		table="CCSAPPRULE" entity-name="com.metavante.cortex.domain.ccs.paymentplan.AutoPaymentPlan"
+		dynamic-update="true" optimistic-lock="version">
+		<id name="id" type="long">
+			<column name="ID" />
+			<generator class="${id.generator.class}">
+				<param name="sequence_name">${ccsapprule_id.generator.sequence}</param>
+			</generator>
+		</id>
+
+		<version name="versionNumber" column="VERNO_CTX" access="field"  generated="always" unsaved-value="undefined"/>
+
+		<property name="transactionCategory" column="TXNCAT"
+			not-null="true" access="field" />
+			
+		<property name="description" column="DESCR" not-null="true"
+			access="field" />
+			
+		<property name="enabled" column="ENABLED" type="int"
+			not-null="true" access="field" />
+
+		<many-to-one name="institution"
+			class="com.fis.cortex.domain.core.institution.Institution" column="inst_id"
+			access="field" lazy="proxy" />
+
+		<many-to-one name="creditAccountProfile"
+			class="com.metavante.cortex.domain.ccs.creditaccountprofile.basic.BasicCreditAccountProfile"
+			update="false" insert="false" fetch="select" lazy="proxy">
+			<column name="chrgprfid" length="10" not-null="true" />
+			<column name="inst_id" not-null="true" />
+		</many-to-one>
+
+		<many-to-one name="creditAccountScheme"
+			class="com.metavante.cortex.domain.ccs.creditaccountscheme.basic.BasicCreditAccountScheme"
+			update="false" insert="false" fetch="select" lazy="proxy">
+			<column name="chrgprfid" length="10" not-null="true" />
+			<column name="inst_id" not-null="true" />
+			<column name="scheme" length="4" not-null="true" />
+		</many-to-one>
+
+		<property name="chrgprfid" type="string">
+			<column name="chrgprfid" length="10" not-null="true" />
+		</property>
+		
+		<property name="scheme" type="string">
+			<column name="scheme" length="4" not-null="true" />
+		</property>
+		
+		<property name="maxDelinquencyLevel" column="MAX_DLNQLVL"
+			type="int" not-null="true" access="field" />
+
+		<property name="effectiveDate" column="EFFDATE" type="date"
+			not-null="true" access="field" />
+			
+		<property name="purgeDate" column="PURGEDATE" type="date"
+			access="field" />
+
+		<many-to-one name="paymentPlanSet"
+			class="com.metavante.cortex.domain.ccs.paymentplan.PaymentPlanSet"
+			column="CCSPPSET_ID" access="field" lazy="proxy" />
+
+		<many-to-one name="paymentPlanSetNumberOfInstalment" 
+			class="com.metavante.cortex.domain.ccs.paymentplan.PaymentPlanSetNumberOfInstalment" 
+			column="ccsppsetnuminst_id" access="field" lazy="proxy"/> 
+		
+		<property name="priority" column="PRIORITY" type="int"
+			not-null="true" access="field" />
+			
+	</class>
+
+</hibernate-mapping>

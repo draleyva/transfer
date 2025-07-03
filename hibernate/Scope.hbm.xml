@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="com.nomadsoft.cortex.domain.common.basic.BasicScope" 
-    entity-name="com.nomadsoft.cortex.domain.common.Scope" table="scopedet" dynamic-update="true" optimistic-lock="version">		        
+    <class name="com.fis.cortex.domain.core.common.basic.BasicScope" 
+    entity-name="com.fis.cortex.domain.core.common.Scope" table="scopedet" dynamic-update="true" optimistic-lock="version">		        
 	    <id name="id" type="long">
 	           <column name="id" />
 	            <generator class="${id.generator.class}">
-	              <param name="sequence">${scopedet_id.generator.sequence}</param>
+	              <param name="sequence_name">${scopedet_id.generator.sequence}</param>
 	            </generator>
 	    </id>
 	    

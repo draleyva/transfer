@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 01-Jun-2006 12:26:12 by Hibernate Tools 3.1.0.beta5 -->
 <hibernate-mapping>
 	<class name="com.nomadsoft.cortex.domain.card.basic.BasicCardLimitOverride"
@@ -9,7 +9,7 @@
 		<id name="id" type="long">
 			<column name="id" />
 			<generator class="native">
-				<param name="sequence">${crdlimover_id.generator.sequence}</param>
+				<param name="sequence_name">${crdlimover_id.generator.sequence}</param>
 			</generator>
 		</id>
 		
@@ -22,7 +22,7 @@
 		<property name="status" type="short" access="field" column="STATUS"/>
 		
 		<property name="user" type="string"> 
-			<column name="USR" length="15" not-null="true" />
+			<column name="USR" length="32" not-null="true" />
 		</property>
 		<property name="overrideValueLimit" type="double"> 
 			<column name="AMT" not-null="true" />

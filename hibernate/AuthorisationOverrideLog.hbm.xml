@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping">
+
+<hibernate-mapping>
+	<class name="com.fis.cortex.auth.domain.authoverlog.basic.BasicAuthorisationOverrideLog"
+		entity-name="com.fis.cortex.auth.domain.authoverlog.AuthorisationOverrideLog"
+		table="AUTHOVERLOG" optimistic-lock="version">
+
+<!--		<id name="id" type="long" column="id" access="field" />-->
+		
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="native">
+				<param name="sequence_name">${authoverlog_id.generator.sequence}</param>
+			</generator>
+		</id>			
+
+		<property name="indate" column="indate" type="date" length="7"
+			not-null="true" access="field" />
+		<property name="intime" column="intime" type="long" length="6"
+			not-null="true" access="field" />
+		<property name="user" column="usr" type="string" length="15"
+			not-null="true" />
+		<property name="typecode" column="typecode" type="string"
+			length="2" not-null="true" />
+		<property name="AmountOld" column="amt_old" type="float"
+			length="15" not-null="true" />
+
+		<property name="oldEffectiveDate" column="effdate_old" type="date"
+			length="9" not-null="true" access="field" />
+		<property name="oldPurgeDate" column="purgedate_old" type="date"
+			length="9" not-null="true" access="field" />
+
+		<property name="AmountNew" column="amt_new" type="float"
+			length="15" not-null="true" />
+
+		<property name="newEffectiveDate" column="effdate_new" type="date"
+			length="9" not-null="true" access="field" />
+		<property name="newPurgeDate" column="purgedate_new" type="date"
+			length="9" not-null="true" access="field" />
+		<property name="action" column="action" type="string" length="15"
+			not-null="true" />
+
+		<property name="cortexDate" column="ctxdate" type="date" length="9"
+			not-null="true" access="field" />
+
+		<property name="accountId" column="accdet_id" type="long"
+			not-null="true" />
+
+	</class>
+</hibernate-mapping>

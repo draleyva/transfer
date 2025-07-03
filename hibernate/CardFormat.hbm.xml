@@ -1,27 +1,65 @@
 <?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping">
 
 <hibernate-mapping>
-  <class name="com.nomadsoft.cortex.domain.card.basic.BasicCardFormat" table="CRDFORMAT" mutable="false"
-    entity-name="com.nomadsoft.cortex.domain.card.CardFormat" optimistic-lock="version">
-    <cache usage="nonstrict-read-write" />
+	<class name="com.fis.cortex.crdbase.domain.card.basic.BasicCardFormat"
+		entity-name="com.fis.cortex.crdbase.domain.card.CardFormat" table="crdformat"
+		dynamic-update="true" optimistic-lock="version">
 
-	<id name="id" type="long">
-		<column name="id" />
-		<generator class="native">
-			<param name="sequence">${crdformat_id.generator.sequence}</param>
-		</generator>
-	</id>
-       
-    <version name="versionNumber" column="VERNO_CTX" access="field"></version>
+		<id name="id" type="long">
 
-   <many-to-one name="cardRouting" class="com.nomadsoft.cortex.domain.card.CardRouting"
-         column="iid" insert="false" update="false"/>
-    
-    <property name ="iid" column="iid" access="field" length="11"/>
-           
-    <many-to-one name="institution" class="com.nomadsoft.cortex.domain.institution.Institution"
-         column="inst_id" cascade="none"/>
-  </class>
+			<generator class="native">
+				<param name="sequence_name">${crdformat_id.generator.sequence}</param>
+			</generator>
+		</id>
+		<version name="versionNumber" column="verno_ctx" generated="always"
+			access="field" />
+		<property name="t2format" column="t2fmt" type="string"
+			length="40" not-null="true" access="field" />
+		<property name="iid" column="iid" type="string" length="11"
+			not-null="true" access="field" />
+		<property name="pintype" column="pintype" type="string"
+			length="1" not-null="true" access="field" />
+		<many-to-one name="institution"
+			class="com.fis.cortex.domain.core.institution.Institution" column="inst_id"
+			cascade="none" />
+		<property name="classid" column="classid" type="int" length="5"
+			not-null="true" access="field" />
+		<property name="cyclen" column="cyclen" type="int" length="5"
+			not-null="true" access="field" />
+		<property name="cycauth" column="cycauth" type="float" length="126"
+			not-null="true" access="field" />
+		<property name="dfltstatcode" column="dfltstatcode" type="string"
+			length="2" not-null="true" access="field" />
+		<property name="pvki" column="pvki" type="char" length="1"
+			not-null="true" access="field" />
+		<property name="svccode" column="svccode" type="string"
+			length="3" not-null="true" access="field" />
+		<property name="offauth" column="offauth" type="float"
+			length="126" not-null="true" access="field" />
+		<property name="validity" column="validity" type="int"
+			length="5" not-null="true" access="field" />
+		<property name="panlength" column="panlen" type="int"
+			length="5" not-null="true" access="field" />
+		<property name="maxPinTries" column="max_pintries" type="int"
+			length="5" not-null="true" access="field" />
+		<property name="pinLength" column="pin_len" type="short"
+				  length="5" not-null="true" access="field" />
+		<property name="minimumPinLength" column="pin_len_min" type="short"
+				  length="5" not-null="true" access="field" />
+		<property name="maximumPinLength" column="pin_len_max" type="short"
+				  length="5" not-null="true" access="field" />
+		<property name="offsetPvkSeqno" column="offset_pvk_seqno" type="short"
+				  length="5" not-null="true" access="field" />
+		<property name="decTabSeqno" column="dec_tab_seqno" type="short"
+				  length="5" not-null="true" access="field" />
+		<property name="verLen" column="ver_len" type="short"
+				  length="5" not-null="true" access="field" />				  				  
+		<property name="displacement" column="displacement" type="short"
+				  length="5" not-null="true" access="field" />
+		<property name="padChar" column="padding_char" type="string"
+			length="1" not-null="true" access="field" />				  
+	</class>
+
+
 </hibernate-mapping>

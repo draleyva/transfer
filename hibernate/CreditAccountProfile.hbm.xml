@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping">
+
+<hibernate-mapping>
+    <class name="com.metavante.cortex.domain.ccs.creditaccountprofile.basic.BasicCreditAccountProfile"  table="ccschrgprof" optimistic-lock="version">
+        <cache usage="nonstrict-read-write"/>
+        <composite-id name="id" class="com.metavante.cortex.identities.CreditAccountProfileId">
+            <key-property name="chrgprfid" type="string">
+                <column name="chrgprfid" length="10" />
+            </key-property>
+			<key-many-to-one name="institution" class="com.fis.cortex.domain.core.institution.Institution" column="inst_id" access="field"/>      
+        </composite-id>
+        
+        <version name="versionNumber" column="verno_ctx" access="field"/> 		
+        
+        <property name="description" type="string" column="descr" length="50" not-null="true" />
+        <property name="rateBasis" type="char" column ="rate_basis" length="1" not-null="true" />
+        <property name="minimumPaymentCalculationMethod" type="short" column ="minpaymthd" not-null="true" />
+        <property name="delinquencyLevelCalculationMethod" type="short" column ="dlnqmthd" not-null="true" />
+		<property name="lastUsedBalanceComponentCode" type="short" column="maxcmp" not-null="true" />
+        <property name="interestBalanceComponent" type="short" column="intcmp" not-null="true" />
+        <property name="overLimitPenaltyBalanceComponent" type="short" column="ovrlimpencmp" not-null="true" />
+        <property name="latePaymentPenaltyBalanceComponent" type="short" column="latepencmp" not-null="true" />
+        <property name="flags" type="string" column="prfflags" length="16" not-null="true" />
+        <property name="creationDate" type="date" column="prfdate" length="4" not-null="true" />
+        <property name="userData" type="string" column="usrdata" length="32" not-null="true" />
+        <property name="nextProfile" type="string" column="nxtprf" length="10" not-null="true" />
+        <property name="noInterestFlagsForBalanceComponents" type="string" column="cmpnoint" length="10" not-null="true" />
+        <property name="latePaymentPenaltyCalculationMethod" type="short" column="latepaypenmthd" not-null="true" /> 
+        <property name="interestCalculationDate" type="short" column="intrdate" not-null="true" /> 
+        <property name="ccsfeecmp" type="short" column="ccsfeecmp" not-null="true" />
+        <property name="accountClass" type="short" column="classid" not-null="true" />
+        <property name="closeFlags" type="string" column="clsflags" not-null="true" />
+        <property name="expfullchbal" />
+        <property name="cshpplancmp" />
+        <property name="othpplancmp" />
+        <property name="instintcmp" />
+        <property name="cshdueinstcmp" />
+        <property name="othdueinstcmp" />
+        <property name="inclinstbal" />
+        <property name="defaultPaymentPlanLimit" type="big_decimal" column="dfltpplimit" precision="8" scale="15" not-null="true"  />
+        <property name="dueInterestOverrideFlags" type="string" column="introvrdue" length="10" not-null="true"  />
+        <property name="notDueInterestOverrideFlags" type="string" column="introvrnd" length="10" not-null="true"  />
+        <property name="minimumPaymentPercentageOverrideFlags" type="string" column="percminovr" length="10" not-null="true"  />
+        
+        <many-to-one name="currency" class="com.metavante.cortex.domain.money.Currency"
+        	column="currcode" access="field" insert="false" update="false" fetch="select" lazy="proxy"/>  
+    </class>
+
+</hibernate-mapping>

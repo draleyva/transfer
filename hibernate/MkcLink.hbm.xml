@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.fis.mkc.domain.model.basic.BasicMkcLink"
+		entity-name="com.fis.mkc.domain.model.MkcLink" dynamic-update="true"
+		optimistic-lock="version" table="MKC_MKC">
+
+		<id name="id" type="java.lang.Long">
+			<column name="ID" />
+			<generator class="native">
+				<param name="sequence_name">MKC_MKC_SEQUENCE</param>
+			</generator>
+		</id>
+
+		<version name="versionNumber" column="VERNO_CTX" access="field" generated="always" />
+
+		<many-to-one name="source"
+			entity-name="com.fis.mkc.domain.model.Source">
+			<column name="SOURCE_ID" />
+		</many-to-one>
+
+		<many-to-one name="maker" not-found="ignore"
+			entity-name="com.fis.mkc.domain.model.User">
+			<column name="MAKER_ID" />
+			<formula>SOURCE_ID</formula>
+		</many-to-one>
+
+		<many-to-one name="checker" not-found="ignore"
+			entity-name="com.fis.mkc.domain.model.User">
+			<column name="CHECKER_ID" />
+			<formula>SOURCE_ID</formula>
+		</many-to-one>
+		<many-to-one name="userGroup"
+			entity-name="com.fis.mkc.domain.model.UserGroup">
+			<column name="MAKER_USRGRP_ID" />
+			<formula>SOURCE_ID</formula>
+		</many-to-one>
+        <property name="active" type="java.lang.Boolean" column="active" />
+	</class>
+</hibernate-mapping>

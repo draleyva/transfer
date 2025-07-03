@@ -1,48 +1,52 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+"http://www.hibernate.org/dtd/hibernate-mapping">
 
 <hibernate-mapping>
-  <class name="com.nomadsoft.cortex.domain.pin.basic.BasicPreGeneratedPin"
-  	entity-name="com.nomadsoft.cortex.domain.pin.PreGeneratedPin" dynamic-update="true" dynamic-insert ="true" 
-  	table="PREGENPIN" lazy="false" optimistic-lock="version">
+	<class name="com.fis.cortex.crdbase.domain.pin.basic.BasicPreGeneratedPin"
+		entity-name="com.fis.cortex.crdbase.domain.pin.PreGeneratedPin"
+		dynamic-update="true" dynamic-insert="true" table="PREGENPIN" lazy="false"
+		optimistic-lock="version">
 
-    <composite-id name="id"
-      class="com.nomadsoft.cortex.domain.pin.PreGeneratedPinId">
-      <key-many-to-one name="institution" class="com.nomadsoft.cortex.domain.institution.Institution" 
-      	column="inst_id" access="field" />
-      <key-property name="referenceNumber" type="string">
-        <column name="REFNO" length="12" not-null="true"/>
-      </key-property>
-    </composite-id>
-    
-    <version name="versionNumber" column="VERNO_CTX" access="field"></version>
-  
-    <many-to-one name="assignCard" class="com.nomadsoft.cortex.domain.card.Card" 
-    	column="crddet_id" cascade="none" access="field" />
+		<composite-id name="id"
+			class="com.fis.cortex.crdbase.domain.pin.PreGeneratedPinId">
+			<key-many-to-one name="institution"
+				class="com.fis.cortex.domain.core.institution.Institution" column="inst_id"
+				access="field" lazy="false" />
+			<key-property name="referenceNumber" type="string">
+				<column name="REFNO" length="21" not-null="true" />
+			</key-property>
+		</composite-id>
 
-    <many-to-one name="branch" class="com.nomadsoft.cortex.domain.branch.Branch"
-    	column="branch_id" cascade="none" access="field" />	
-    	
-    <property name="dateCreated" column="DATE_CREATED"  access="field"/>
-    	
-    <property name="createdBy" column="CREATED_BY" access="field"/>
-    	
-    <property name="dateLinked" column="DATE_LINKED"  access="field"/>
-    	
-    <property name="linkedBy" column="LINKED_BY"  access="field"/>	
+		<version name="versionNumber" column="VERNO_CTX" access="field"></version>
 
-    <property name="validityDays" column="VALIDITY_DAYS"  access="field"/>	
-    	
-    <property name="expiryDate" column="EXPDATE" access="field"/>	
-    
-    <property name="status" column="STATUS"  access="field"/>	    	
-    
-    <property name="pinBlock" column="PINBLK"  access="field"/>	
-    	
-    <property name="cardBatch" column="CRDBTCH" access="field"/>	
+		<property name="dateCreated" column="DATE_CREATED" access="field" />
 
-    <property name="userData1" column="USRDATA1" access="field"/>	
-    	 	
-  </class>
+		<property name="createdBy" column="CREATED_BY" access="field" />
+
+		<property name="dateLinked" column="DATE_LINKED" access="field" />
+
+		<property name="linkedBy" column="LINKED_BY" access="field" />
+
+		<property name="validityDays" column="VALIDITY_DAYS" access="field" />
+
+		<property name="expiryDate" column="EXPDATE" access="field" />
+
+		<property name="status" column="STATUS" access="field" />
+
+		<property name="pinBlock" column="PINBLK" access="field" />
+
+		<property name="cardBatch" column="CRDBTCH" access="field" />
+
+		<property name="userData1" column="USRDATA1" access="field" />
+
+		<many-to-one name="branch"
+			class="com.fis.cortex.domain.core.branch.Branch" column="branch_id"
+			cascade="none" access="field" />
+
+		<many-to-one name="card"
+			class="com.fis.cortex.crdbase.domain.card.Card" column="crddet_id"
+			cascade="none" access="field" />
+
+	</class>
 </hibernate-mapping>

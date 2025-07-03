@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping">
+
+<hibernate-mapping>
+	<class
+		name="com.fis.cortex.crdbase.domain.card.basic.BasicCardProductPinType"
+		entity-name="com.fis.cortex.crdbase.domain.card.CardProductPinType"
+		table="crdprodpintyp" dynamic-update="true" optimistic-lock="version">
+
+		<id name="id" column="id" type="long" access="field" />
+
+		<version name="versionNumber" column="verno_ctx" generated="always"
+			access="field" />
+
+		<property name="crdpintype" column="crdpintype" type="short"
+			access="field" />
+			
+		<property name="cardProductId" column="crdproduct_id" type="long"
+			access="field" />
+
+	</class>
+
+</hibernate-mapping>

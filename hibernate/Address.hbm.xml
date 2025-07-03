@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.fis.cortex.domain.core.address.basic.BasicAddress"
+		entity-name="com.fis.cortex.domain.core.address.Address" table="address"
+		dynamic-update="true" optimistic-lock="version">
+
+		<id name="id" type="long" access="field">
+			<column name="id" />
+			<generator class="native">
+				<param name="sequence_name">${address_id.generator.sequence}</param>
+			</generator>
+		</id>
+		
+		<version name="versionNumber" column="verno_ctx" generated="always" access="field" />
+
+		<property name="addressLine1" column="addrl1" type="string" length="35" access="field"/>
+		<property name="addressLine2" column="addrl2" type="string" length="35" access="field"/>
+		<property name="addressLine3" column="addrl3" type="string" length="35" access="field"/>
+		<property name="city" column="city" type="string" length="40" access="field"/>
+		<property name="region" column="region" type="string" length="40" access="field"/>
+		<property name="postcode" column="postcode" type="string" length="10" access="field"/>
+		<property name="country" column="country" type="string" length="3" access="field"/>
+	</class>
+
+</hibernate-mapping>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.fis.cortex.domain.core.lookup.basic.BasicLookUpType"
+		entity-name="com.fis.cortex.domain.core.lookup.LookUpType" table="lookuptype"
+		dynamic-update="true" optimistic-lock="version">
+
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="native">
+				<param name="sequence_name">${lookuptype_id.generator.sequence}</param>
+			</generator>
+		</id>
+		
+		<version name="versionNumber" column="verno_ctx" generated="always" access="field" />
+		<!-- instId is used instead of Institution object because of the conflicting packages for Institution -->
+		<property name="instId" column="inst_id" type="long" not-null="true" />	
+		<property name="lookupTypeTag" column="lookuptypetag" not-null="true"	type="string" length="12" />
+		<property name="shortDescr" type="string" column="shortdescr" not-null="true" length="32" />
+		<property name="descr" type="string" column="descr" not-null="true" length="128" />
+		<property name="dataType" type="string" column="datatype" not-null="true" length="128" />
+		<property name="defaultLookupCatId" column="default_lookupcat_id" not-null="true" />
+		<property name="catPrefix1" type="string" column="catprefix1" not-null="true" length="12" />
+		<property name="catPrefix2" type="string" column="catprefix2" not-null="true" length="12" />
+		<property name="catReturnField" type="string" column="catreturnfield" not-null="true" length="32" />
+		<property name="addToCatParams" column="addtocatparams" type="short" not-null="true" />
+		<property name="listType" column="listtype" type="short" not-null="true" />
+
+	</class>
+
+</hibernate-mapping>

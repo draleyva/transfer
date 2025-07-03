@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping">
+
+<hibernate-mapping>
+	<class
+		name="com.fis.cortex.crdbase.domain.enckey.basic.BasicKeyBlockEncryptionKey"
+		entity-name="com.fis.cortex.crdbase.domain.enckey.KeyBlockEncryptionKey"
+		table="KBENCKEY">
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="assigned" />
+		</id>
+		<property name="keyStatus" type="int" column="keystatus"
+			length="5" not-null="true" />
+		<property name="keyType" type="int" column="keytype" length="5"
+			not-null="true" />
+		<property name="testFlag" type="int" column="tstflag" length="5"
+			not-null="true" />
+		<property name="referenceCode" type="string" column="refcode"
+			length="16" not-null="true" />
+		<property name="keySeqno" type="int" column="keyseqno"
+			length="5" not-null="true" />
+		<property name="keyValue" type="string" column="keyvalue"
+			length="128" not-null="true" />
+		<property name="preValue" type="string" column="prevalue"
+			length="128" not-null="true" />
+		<property name="checkValue" type="string" column="checkvalue"
+			length="32" not-null="true" />
+		<property name="actDate" type="date" column="actdate"
+			not-null="true" />
+		<property name="actTime" type="long" column="acttime" length="10"
+			not-null="true" />
+		<property name="expiry" type="date" column="expiry" not-null="true" />
+		<property name="longKeyValue" type="string" column="longkeyval"
+			length="64" not-null="true" />
+		<property name="authent" type="string" column="authent"
+			length="32" not-null="false" />
+		<property name="keyBlockHeaderId" type="long" column="keyblkhdr_id"
+			length="10" not-null="false" />
+		<property name="shortDescription" type="string" column="short_descr"
+			length="20" not-null="false" />
+		<property name="tmplType" type="int" column="tmpltyp" length="5"
+			not-null="false" />
+		<property name="schemeTag" type="string" column="schmtag"
+			length="1" not-null="false" />
+		<property name="verId" type="string" column="verid" length="1"
+			not-null="false" />
+		<property name="algo" type="string" column="algo" length="1"
+			not-null="false" />
+		<property name="modeUse" type="string" column="modeuse"
+			length="1" not-null="false" />
+		<property name="keyVersionNumber" type="string" column="keyvernum"
+			length="2" not-null="false" />
+		<property name="export" type="string" column="export" length="1"
+			not-null="false" />
+		<property name="lmkId" type="int" column="lmkid" length="5"
+			not-null="false" />
+	</class>
+</hibernate-mapping>

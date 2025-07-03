@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.fis.cortex.domain.core.lookup.basic.BasicLookUpData"
+		entity-name="com.fis.cortex.domain.core.lookup.LookUpData" table="lookupdata"
+		dynamic-update="true" optimistic-lock="version">
+
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="native">
+				<param name="sequence_name">${lookupdata_id.generator.sequence}</param>
+			</generator>
+		</id>
+		
+		<version name="versionNumber" column="verno_ctx" generated="always" access="field" />
+		<property name="dataValue" column="datavalue" not-null="true" type="string" length="128" />
+    	<many-to-one name="lookUpType" class="com.fis.cortex.domain.core.lookup.LookUpType"
+    		column="lookuptype_id" access="field" cascade="none" />
+    	<many-to-one name="lookUpCat" class="com.fis.cortex.domain.core.lookup.LookUpCat"
+    		column="lookupcat_id" access="field" cascade="none" />
+		<property name="effDateTime" column="effdatetime" type="timestamp" not-null="true" access="field" />
+		<property name="purgeDateTime" column="purgedatetime" type="timestamp" not-null="true" access="field" />
+		<property name="descr" type="string" column="descr" not-null="true" length="128" />
+
+	</class>
+
+</hibernate-mapping>

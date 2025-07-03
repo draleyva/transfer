@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping">
+<!-- Generated 2006-09-16 10:49:57 by Hibernate Tools 3.2.0.beta7 -->
+<hibernate-mapping>
+    <class name="com.metavante.cortex.domain.ccs.creditaccountstatement.basic.BasicCreditAccountPrintableStatement" 
+                    table="ccsstmtprnt" optimistic-lock="version">
+        <id name="statementId" type="int">
+            <column name="stmt_id" />
+        </id>
+
+        <version name="versionNumber" column="verno_ctx" access="field" /> 		
+           
+        <property name="statementDate" type="date" column="stmt_date" length="4" not-null="true" />
+        <property name="statementData" column="stmt_data" not-null="true" />
+
+        <many-to-one name="statement" class="com.metavante.cortex.domain.ccs.creditaccountstatement.basic.BasicCreditAccountStatement"
+            column="stmt_id" access="field" insert="false" update="false" fetch="select" lazy="proxy" />
+    </class>
+</hibernate-mapping>

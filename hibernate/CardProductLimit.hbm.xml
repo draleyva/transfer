@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping">
+
+<hibernate-mapping>
+
+	<class name="com.fis.cortex.crdbase.domain.card.basic.BasicCardProductLimit"
+		entity-name="com.fis.cortex.crdbase.domain.card.CardProductLimit" table="CRDPRODLIM"
+		optimistic-lock="version">
+
+		<id name="id">
+			<column name="CRDPRODUCT_ID" length="10" />
+		</id>
+		<version name="versionNumber" column="VERNO_CTX" type="int"
+			access="field"></version>
+
+		<many-to-one name="institution"
+			class="com.fis.cortex.domain.core.institution.Institution" cascade="none"
+			column="inst_id" access="field">
+		</many-to-one>
+		
+		<property name="limitTrasaction" type="string">
+			<column name="LIMIT_TXNS" length="192" not-null="true" />
+		</property>
+		
+		<property name="cycleLength" type="int">
+			<column name="CYCLE_LEN" not-null="true" />
+		</property>
+
+		<property name="cashLimitAmount" type="float">
+			<column name="CASHLIM_AMT" not-null="true" />
+		</property>
+
+		<property name="cashLimitNumber" type="int">
+			<column name="CASHLIM_NUM" not-null="true" />
+		</property>
+
+		<property name="purchaseLimitAmount" type="float">
+			<column name="PURCHLIM_AMT" not-null="true" />
+		</property>
+
+		<property name="purchaseLimitNumber" type="int">
+			<column name="PURCHLIM_NUM" not-null="true" />
+		</property>
+
+		<property name="totalLimitAmount" type="float">
+			<column name="TOTLIM_AMT" not-null="true" />
+		</property>
+
+		<property name="totalLimitNumber" type="int">
+			<column name="TOTLIM_NUM" not-null="true" />
+		</property>
+		
+		<property name="vipMul" type="float">
+			<column name="VIP_MUL" not-null="true" />
+		</property>
+	</class>
+
+</hibernate-mapping>
+

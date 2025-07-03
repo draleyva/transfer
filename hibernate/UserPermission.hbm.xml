@@ -1,34 +1,36 @@
 <?xml version="1.0"?>
 
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
 
-	<class name="com.nomadsoft.cortex.domain.access.basic.BasicUserPermission"
-		entity-name="com.nomadsoft.cortex.domain.access.UserPermission" table="usrperm"
+	<class name="com.fis.cortex.domain.core.access.basic.BasicUserPermission"
+		entity-name="com.fis.cortex.domain.core.access.UserPermission" table="usrperm"
 		dynamic-update="true" optimistic-lock="version">
 
 		<composite-id name="id"
-			class="com.nomadsoft.cortex.domain.access.basic.UserPermissionId" access="field">
+			class="com.fis.cortex.domain.core.access.basic.UserPermissionId" access="field">
 			<key-property name="screen" type="string" access="field">
 				<column name="acsitem" length="15" />
 			</key-property>
 
 			<key-property name="user" type="string" access="field">
-				<column name="usr" length="15" />
+				<column name="usr" length="32" />
 			</key-property>
 		</composite-id>
 
 		<version name="versionNumber" column="verno_ctx" access="field" />
+		
+		<property name="mask" column="mask" not-null="true" type="org.hibernate.type.YesNoType" access="field"/>	
 
-		<many-to-one name="screen"
-			class="com.nomadsoft.cortex.domain.access.Screen" cascade="none"
+		<many-to-one name="accessible"
+			class="com.fis.cortex.domain.core.access.Screen" cascade="none"
 			access="field" insert="false" update="false">
 			<column name="acsitem" />
 		</many-to-one>
 
-		<many-to-one name="user"
-			class="com.nomadsoft.cortex.domain.user.User" cascade="none"
+		<many-to-one name="restrictable"
+			class="com.fis.cortex.domain.core.user.User" cascade="none"
 			access="field" insert="false" update="false">
 			<column name="usr" />
 		</many-to-one>

@@ -1,24 +1,29 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+"http://www.hibernate.org/dtd/hibernate-mapping">
 
 <hibernate-mapping>
-    <class name="com.nomadsoft.cortex.domain.msc.basic.BasicMsc" 
-    entity-name="com.nomadsoft.cortex.domain.msc.Msc" table="msc" dynamic-update="true">
-        <cache usage="nonstrict-read-write"/>
-    <composite-id name="id"
-      class="com.nomadsoft.cortex.domain.msc.MscId">
-      <key-property name="tag" type="string">
-        <column name="tag" length="25" not-null="true" />
-      </key-property>
-      <key-property name="idx" type="short">
-        <column name="idx" not-null="true" />
-      </key-property>
-    </composite-id>
-    
-    <property name="description" type="integer" column="descr" not-null="true" />
-    <property name="date" column="date_t" not-null="true" type="date" length="4" access="field"/>	
-   	<property name="longValue" column="long_t" not-null="true" type="long" access="field"/>
-   	<property name="stringValue" column="string_t" not-null="true" type="string" access="field"/>
-    </class>
+	<class name="com.metavante.cortex.domain.msc.basic.BasicMsc" table="msc" dynamic-update="true" dynamic-insert="true">
+				
+		<cache usage="read-write"/>  
+		
+		<composite-id name="id"
+			class="com.metavante.cortex.identities.MscId">
+			<key-property name="index" type="short">
+				<column name="idx" />
+			</key-property>
+			<key-property name="tag" type="string">
+				<column name="tag" />
+			</key-property>
+		</composite-id>
+		<property name="dateValue" column="date_t" type="date"
+			length="4" access="field" />
+		<property name="doubleValue" type="double" column="double_t" />
+		<property name="module" type="char" column="mscmodule" />
+		<property name="descriptionNumber" type="int" column="descr" />
+		<property name="mask" type="short" column="mask" />
+		<property name="stringValue" type="string" column="string_t" />
+		<property name="longValue" type="long" column="long_t" />
+		<property name="shortValue" type="short" column="short_t" />
+	</class>
 </hibernate-mapping>

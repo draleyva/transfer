@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping">
+
+<hibernate-mapping>
+  <class name="com.fis.cortex.crdbase.domain.account.basic.BasicAuthorisationOverride"
+		entity-name="com.fis.cortex.crdbase.domain.account.AuthorisationOverride"
+		table="AUTHOVER" optimistic-lock="version">
+
+	<id name="accountId" type="long" column="accdet_id" access="field"/>
+    
+    <version name="versionNumber" column="VERNO_CTX" access="field"></version>
+    
+	<property name="inDate" column="indate" type="date" not-null="true" access="field" />
+	<property name="inTime" column="intime" type="long" not-null="true" access="field" />
+		
+	<property name="user" column="usr" type="string" not-null="true" />
+	
+	<property name="amount" column="amt" type="float" not-null="true" />
+	
+	<property name="effectiveDate" column="effdate" type="date" not-null="true" access="field"/>
+	
+	<property name="purgeDate" column="purgedate" type="date" not-null="true" access="field"/>
+
+    <many-to-one name="account" class="com.fis.cortex.crdbase.domain.account.Account"
+     column="accdet_id" update="false" insert="false" access="field" cascade="none"/>
+
+  </class>
+</hibernate-mapping>

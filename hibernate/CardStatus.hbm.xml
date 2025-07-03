@@ -1,9 +1,10 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+"http://www.hibernate.org/dtd/hibernate-mapping">
 
 <hibernate-mapping>
-  <class name="com.nomadsoft.cortex.domain.card.basic.BasicCardStatus"
+  <class name="com.fis.cortex.crdbase.domain.card.basic.BasicCardStatus"
+    entity-name="com.fis.cortex.crdbase.domain.card.CardStatus"	
     table="CRDSTATUS" lazy="false" optimistic-lock="version">
     <cache usage="nonstrict-read-write"/>
     
@@ -23,5 +24,10 @@
 
     <property name="systemDefined" column="SYSDEF" not-null="true"
     	access="field"/>
+    
+    <bag name="cardStatusDescriptionList" cascade="all">
+		<key column="Statcode"/>
+		<one-to-many class="com.fis.cortex.crdbase.domain.card.CardStatusDescription"/>
+	</bag>
   </class>
 </hibernate-mapping>

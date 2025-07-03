@@ -1,19 +1,68 @@
 <?xml version="1.0"?>
-
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping">
 
 <hibernate-mapping>
+  <class name="com.fis.cortex.crdbase.domain.account.basic.BasicAccountType"
+    entity-name="com.fis.cortex.crdbase.domain.account.AccountType" table="ACCTYPE" optimistic-lock="version">
 
-	<class name="com.nomadsoft.cortex.domain.account.basic.BasicAccountType"
-		entity-name="com.nomadsoft.cortex.domain.account.AccountType" table="ACCTYPE" optimistic-lock="version">
-	<composite-id name="id" class="com.nomadsoft.cortex.domain.account.basic.AccountTypeId">
+	<composite-id name="id" class="com.fis.cortex.crdbase.domain.account.basic.AccountTypeId">
 		  <key-property name="instId" column="INST_ID" type="long"/>
 		  <key-property name="accountType" column="TYPECODE" type="string"/>
 	</composite-id>	
-		<version name="versionNumber" column="VERNO_CTX" access="field" />
-		<property name="ISOCode" column="ISOCODE" type="int"  />
-		<property name="bankAccCode" column="BANKACCCODE" type="string"  />
-		<property name="description" column="DESCR" type="string"  />
-							
-	</class>
+    
+    <version name="versionNumber" column="VERNO_CTX" access="field"></version>
+    
+	<property name="accountClass" column="classid" type="int" length="5"
+		not-null="true" access="field" />
+		
+	<property name="isoCode" column="isocode" type="int" length="5"
+		not-null="true" access="field" />
+		
+	<property name="currencyCode" column="currcode" type="string" length="3" not-null="true" />
+	<property name="currencyCode2" column="currcode2" type="string" length="3" not-null="true" />
+	
+	<property name="srvId" column="srvid" type="int" length="5"
+	not-null="true" access="field" />
+	<property name="fmtId" column="fmtid" type="int" length="5"
+	not-null="true" access="field" />	
+	
+	
+	<property name="description" column="descr" type="string" length="20" not-null="true" />
+	<property name="bankAccountCode" column="bankacccode" type="string" length="120" not-null="true" />
+	
+	<property name="now" column="now" type="int" length="5"
+		not-null="true" access="field" />
+	<property name="accountNumberLength" column="acclen" type="int" length="5"
+		not-null="true" access="field" />
+
+	<property name="allowedServices" column="allowsvc" type="string" length="192" not-null="true" />
+	<property name="catagorisationParameters" column="cat_params" type="string" length="127" not-null="true" />
+	
+	<property name="brokenType" column="brktype" type="int" length="5" not-null="true" access="field"/>
+	<property name="brokenOffset" column="brkoffset" type="long" length="10" not-null="true" access="field"/>
+	
+	<property name="categoryAccountMarkupId" column="cat_acctmrkup_id" type="long" length="10" 
+		not-null="true" access="field"/>
+	
+	<property name="categoryAccountRiskId" column="cat_acctrisk_id" type="long" length="10" not-null="true" access="field"/>
+	
+	<property name="maxOverrideAmount" column="MAXOVRRDAMT" type="big_decimal" length="10"
+		not-null="true" access="field" />
+	
+	<property name="maxOverrideCreditLimitPercentage" column="MAXOVRRDCRLMPRCNT" type="float" length="10"
+		not-null="true" access="field" />
+		
+	<property name="genAccountNumber" column="genaccnum" type="short" length="5" not-null="true" access="field" />
+	
+	<property name="accountTypeSequence" column="acctypeseq" type="long" length="10" not-null="true" access="field" />
+	
+	<property name="accountFormat" column="accnumfrmt" type="string" not-null="true" access="field" />	
+	
+	<property name="features" column="features" type="string" not-null="true" access="field" />
+	
+	<property name="options" column="options" type="string" not-null="true" access="field" />
+	
+  </class>
 </hibernate-mapping>
+

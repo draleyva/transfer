@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.fis.cortex.domain.core.barcode.basic.BasicBarcodeReference"
+		entity-name="com.fis.cortex.domain.core.barcode.BarcodeReference" table="barcode_ref"
+		dynamic-update="true" optimistic-lock="version">
+
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="native">
+				<param name="sequence_name">${barcode_ref_id.generator.sequence}</param>
+			</generator>
+		</id>
+		
+		<version name="versionNumber" column="verno_ctx" generated="always" access="field" />
+
+    	<many-to-one name="barcode" class="com.fis.cortex.domain.core.barcode.Barcode"
+    		column="barcode_id" access="field" cascade="none" />	
+    	<property name="idx" column="idx" type="short" not-null="true" />
+    	<property name="refLabelId" column="ref_label_id" type="short" not-null="true" />
+		<property name="refPosFrom" column="ref_pos_from" type="short" not-null="true" />
+		<property name="refPosTo" column="ref_pos_to" type="short" not-null="true" />
+		
+	</class>
+
+</hibernate-mapping>

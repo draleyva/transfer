@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping">
+<!-- Generated 2006-09-16 10:49:57 by Hibernate Tools 3.2.0.beta7 -->
+<hibernate-mapping>
+    <class name="com.metavante.cortex.domain.ccs.component.basic.BasicComponentDescription" table="ccscmpdescr" optimistic-lock="version">
+      
+      <cache usage="read-only"/>
+      
+        <composite-id name="id" class="com.metavante.cortex.identities.ComponentDescriptionId">
+            <key-many-to-one name="institution" class="com.fis.cortex.domain.core.institution.Institution" column="inst_id" access="field"/>      
+            <key-property name="chargeProfileId" type="string" column="chrgprfid" length="10" />
+            <key-property name="componentCode" type="short" column="comp_code" />
+            <key-property name="language" type="string" column ="lang" length="2" />
+        </composite-id>
+
+		<version name="versionNumber" column="verno_ctx" access="field"/> 	
+        
+        <property name="description" type="string" column="descr" length="50" not-null="true" />
+    </class>
+</hibernate-mapping>

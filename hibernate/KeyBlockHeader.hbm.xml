@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.fis.cortex.domain.core.keyblockheader.basic.BasicKeyBlockHeader"
+		entity-name="com.fis.cortex.domain.core.keyblockheader.KeyBlockHeader" table="keyblkhdr"
+		dynamic-update="true" optimistic-lock="version">
+
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="native">
+				<param name="sequence_name">${keyblkhdr_id.generator.sequence}</param>
+			</generator>
+		</id>
+		
+		<version name="versionNumber" column="verno_ctx" generated="always" access="field" />
+		<property name="keyType" type="short" column="keytype" not-null="true" length="5" />
+		<property name="shortDescr" type="string" column="short_descr" not-null="true" length="20" />
+		<property name="descr" type="string" column="descr" length="128" />
+		<property name="templateType" type="short" column="tmpltyp" not-null="true" length="5" />
+		<property name="schemeTag" type="char" column="schmtag" not-null="true" />
+		<property name="versionId" type="char" column="verid" not-null="true" />
+		<property name="algorithm" type="char" column="algo" not-null="true" />
+		<property name="modeOfUse" type="char" column="modeuse" not-null="true" />
+		<property name="keyVersionNumber" type="string" column="keyvernum" not-null="true" length="2" />
+		<property name="exportability" type="char" column="export" not-null="true" />
+		<property name="lmkId" type="short" column="lmkid" not-null="true" length="5" />
+
+	</class>
+
+</hibernate-mapping>

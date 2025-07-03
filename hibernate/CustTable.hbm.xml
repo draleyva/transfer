@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.metavante.cortexonline.wicket.content.cust.CustTable"
+		entity-name="com.metavante.cortexonline.wicket.content.cust.CustTable"
+		table="custtable" dynamic-update="true">
+
+		<id name="id" type="long" column="id">
+			<generator class="native" />
+		</id>
+
+		<property name="custField" column="custfield" not-null="true"
+			type="string" />
+
+	</class>
+</hibernate-mapping>

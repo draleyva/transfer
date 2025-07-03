@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.fis.cortex.model.des.domain.callcenter.basic.BasicCallCenter"
+		entity-name="com.fis.cortex.model.des.domain.callcenter.CallCenter" table="callcenter"
+		dynamic-update="true" optimistic-lock="version">
+	<cache usage="nonstrict-read-write" />
+
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="native">
+				<param name="sequence_name">${callcenter_id.generator.sequence}</param>
+			</generator>
+		</id>
+		
+		<version name="versionNumber" column="verno_ctx" access="field" />
+		<many-to-one name="institution" class="com.nomadsoft.cortex.domain.institution.Institution" cascade="none" access="field" column="inst_id" fetch="join"/>
+		<property name="email" column="email" type="string" length="32" />
+		<property name="url" column="url" type="string" length="124" />
+		<property name="phoneNo" column="phoneno" type="string" length="32" />
+		<property name="contactName" column="contactname" type="string" length="32" />
+		<property name="organization" column="organization" type="string" length="200" />
+		<property name="ivrNo" column="ivrno" type="string" length="32" />
+		<property name="amoptions" column="amoptions" type="string" length="16" />
+
+        <set name="issuerApps" table="issuerapp" inverse="true" cascade="all-delete-orphan" lazy="true" fetch="select">
+            <key>
+                <column name="callcenter_id" not-null="true" />
+            </key>
+            <one-to-many class="com.fis.cortex.model.des.domain.callcenter.IssuerApplication" />
+        </set>	
+	</class>
+
+</hibernate-mapping>

@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
 
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
 
 	<class name="com.nomadsoft.cortex.domain.common.basic.BasicThreshold"
 		entity-name="com.nomadsoft.cortex.domain.common.Threshold" table="threshold"
-		dynamic-update="true" optimistic-lock="version">
+		dynamic-update="true" dynamic-insert="true" optimistic-lock="version">
 
 		<id name="id" type="long">
 			<column name="id" />
 			<generator class="${id.generator.class}">
-				<param name="sequence">${threshold_id.generator.sequence}</param>
+				<param name="sequence_name">${threshold_id.generator.sequence}</param>
 			</generator>
 		</id>
 
-		<version name="versionNumber" column="verno_ctx" generated="always" access="field" />
+		<version name="versionNumber" column="verno_ctx" access="field" />
 
 		<many-to-one name="set"
 			class="com.nomadsoft.cortex.domain.common.ThresholdSet" column="set_id"
@@ -32,6 +32,8 @@
 
 		<property name="maximumCount" column="max_count" not-null="true"
 			type="long" access="field" />
+
+		<property name="percentLimit" column="PERCENT_LIMIT" access="field" />
 
 		<property name="timePeriod" column="time_period" not-null="true"
 			type="long" access="field" />

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping">
+
+<hibernate-mapping>
+
+    <class name="com.fis.cortex.crdbase.domain.card.basic.BasicCardProductMigration" 
+    	entity-name="com.fis.cortex.crdbase.domain.card.CardProductMigration" table="crdprodmig"
+		dynamic-update="true" optimistic-lock="version">
+		<id name="fromCardProductId" type="long" column="FROM_CRDPRODUCT_ID" >
+		   <generator class="assigned"/>
+		</id>	
+		<property name="toCardProductId" column="TO_CRDPRODUCT_ID" type="long" length="10" not-null="true" access="field" />
+    </class>
+</hibernate-mapping>
+ 
+

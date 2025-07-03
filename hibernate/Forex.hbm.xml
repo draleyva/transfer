@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.fis.cortex.domain.core.forex.basic.BasicForex" 
+		entity-name="com.fis.cortex.domain.core.forex.Forex" table="FOREX" optimistic-lock="version">
+		<id name="id" type="long">
+	           <column name="id" />
+	            <generator class="native">
+	              <param name="sequence_name">${forex_id.generator.sequence}</param>
+	            </generator>
+	    </id>
+	    
+	    <version name="versionNumber" column="verno_ctx" generated="always" access="field"/>
+	    
+	    <many-to-one name="institution" class="com.fis.cortex.domain.core.institution.Institution"
+    	column="inst_id" access="field" cascade="none" lazy="false"/>
+	
+		<property name="refCode" column="REFCODE" type="string" access="field"/>
+		
+		<property name="baseCurrencyCode" column="BASECURCODE"  type="string" length="3" access="field"/>
+		
+		<property name="currencyCode" column="CURCODE"  type="string" length="3" access="field"/>
+		
+		<property name="rateType" column="RATETYPE"  type="int" access="field"/>
+		
+		<property name="buyRate" column="BUYRATE"  type="float" access="field"/>
+		
+		<property name="sellRate" column="SELLRATE"  type="float" access="field"/>
+		
+		<property name="buyMarkUp" column="BUYMARKUP"  type="float" access="field"/>
+		
+		<property name="sellMarkUp" column="SELLMARKUP" type="float" access="field"/>
+		
+		<property name="isIndirect" column="INDIRECT"  type="boolean" access="field"/>
+		
+		<property name="isIndirectRound" column="INDIRECTROUND"  type="boolean" access="field"/>
+		
+		<property name="extRefCode" column="EXT_REFCODE"  type="string" length="7" access="field"/>
+		
+		<property name="validFrom" column="VALID_FROM"  type="string" length="19" access="field"/>
+		
+		<property name="validTo" column="VALID_TO"  type="string" length="19" access="field"/>
+		
+	</class>
+</hibernate-mapping>

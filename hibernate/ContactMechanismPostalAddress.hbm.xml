@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping">
+
+<hibernate-mapping>
+
+	<class
+		name="com.fis.cortex.crdbase.domain.contactmechanism.basic.BasicContactMechanismPostalAddress"
+		entity-name="com.fis.cortex.crdbase.domain.contactmechanism.ContactMechanismPostalAddress" table="PRT_CM_P_ADDR"
+		optimistic-lock="version">
+
+		<composite-id name="id">
+			<key-property name="partyContactMechanismId" column="prt_cm_id"
+				type="long" />
+			<key-property name="partyContactMechanismTypeId" column="prt_cmt_id"
+				type="int" />
+		</composite-id>
+
+		<version name="versionNumber" column="VERNO_CTX" type="int"
+			access="field"></version>
+
+		<property name="countryIsoCode" type="string" column="COUNTRY_ISOCODE"
+			not-null="true" />
+		<property name="postalCode" type="string" column="POSTAL_CODE"
+			not-null="true" />
+		<property name="city" type="string" column="CITY" not-null="true" />
+		<property name="address1" type="string" column="ADDRESS_1"
+			not-null="true" />
+		<property name="address2" type="string" column="ADDRESS_2" />
+		<property name="address3" type="string" column="ADDRESS_3" />
+		<property name="address4" type="string" column="ADDRESS_4" />
+		<property name="address5" type="string" column="ADDRESS_5" />
+		<property name="directions" type="string" column="DIRECTIONS" />
+		<property name="province" type="string" column="PROVINCE" />
+		<property name="territory" type="string" column="CTXTERRITORY" />
+		<property name="state" type="string" column="CTXSTATE" />
+		<property name="county" type="string" column="COUNTY" />
+		<property name="region" type="string" column="REGION" />
+
+	</class>
+
+</hibernate-mapping>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.fis.cortex.party.domain.party.basic.BasicParty"
+		entity-name="com.fis.cortex.party.domain.party.Party" table="PRT_PARTY"
+		optimistic-lock="version">
+
+		<id name="id" type="long">
+			<column name="ID" />
+			<generator class="native">
+				<param name="sequence_name">${prt_party_id.generator.sequence}</param>
+			</generator>
+		</id>
+		<version name="versionNumber" column="VERNO_CTX" access="field"></version>
+
+
+		<bag name="partyPersonList" access="field" cascade="save-update">
+			<key>
+				<column name="PRT_PARTY_ID" />
+			</key>
+			<one-to-many class="com.fis.cortex.party.domain.person.PartyPerson" />
+		</bag>
+
+	</class>
+</hibernate-mapping>

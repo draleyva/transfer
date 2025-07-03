@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
    <class name="com.nomadsoft.cortex.domain.card.basic.BasicBinRange" 
@@ -10,7 +10,7 @@
 	<id name="id" type="long">
            <column name="id" />
             <generator class="${id.generator.class}">
-              <param name="sequence">${bin_range_id.generator.sequence}</param>
+              <param name="sequence_name">${bin_range_id.generator.sequence}</param>
             </generator>
     </id>
     

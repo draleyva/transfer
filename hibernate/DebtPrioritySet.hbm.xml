@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping">
+<!-- Generated 2006-09-16 10:49:57 by Hibernate Tools 3.2.0.beta7 -->
+<hibernate-mapping>
+    <class name="com.metavante.cortex.domain.ccs.debtpriorityset.basic.BasicDebtPrioritySet" table="ccsdbprio" optimistic-lock="version">
+   	    <cache usage="read-write"/>
+        <composite-id name="id" class="com.metavante.cortex.identities.DebtPrioritySetId">
+            <key-property name="chargeProfileId" type="string" column="chrgprfid" length="10" />
+            <key-property name="debtPrioritySetId" type="short" column="dbpriosetid" />
+			<key-many-to-one name="institution" class="com.fis.cortex.domain.core.institution.Institution" column="inst_id" access="field"/>      
+        </composite-id>
+
+ 		<version name="versionNumber" column="verno_ctx" access="field"/> 		 
+        
+        <many-to-one name="creditAccountProfile" 
+                    class="com.metavante.cortex.domain.ccs.creditaccountprofile.basic.BasicCreditAccountProfile" 
+                    update="false" insert="false" fetch="select" lazy="proxy">
+            <column name="chrgprfid" length="10" not-null="true" />
+            <column name="inst_id" not-null="true" />
+        </many-to-one>
+        
+        <property name="description" type="string" column="descr" length="50" not-null="true" />
+        <property name="component0cycle0" type="short" column="cmp0cyc0" not-null="true" />
+        <property name="component0cycle1" type="short" column="cmp0cyc1" not-null="true" />
+        <property name="component0cycle2" type="short" column="cmp0cyc2" not-null="true" />
+        <property name="component1cycle0" type="short" column="cmp1cyc0" not-null="true" />
+        <property name="component1cycle1" type="short" column="cmp1cyc1" not-null="true" />
+        <property name="component1cycle2" type="short" column="cmp1cyc2" not-null="true" />
+        <property name="component2cycle0" type="short" column="cmp2cyc0" not-null="true" />
+        <property name="component2cycle1" type="short" column="cmp2cyc1" not-null="true" />
+        <property name="component2cycle2" type="short" column="cmp2cyc2" not-null="true" />
+        <property name="component3cycle0" type="short" column="cmp3cyc0" not-null="true" />
+        <property name="component3cycle1" type="short" column="cmp3cyc1" not-null="true" />
+        <property name="component3cycle2" type="short" column="cmp3cyc2" not-null="true" />
+        <property name="component4cycle0" type="short" column="cmp4cyc0" not-null="true" />
+        <property name="component4cycle1" type="short" column="cmp4cyc1" not-null="true" />
+        <property name="component4cycle2" type="short" column="cmp4cyc2" not-null="true" />
+        <property name="component5cycle0" type="short" column="cmp5cyc0" not-null="true" />
+        <property name="component5cycle1" type="short" column="cmp5cyc1" not-null="true" />
+        <property name="component5cycle2" type="short" column="cmp5cyc2" not-null="true" />
+        <property name="component6cycle0" type="short" column="cmp6cyc0" not-null="true" />
+        <property name="component6cycle1" type="short" column="cmp6cyc1" not-null="true" />
+        <property name="component6cycle2" type="short" column="cmp6cyc2" not-null="true" />
+        <property name="component7cycle0" type="short" column="cmp7cyc0" not-null="true" />
+        <property name="component7cycle1" type="short" column="cmp7cyc1" not-null="true" />
+        <property name="component7cycle2" type="short" column="cmp7cyc2" not-null="true" />
+        <property name="component8cycle0" type="short" column="cmp8cyc0" not-null="true" />
+        <property name="component8cycle1" type="short" column="cmp8cyc1" not-null="true" />
+        <property name="component8cycle2" type="short" column="cmp8cyc2" not-null="true" />
+        <property name="component9cycle0" type="short" column="cmp9cyc0" not-null="true" />
+        <property name="component9cycle1" type="short" column="cmp9cyc1" not-null="true" />
+        <property name="component9cycle2" type="short" column="cmp9cyc2" not-null="true" />
+        <property name="flags" type="string" column="pioflags" length="8" not-null="true" />
+        
+        <set name="delinquencyProfiles" inverse="true" lazy="extra">
+            <key>
+                <column name="chrgprfid" length="10" not-null="true" />
+                <column name="dbpriosetid" not-null="true" />
+                <column name="inst_id" not-null="true" />
+            </key>
+            <one-to-many class="com.metavante.cortex.domain.ccs.delinquency.basic.BasicDelinquencyProfile" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
 
-	<class name="com.nomadsoft.cortex.domain.common.basic.BasicCycle"
-		entity-name="com.nomadsoft.cortex.domain.common.Cycle" table="cycledet"
+	<class name="com.fis.cortex.domain.core.common.basic.BasicCycle"
+		entity-name="com.fis.cortex.domain.core.common.Cycle" table="cycledet"
 		dynamic-update="true" optimistic-lock="version">
 
 		<id name="id" type="long">
 			<column name="id" />
 			<generator class="${id.generator.class}">
-				<param name="sequence">${cycledet_id.generator.sequence}</param>
+				<param name="sequence_name">${cycledet_id.generator.sequence}</param>
 			</generator>
 		</id>
 
@@ -25,11 +25,9 @@
 		<property name="cycleBegin" column="cycle_begin" not-null="true"
 			type="short" access="field" />
 
-		<property name="institutionId" column="inst_id" insert="false" update="false" type="long" access="field" />
-
 		<many-to-one name="institution"
-			class="com.nomadsoft.cortex.domain.institution.Institution"  column="inst_id"
-			 lazy="proxy" fetch="select" not-found="ignore" cascade="none" access="field"/>
+			class="com.fis.cortex.domain.core.institution.Institution" column="instcode"
+			 lazy="proxy" fetch="select" cascade="none" access="field"/>
 
 		<filter name="noCTX0" />
 

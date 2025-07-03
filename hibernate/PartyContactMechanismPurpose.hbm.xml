@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class
+		name="com.fis.cortex.party.domain.purpose.basic.BasicPartyContactMechanismPurpose"
+		entity-name="com.fis.cortex.party.domain.purpose.PartyContactMechanismPurpose" table="PRT_PCMP" dynamic-update="true">
+		<composite-id name="id" class="com.fis.cortex.party.domain.purpose.basic.PartyContactMechanismPurposeId">
+		  <key-many-to-one name="contactMechanismPurposeType" column="PRT_CMPT_ID" class="com.fis.cortex.party.domain.purpose.ContactMechanismPurposeType"/>
+		  <key-many-to-one name="partyContactMechanism" class="com.fis.cortex.party.domain.partycontactmechanism.PartyContactMechanism">
+	          <column name="PRT_PARTY_ID"></column>
+	          <column name="PRT_PRT_ID"></column>
+	          <column name="PRT_CM_ID"></column>
+	          <column name="PRT_CMT_ID"></column>
+	          <column name="PRT_PCM_FROM_DATE"></column>		  
+		  </key-many-to-one>
+		  <key-property name="fromDate" column="FROM_DATE" />
+		  <key-property name="usageTypeId" column="USAGE_TYPE_ID"/>
+		</composite-id>
+		<version name="versionNumber" column="VERNO_CTX" access="field" />
+
+
+		<property name="untilDate" column="UNTIL_DATE" />
+		<bag name="partyContactMechanismPurposeMediaList" access="field" table="PRT_PCMP_MEDIA" cascade="all,delete-orphan" inverse="true">
+          <key>
+            <column name="PRT_CMPT_ID" />
+            <column name="PRT_PARTY_ID" />
+            <column name="PRT_PRT_ID" />
+            <column name="PRT_CM_ID" />
+            <column name="PRT_CMT_ID" />
+            <column name="PRT_PCM_FROM_DATE" />
+            <column name="PRT_PCMP_FROM_DATE" />
+            <column name="MEDIATYPE_ID" />
+          </key>
+          <one-to-many class="com.fis.cortex.party.domain.media.PartyContactMechanismPurposeMedia" /> 		  
+		</bag> 
+	</class>
+</hibernate-mapping>

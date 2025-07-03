@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping">
+
+<hibernate-mapping>
+    <class name="com.metavante.cortex.domain.ccs.creditaccountitem.basic.BasicCreditAccountCreditItemLog" table="ccscritemlog"
+    optimistic-lock="version">
+        <id name="itemId" type="long">
+            <column name="item_id" />
+            <generator class="assigned" />
+        </id>
+
+	    <version name="versionNumber" column="verno_ctx" access="field"/> 
+
+        <component name="amount" class="com.metavante.cortex.domain.money.Money">
+	    	<property name="amount" column="amount" not-null="true" access="field"/>
+	    	<many-to-one name="currency" class="com.metavante.cortex.domain.money.Currency"
+	    		cascade="none" access="field" insert="false" update="false" fetch="select" lazy="proxy">
+	    		<column name="currcode"/>
+	    	</many-to-one>
+	    </component>
+
+		<many-to-one name="currency" class="com.metavante.cortex.domain.money.Currency"
+	    	column="currcode" access="field" fetch="select" lazy="proxy"/>
+
+        <component name="current0BalanceComponent" class="com.metavante.cortex.domain.money.Money">
+	    	<property name="amount" column="cmp0bal" not-null="true" access="field"/>
+	    	<many-to-one name="currency" class="com.metavante.cortex.domain.money.Currency"
+	    		cascade="none" access="field" insert="false" update="false" fetch="select" lazy="proxy">
+	    		<column name="currcode"/>
+	    	</many-to-one>
+	    </component>
+        <component name="current1BalanceComponent" class="com.metavante.cortex.domain.money.Money">
+	    	<property name="amount" column="cmp1bal" not-null="true" access="field"/>
+	    	<many-to-one name="currency" class="com.metavante.cortex.domain.money.Currency"
+	    		cascade="none" access="field" insert="false" update="false" fetch="select" lazy="proxy">
+	    		<column name="currcode"/>
+	    	</many-to-one>
+	    </component>
+        <component name="current2BalanceComponent" class="com.metavante.cortex.domain.money.Money">
+	    	<property name="amount" column="cmp2bal" not-null="true" access="field"/>
+	    	<many-to-one name="currency" class="com.metavante.cortex.domain.money.Currency"
+	    		cascade="none" access="field" insert="false" update="false" fetch="select" lazy="proxy">
+	    		<column name="currcode"/>
+	    	</many-to-one>
+	    </component>
+        <component name="current3BalanceComponent" class="com.metavante.cortex.domain.money.Money">
+	    	<property name="amount" column="cmp3bal" not-null="true" access="field"/>
+	    	<many-to-one name="currency" class="com.metavante.cortex.domain.money.Currency"
+	    		cascade="none" access="field" insert="false" update="false" fetch="select" lazy="proxy">
+	    		<column name="currcode"/>
+	    	</many-to-one>
+	    </component>
+        <component name="current4BalanceComponent" class="com.metavante.cortex.domain.money.Money">
+	    	<property name="amount" column="cmp4bal" not-null="true" access="field"/>
+	    	<many-to-one name="currency" class="com.metavante.cortex.domain.money.Currency"
+	    		cascade="none" access="field" insert="false" update="false" fetch="select" lazy="proxy">
+	    		<column name="currcode"/>
+	    	</many-to-one>
+	    </component>
+        <component name="current5BalanceComponent" class="com.metavante.cortex.domain.money.Money">
+	    	<property name="amount" column="cmp5bal" not-null="true" access="field"/>
+	    	<many-to-one name="currency" class="com.metavante.cortex.domain.money.Currency"
+	    		cascade="none" access="field" insert="false" update="false" fetch="select" lazy="proxy">
+	    		<column name="currcode"/>
+	    	</many-to-one>
+	    </component>
+        <component name="current6BalanceComponent" class="com.metavante.cortex.domain.money.Money">
+	    	<property name="amount" column="cmp6bal" not-null="true" access="field"/>
+	    	<many-to-one name="currency" class="com.metavante.cortex.domain.money.Currency"
+	    		cascade="none" access="field" insert="false" update="false" fetch="select" lazy="proxy">
+	    		<column name="currcode"/>
+	    	</many-to-one>
+	    </component>
+        <component name="current7BalanceComponent" class="com.metavante.cortex.domain.money.Money">
+	    	<property name="amount" column="cmp7bal" not-null="true" access="field"/>
+	    	<many-to-one name="currency" class="com.metavante.cortex.domain.money.Currency"
+	    		cascade="none" access="field" insert="false" update="false" fetch="select" lazy="proxy">
+	    		<column name="currcode"/>
+	    	</many-to-one>
+	    </component>
+        <component name="current8BalanceComponent" class="com.metavante.cortex.domain.money.Money">
+	    	<property name="amount" column="cmp8bal" not-null="true" access="field"/>
+	    	<many-to-one name="currency" class="com.metavante.cortex.domain.money.Currency"
+	    		cascade="none" access="field" insert="false" update="false" fetch="select" lazy="proxy">
+	    		<column name="currcode"/>
+	    	</many-to-one>
+	    </component>
+        <component name="current9BalanceComponent" class="com.metavante.cortex.domain.money.Money">
+	    	<property name="amount" column="cmp9bal" not-null="true" access="field"/>
+	    	<many-to-one name="currency" class="com.metavante.cortex.domain.money.Currency"
+	    		cascade="none" access="field" insert="false" update="false" fetch="select" lazy="proxy">
+	    		<column name="currcode"/>
+	    	</many-to-one>
+	    </component>
+        <component name="surplus" class="com.metavante.cortex.domain.money.Money">
+	    	<property name="amount" column="surplus" not-null="true" access="field"/>
+	    	<many-to-one name="currency" class="com.metavante.cortex.domain.money.Currency"
+	    		cascade="none" access="field" insert="false" update="false" fetch="select" lazy="proxy">
+	    		<column name="currcode"/>
+	    	</many-to-one>
+	    </component>
+        <component name="debitPaymentBalanceComponent" class="com.metavante.cortex.domain.money.Money">
+	    	<property name="amount" column="bal_debit_pay" not-null="true" access="field"/>
+	    	<many-to-one name="currency" class="com.metavante.cortex.domain.money.Currency"
+	    		cascade="none" access="field" insert="false" update="false" fetch="select" lazy="proxy">
+	    		<column name="currcode"/>
+	    	</many-to-one>
+	    </component>
+        <component name="minimumPayment" class="com.metavante.cortex.domain.money.Money">
+	    	<property name="amount" column="minpay" not-null="true" access="field"/>
+	    	<many-to-one name="currency" class="com.metavante.cortex.domain.money.Currency"
+	    		cascade="none" access="field" insert="false" update="false" fetch="select" lazy="proxy">
+	    		<column name="currcode"/>
+	    	</many-to-one>
+	    </component>
+        <component name="notDueSurplus" class="com.metavante.cortex.domain.money.Money">
+	    	<property name="amount" column="surplusnd" not-null="true" access="field"/>
+	    	<many-to-one name="currency" class="com.metavante.cortex.domain.money.Currency"
+	    		cascade="none" access="field" insert="false" update="false" fetch="select" lazy="proxy">
+	    		<column name="currcode"/>
+	    	</many-to-one>
+	    </component>
+        <component name="notDueDebitPaymentBalanceComponent" class="com.metavante.cortex.domain.money.Money">
+	    	<property name="amount" column="bal_debit_paynd" not-null="true" access="field"/>
+	    	<many-to-one name="currency" class="com.metavante.cortex.domain.money.Currency"
+	    		cascade="none" access="field" insert="false" update="false" fetch="select" lazy="proxy">
+	    		<column name="currcode"/>
+	    	</many-to-one>
+	    </component>
+        <component name="dueSurplus" class="com.metavante.cortex.domain.money.Money">
+            <property name="amount" column="surplusdue" access="field"/>
+	    	<many-to-one name="currency" class="com.metavante.cortex.domain.money.Currency"
+	    		cascade="none" access="field" insert="false" update="false" fetch="select" lazy="proxy">
+	    		<column name="currcode"/>
+	    	</many-to-one>
+        </component>	
+    </class>
+</hibernate-mapping>

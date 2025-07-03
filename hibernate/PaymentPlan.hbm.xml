@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping">
+
+<hibernate-mapping>
+	<class name="com.metavante.cortex.domain.ccs.paymentplan.basic.BasicPaymentPlan" table="ccspayplan"
+		dynamic-update="true" dynamic-insert="true">
+         <id name="id" type="int">
+           <column name="ppid" />
+            <generator class="native">
+              <param name="sequence_name">${ccspayplan_id.generator.sequence}</param>
+            </generator>
+          </id>
+		<many-to-one name="institution" class="com.fis.cortex.domain.core.institution.Institution" column="inst_id" access="field" fetch="select" lazy="proxy"/>      
+		<property name="paymentPlanSetId" column="ppsetid" type="long"/>
+		<property name="numberOfInstalments" column="numinst"  type="int" />
+        <property name="status" column="status"  type="short" />
+	    <property name="expiryDate" column="expdate" type="date"/>
+        <property name="basisForInterestRate" column="ratebasis" type="char"/>
+        <property name="interestRate" column="intrate" type="big_decimal"  />
+	
+        <property name="componentCode" column="instcompcode"  type="short" />
+        <property name="itemComponentCode" column="itmcmpcode" type="short" />
+        <property name="lastInstalmentDate" column="datelstinst" type="date"/>
+        <property name="paymentPlanSource" column="ppsrc" type="short"/>
+        <property name="userId" column="usr" type="string" length="15" />
+        <property name="creationDate" column="creationdate"  type="date" />
+        <property name="description" column="descr"  type="string" length="128"/>
+        <property name="transactionId" column="txn_id" type="long"/>
+        <property name="accepterInstitutionId" column="aiid" type="string" length="11"/>
+        <property name="retrievalReferenceNumber" column="rrn" type="string" length="12" />
+        <property name="transactionCode" column="txncode"  type="short" />
+        <property name="billingAmount" column="amtbill"  type="big_decimal"/>
+        <property name="pan" column="pan" type="string" length="19" not-null="true"/>
+        <property name="displayPan" type="string" column="pan_display" length="19" />
+        <property name="cardSequenceNumber" type="short">
+            <column name="seqno" not-null="true" default="0"/>
+        </property>
+        <property name="nextInstallment" column="nxtinstalment" type="big_decimal"/>
+        <property name="lastInstallment" column="lstinstalment" type="big_decimal" />
+        <property name="installmentInterest" column="instinterest"  type="big_decimal"/>
+        <property name="lastInstallmentInterest" column="lstinstinterest" type="big_decimal"/>
+        <property name="remainingInstallments" column="remnuminst" type="int"/>
+        <property name="initialisationSystemDate" column="initdate" type="date"/>
+        <property name="planAmount" column="amtplan" type="big_decimal" />
+        <property name="localDate" column="dateLocal"  type="date"/>
+        <property name="cardAcceptorLocation" column="crdacptloc" type="string" length="64"/>
+        <property name="cardAcceptorBusinessCode" column="crdacptbus" type="short"/>
+        <property name="lastInstalmentDueDate" column="lstinstdate" type="date"/>
+        <property name="instalmentChargeCalcMethod" column="instchrgcalcmthd" type="short"/>
+        <property name="cancellationDate" column="cncldate" type="date"/> 
+
+        <component name="transactionAmount" class="com.metavante.cortex.domain.money.Money">
+            <property name="amount" column="amttxn" access="field"/>
+            <many-to-one name="currency" class="com.metavante.cortex.domain.money.Currency"
+                        cascade="none" access="field" fetch="select" lazy="proxy">
+                <column name="curtxn"/>
+            </many-to-one>
+        </component>
+		
+		<!-- one-to-one name="creditAccount" cascade="save-update" 
+                    class="com.metavante.cortex.domain.ccs.creditaccount.basic.BasicCreditAccount" /-->
+	    
+	    <many-to-one name="creditAccount" class="com.metavante.cortex.domain.ccs.creditaccount.basic.BasicCreditAccount"
+                    update="true" insert="true" fetch="select" not-found="ignore">
+            <column name="acc_id" not-null="true" />
+        </many-to-one>
+        
+        <!-- one-to-one name="creditAccountItem" cascade="save-update" 
+                    class="com.metavante.cortex.domain.ccs.creditaccount.basic.BasicCreditAccount" /-->
+                    
+        <many-to-one name="creditAccountItem" class="com.metavante.cortex.domain.ccs.creditaccountitem.basic.BasicCreditAccountItem"
+                    update="true" insert="true" fetch="select" not-found="ignore">
+            <column name="item_id" default="0" />
+        </many-to-one>
+           
+        <many-to-one name="autoPaymentPlan" class="com.metavante.cortex.domain.ccs.paymentplan.AutoPaymentPlan"
+                    fetch="select" not-found="ignore">
+            <column name="CCSAPPRULE_ID" default="0" />
+        </many-to-one>   
+	</class>
+</hibernate-mapping>

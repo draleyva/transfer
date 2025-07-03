@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.fis.mkc.domain.model.basic.BasicJobAuthorization"
+		entity-name="com.fis.mkc.domain.model.JobAuthorization"
+		dynamic-update="true" optimistic-lock="version" table="MKC_JOB_AUTH">
+		
+		<id name="id" type="java.lang.Long">
+			<column name="ID" />
+			<generator class="native">
+				<param name="sequence_name">MKC_JOB_AUTH_SEQUENCE</param>
+			</generator>
+		</id>
+		
+		<version name="versionNumber" column="VERNO_CTX" access="field" />
+		
+		<property name="recId" type="java.lang.String">
+			<column name="REC_ID" length="128" />
+		</property>
+		
+		<property name="jobType" type="JobType">
+			<column name="TYPE" precision="5" scale="0" not-null="true" />
+		</property>
+		
+		<property name="checkDateTime" type="java.util.Date">
+			<column name="CHKDATETIME" length="7" />
+		</property>
+		
+		<property name="eventDateTime" type="java.util.Date">
+			<column name="EVDATETIME" length="7" not-null="true" />
+		</property>
+		
+		<property name="currentAuthStatus" type="AuthStatusType">
+			<column name="CUR_STAT_ID" length="5" not-null="true" />
+		</property>
+		
+		<property name="checkerComment" type="java.lang.String">
+			<column name="CHK_COMMENT" sql-type="CLOB" />
+		</property>
+		
+		<property name="instId" type="java.lang.String" insert="false" update="false">
+			<column name="INST_ID" length="10" />
+		</property>
+		
+		<many-to-one name="maker" not-found="ignore"
+			entity-name="com.fis.mkc.domain.model.User">
+			<column name="MAKER_ID" length="10" />
+			<formula>SOURCE_ID</formula>
+		</many-to-one>
+		
+		<many-to-one name="checker" not-found="ignore"
+			entity-name="com.fis.mkc.domain.model.User">
+			<column name="CHECKER_ID" length="10" />
+			<formula>SOURCE_ID</formula>
+		</many-to-one>
+		
+		<many-to-one name="action"
+			entity-name="com.fis.mkc.domain.model.Action">
+			<column name="ACTION_ID" length="10" />
+			<formula>SOURCE_ID</formula>
+		</many-to-one>
+		
+		<many-to-one name="location"
+			entity-name="com.fis.mkc.domain.model.Location">
+			<column name="LOC_ID" length="10" />
+			<formula>SOURCE_ID</formula>
+		</many-to-one>
+		
+		<many-to-one name="institution"
+			entity-name="com.fis.mkc.domain.model.Institution">
+			<column name="INST_ID" length="10" />
+			<formula>SOURCE_ID</formula>
+		</many-to-one>
+		
+		<many-to-one name="source"
+			entity-name="com.fis.mkc.domain.model.Source">
+			<column name="SOURCE_ID" />
+		</many-to-one>
+		
+        <set name="authStatusHistories" inverse="false" lazy="true"
+            cascade="save-update" table="MKC_AUTH_STAT_H">
+            <key>
+                <column name="JOB_AUTH_ID" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many 
+                entity-name="com.fis.mkc.domain.model.AuthStatusHistory" />
+        </set>
+
+		<set name="authDatas" inverse="true" table="MKC_AUTH_DATA" cascade="all">
+			<key>
+				<column name="JOB_AUTH_ID" />
+			</key>
+			<one-to-many 
+				entity-name="com.fis.mkc.domain.model.AuthData" />
+		</set>
+		
+	</class>
+</hibernate-mapping>

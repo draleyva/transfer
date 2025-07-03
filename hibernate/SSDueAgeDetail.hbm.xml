@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping">
+<!-- Generated 2006-09-22 12:27:04 by Hibernate Tools 3.2.0.beta7 -->
+<hibernate-mapping>
+	<class name="com.metavante.cortex.domain.ccs.due.basic.BasicSSDueAgeDetail" table="ccsdueagedetsnp">
+        <composite-id name="id" class="com.metavante.cortex.identities.SSCreditAccountId">
+            <key-property name="accountId" type="long">
+                <column name="acc_id" />
+            </key-property>
+	        <key-property name="dateCycleEnd" type="date">
+	            <column name="snapdate" />
+	        </key-property>
+        </composite-id>       
+        <property name="payByDate0" type="date">
+            <column name="paybydate0" length="4" />
+        </property>
+        <property name="payByDate1" type="date">
+            <column name="paybydate1" length="4" />
+        </property>
+        <property name="payByDate2" type="date">
+            <column name="paybydate2" length="4" />
+        </property>
+        <property name="payByDate3" type="date">
+            <column name="paybydate3" length="4" />
+        </property>
+        <property name="payByDate4" type="date">
+            <column name="paybydate4" length="4" />
+        </property>
+        <property name="payByDate5" type="date">
+            <column name="paybydate5" length="4" />
+        </property>
+        <property name="payByDate6" type="date">
+            <column name="paybydate6" length="4" />
+        </property>
+        <property name="amountOverLimitCycle0" type="big_decimal">
+            <column name="amtovlimcyc0" precision="8" scale="15" />
+        </property>
+        <property name="amountOverLimitCycle1" type="big_decimal">
+            <column name="amtovlimcyc1" precision="8" scale="15" />
+        </property>
+        <property name="amountOverLimitCycle2" type="big_decimal">
+            <column name="amtovlimcyc2" precision="8" scale="15" />
+        </property>
+        <property name="amountOverLimitCycle3" type="big_decimal">
+            <column name="amtovlimcyc3" precision="8" scale="15" />
+        </property>
+        <property name="amountOverLimitCycle4" type="big_decimal">
+            <column name="amtovlimcyc4" precision="8" scale="15" />
+        </property>
+        <property name="amountOverLimitCycle5" type="big_decimal">
+            <column name="amtovlimcyc5" precision="8" scale="15" />
+        </property>
+        <property name="amountOverLimitCycle6" type="big_decimal">
+            <column name="amtovlimcyc6" precision="8" scale="15" />
+        </property>
+        <property name="totalAmountDueFromCycle0" type="big_decimal">
+            <column name="amttotal0" precision="8" scale="15" />
+        </property>
+        <property name="totalAmountDueFromCycle1" type="big_decimal">
+            <column name="amttotal1" precision="8" scale="15" />
+        </property>
+        <property name="totalAmountDueFromCycle2" type="big_decimal">
+            <column name="amttotal2" precision="8" scale="15" />
+        </property>
+        <property name="totalAmountDueFromCycle3" type="big_decimal">
+            <column name="amttotal3" precision="8" scale="15" />
+        </property>
+        <property name="totalAmountDueFromCycle4" type="big_decimal">
+            <column name="amttotal4" precision="8" scale="15" />
+        </property>
+        <property name="totalAmountDueFromCycle5" type="big_decimal">
+            <column name="amttotal5" precision="8" scale="15" />
+        </property>
+        <property name="totalAmountDueFromCycle6" type="big_decimal">
+            <column name="amttotal6" precision="8" scale="15" />
+        </property>
+        <property name="dueDate0" type="date">
+            <column name="duedate0" length="4" />
+        </property>
+        <property name="dueDate1" type="date">
+            <column name="duedate1" length="4" />
+        </property>      
+        <property name="dueDate2" type="date">
+            <column name="duedate2" length="4" />
+        </property>
+        <property name="dueDate3" type="date">
+            <column name="duedate3" length="4" />
+        </property>
+        <property name="dueDate4" type="date">
+            <column name="duedate4" length="4" />
+        </property>
+        <property name="dueDate5" type="date">
+            <column name="duedate5" length="4" />
+        </property>
+        <property name="dueDate6" type="date">
+            <column name="duedate6" length="4" />
+        </property>
+        <!--Do not need a two relationship here 
+        <many-to-one name="ccsaccdet" class="com.nomadsoft.cortex.domain.creditaccount.basic.BasicSSCreditAccount" 
+                    update="false" insert="false" fetch="select">
+            <column name="acc_id" not-null="true"/>
+           	<column name="snapdate" not-null="true"/>
+        </many-to-one>	
+        -->
+        
+    </class>
+</hibernate-mapping>

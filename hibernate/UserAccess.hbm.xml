@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.fis.mkc.domain.model.basic.BasicMkcUserAccess" entity-name="com.fis.mkc.domain.model.MkcUserAccess"
+		table="MKC_USER_ACCESS" dynamic-update="true" optimistic-lock="version">
+
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="native">
+				<param name="sequence">mkc_user_access_sequence</param>
+			</generator>
+		</id>
+
+		<version name="versionNumber" column="verno_ctx" generated="always" access="field" />
+
+		<many-to-one name="user" entity-name="com.fis.mkc.domain.model.User">
+			<column name="USER_ID" />
+			<formula>SOURCE_ID</formula>
+		</many-to-one>
+
+
+		<many-to-one name="source" entity-name="com.fis.mkc.domain.model.Source">
+			<column name="SOURCE_ID" />
+		</many-to-one>
+
+		<property name="lastLoginDate" type="java.util.Date">
+			<column name="last_log_date" />
+		</property>
+	</class>
+</hibernate-mapping>

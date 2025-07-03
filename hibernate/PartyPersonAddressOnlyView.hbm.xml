@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping">
+
+<hibernate-mapping>
+
+	<class
+		name="com.fis.cortex.crdbase.domain.contactmechanism.basic.BasicPartyPersonAddressOnly"
+		entity-name="com.fis.cortex.crdbase.domain.contactmechanism.PartyPersonAddressOnly"
+		table="l_vw_person_p_address_only" mutable="false">
+
+		<composite-id>
+			<key-property name="countryISOCode" column="COUNTRY_ISOCODE"
+				type="string" access="field" />
+			<key-property name="postalCode" column="POSTAL_CODE"
+				type="string" access="field" />
+			<key-property name="city" column="CITY" type="string"
+				access="field" />
+			<key-property name="addressLine1" type="string" column="ADDRESS_1"
+				access="field" />
+			<key-property name="partyContactMechanismTypeId" type="int"
+				column="CM_TYPE_ID" access="field" />
+			<key-property name="partyTypeId" type="int" column="PARTY_TYPE_ID"
+				access="field" />
+			<key-property name="contactMechanismPurposeFromDate"
+				type="date" column="PCM_F_DATE" access="field" />
+			<key-property name="contactMechanismPurposeUntilDate"
+				type="date" column="PCM_U_DATE" access="field" />
+			<key-property name="customerId" type="long" column="CUSTDET_ID"
+				access="field" />
+		</composite-id>
+
+		<property name="mediaTypeId" column="MEDIATYPE_ID" type="int"
+			access="field" not-null="false" />
+		<property name="mediaId" column="MEDIA_ID" type="long"
+			access="field" not-null="false"/>
+		<property name="addressLine2" type="string" column="ADDRESS_2"
+			access="field" not-null="false" />
+		<property name="addressLine3" type="string" column="ADDRESS_3"
+			access="field" not-null="false" />
+		<property name="addressLine4" type="string" column="ADDRESS_4"
+			access="field" not-null="false"/>
+		<property name="addressLine5" type="string" column="ADDRESS_5"
+			access="field" not-null="false"/>
+		<property name="province" type="string" column="PROVINCE"
+			access="field" not-null="false"/>
+		<property name="cortexTerritory" type="string" column="CTXTERRITORY"
+			access="field" not-null="false"/>
+		<property name="cortexState" type="string" column="CTXSTATE"
+			access="field" not-null="false"/>
+		<property name="county" type="string" column="COUNTY"
+			access="field" not-null="false"/>
+		<property name="region" type="string" column="REGION" access="field" 
+			not-null="false"/>
+		<property name="contactMechanismPurposeType" type="int"
+			column="CM_PURPOSE_TYPE_ID" access="field" 
+			not-null="false" />
+		<property name="customerLevelPurposeFromDate" type="date"
+			column="PCMP_F_DATE" access="field" not-null="false" />
+		<property name="customerLevelPurposeUntilDate" type="date"
+			column="PCMP_U_DATE" access="field" not-null="false" />
+		<property name="customerLevelPurposeUsageType" type="int"
+			column="PCMP_USAGE_TYPE" access="field" 
+			not-null="false" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping">
+
+<hibernate-mapping>
+    <class name="com.fis.cortex.crdbase.domain.evlog.basic.BasicEvlog" 
+    entity-name="com.fis.cortex.crdbase.domain.evlog.Evlog" table="evlog" lazy="true" dynamic-update="true" optimistic-lock="version">
+	
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="${id.generator.class}">
+				<param name="sequence_name">${evlog_id.generator.sequence}</param>
+			</generator>
+		</id>
+
+		<version name="versionNumber" column="verno_ctx" generated="always"
+			access="field" />
+
+		<property name="event" column="event" not-null="true"
+			type="string" length="12" access="field" />
+		<property name="fmodule" column="fmodule" not-null="true"
+			type="string" length="2" access="field" />
+		<property name="fprg" column="fprg" not-null="true"
+			type="string" length="8" access="field" />
+    	<property name="fdate" column="fdate" type="date" not-null="true" />
+    	<property name="ftime" column="ftime" type="long" not-null="true" />
+    	<property name="evdata" column="evdata" type="string" length="126" not-null="true" />
+    	<property name="ackdate" column="ackdate" type="date" not-null="true" />
+    	<property name="acktime" column="acktime" type="long" not-null="true" />
+		<property name="ackusr" column="ackusr" not-null="true"
+			type="string" length="32" access="field" />
+		<property name="ackdescr" column="ackdescr" not-null="true"
+			type="string" length="50" access="field" />
+    	
+	</class>
+</hibernate-mapping>

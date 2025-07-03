@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping">
+
+<hibernate-mapping>
+
+	<class
+		name="com.fis.cortex.crdbase.domain.card.basic.BasicCardStatusTransaction"
+		entity-name="com.fis.cortex.crdbase.domain.card.CardStatusTransaction"
+		table="crdstatustrans" dynamic-update="true" optimistic-lock="version">
+		<id name="id" type="long" length="10">
+			<column name="id" />
+			<generator class="native">
+				<param name="sequence_name">${crdstatustrans_id.generator.sequence}</param>
+			</generator>
+		</id>
+		<version name="versionNumber" column="verno_ctx" generated="always"
+			access="field" />
+
+		<many-to-one name="cardStatustransactionSet"
+			class="com.fis.cortex.crdbase.domain.card.CardStatusTransactionSet"
+			column="CRDSTATUSTRANSSET_ID" cascade="none" access="field"
+			fetch="select" lazy="proxy" not-null="true" />
+
+		<property name="statuscodeFrom" column="STATCODE_FROM" type="string"
+			not-null="true" access="field" />
+
+		<property name="statuscodeTo" column="STATCODE_TO" type="string"
+			not-null="true" access="field" />
+
+		<property name="description" column="DESCR" type="string"
+			length="30" not-null="true" access="field" />
+
+	</class>
+
+</hibernate-mapping>

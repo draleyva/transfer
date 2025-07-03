@@ -1,0 +1,260 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping">
+<!-- Generated 2006-09-22 12:27:04 by Hibernate Tools 3.2.0.beta7 -->
+<hibernate-mapping>
+	<class name="com.metavante.cortex.domain.ccs.due.basic.BasicSSDueAgeComponent" table="ccsdueagecmpsnp">
+        <composite-id name="id" class="com.metavante.cortex.identities.SSCreditAccountId">
+            <key-property name="accountId" type="long">
+                <column name="acc_id" />
+            </key-property>
+	        <key-property name="dateCycleEnd" type="date">
+	            <column name="snapdate" />
+	        </key-property>
+        </composite-id>
+        <many-to-one name="ccsaccdet" class="com.metavante.cortex.domain.ccs.creditaccount.basic.BasicSSCreditAccount" 
+                    update="false" insert="false" fetch="select" lazy="proxy">
+            <column name="acc_id" not-null="true" />
+            <column name="snapdate" not-null="true" />            
+        </many-to-one>
+        <component name="cycleComponent0" class="com.metavante.cortex.domain.ccs.due.basic.BasicCycleComponent">     
+            <property name="cycle0" type="big_decimal">
+                <column name="cycle0cmp0" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle1" type="big_decimal">
+                <column name="cycle1cmp0" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle2" type="big_decimal">
+                <column name="cycle2cmp0" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle3" type="big_decimal">
+                <column name="cycle3cmp0" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle4" type="big_decimal">
+                <column name="cycle4cmp0" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle5" type="big_decimal">
+                <column name="cycle5cmp0" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle6" type="big_decimal">
+                <column name="cycle6cmp0" precision="8" scale="15" not-null="true" />
+            </property>
+        </component>
+   
+        <component name="cycleComponent1" class="com.metavante.cortex.domain.ccs.due.basic.BasicCycleComponent">     
+            <property name="cycle0" type="big_decimal">
+                <column name="cycle0cmp1" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle1" type="big_decimal">
+                <column name="cycle1cmp1" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle2" type="big_decimal">
+                <column name="cycle2cmp1" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle3" type="big_decimal">
+                <column name="cycle3cmp1" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle4" type="big_decimal">
+                <column name="cycle4cmp1" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle5" type="big_decimal">
+                <column name="cycle5cmp1" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle6" type="big_decimal">
+                <column name="cycle6cmp1" precision="8" scale="15" not-null="true" />
+            </property>
+        </component>
+
+        <component name="cycleComponent2" class="com.metavante.cortex.domain.ccs.due.basic.BasicCycleComponent">     
+            <property name="cycle0" type="big_decimal">
+                <column name="cycle0cmp2" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle1" type="big_decimal">
+                <column name="cycle1cmp2" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle2" type="big_decimal">
+                <column name="cycle2cmp2" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle3" type="big_decimal">
+                <column name="cycle3cmp2" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle4" type="big_decimal">
+                <column name="cycle4cmp2" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle5" type="big_decimal">
+                <column name="cycle5cmp2" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle6" type="big_decimal">
+                <column name="cycle6cmp2" precision="8" scale="15" not-null="true" />
+            </property>
+        </component>
+   
+        <component name="cycleComponent3" class="com.metavante.cortex.domain.ccs.due.basic.BasicCycleComponent">     
+            <property name="cycle0" type="big_decimal">
+                <column name="cycle0cmp3" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle1" type="big_decimal">
+                <column name="cycle1cmp3" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle2" type="big_decimal">
+                <column name="cycle2cmp3" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle3" type="big_decimal">
+                <column name="cycle3cmp3" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle4" type="big_decimal">
+                <column name="cycle4cmp3" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle5" type="big_decimal">
+                <column name="cycle5cmp3" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle6" type="big_decimal">
+                <column name="cycle6cmp3" precision="8" scale="15" not-null="true" />
+            </property>
+        </component>
+
+        <component name="cycleComponent4" class="com.metavante.cortex.domain.ccs.due.basic.BasicCycleComponent">     
+            <property name="cycle0" type="big_decimal">
+                <column name="cycle0cmp4" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle1" type="big_decimal">
+                <column name="cycle1cmp4" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle2" type="big_decimal">
+                <column name="cycle2cmp4" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle3" type="big_decimal">
+                <column name="cycle3cmp4" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle4" type="big_decimal">
+                <column name="cycle4cmp4" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle5" type="big_decimal">
+                <column name="cycle5cmp4" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle6" type="big_decimal">
+                <column name="cycle6cmp4" precision="8" scale="15" not-null="true" />
+            </property>
+        </component>
+   
+        <component name="cycleComponent5" class="com.metavante.cortex.domain.ccs.due.basic.BasicCycleComponent">     
+            <property name="cycle0" type="big_decimal">
+                <column name="cycle0cmp5" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle1" type="big_decimal">
+                <column name="cycle1cmp5" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle2" type="big_decimal">
+                <column name="cycle2cmp5" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle3" type="big_decimal">
+                <column name="cycle3cmp5" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle4" type="big_decimal">
+                <column name="cycle4cmp5" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle5" type="big_decimal">
+                <column name="cycle5cmp5" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle6" type="big_decimal">
+                <column name="cycle6cmp5" precision="8" scale="15" not-null="true" />
+            </property>
+        </component>
+   
+        <component name="cycleComponent6" class="com.metavante.cortex.domain.ccs.due.basic.BasicCycleComponent">     
+            <property name="cycle0" type="big_decimal">
+                <column name="cycle0cmp6" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle1" type="big_decimal">
+                <column name="cycle1cmp6" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle2" type="big_decimal">
+                <column name="cycle2cmp6" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle3" type="big_decimal">
+                <column name="cycle3cmp6" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle4" type="big_decimal">
+                <column name="cycle4cmp6" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle5" type="big_decimal">
+                <column name="cycle5cmp6" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle6" type="big_decimal">
+                <column name="cycle6cmp6" precision="8" scale="15" not-null="true" />
+            </property>
+        </component>
+   
+        <component name="cycleComponent7" class="com.metavante.cortex.domain.ccs.due.basic.BasicCycleComponent">     
+            <property name="cycle0" type="big_decimal">
+                <column name="cycle0cmp7" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle1" type="big_decimal">
+                <column name="cycle1cmp7" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle2" type="big_decimal">
+                <column name="cycle2cmp7" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle3" type="big_decimal">
+                <column name="cycle3cmp7" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle4" type="big_decimal">
+                <column name="cycle4cmp7" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle5" type="big_decimal">
+                <column name="cycle5cmp7" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle6" type="big_decimal">
+                <column name="cycle6cmp7" precision="8" scale="15" not-null="true" />
+            </property>
+        </component>
+   
+        <component name="cycleComponent8" class="com.metavante.cortex.domain.ccs.due.basic.BasicCycleComponent">     
+            <property name="cycle0" type="big_decimal">
+                <column name="cycle0cmp8" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle1" type="big_decimal">
+                <column name="cycle1cmp8" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle2" type="big_decimal">
+                <column name="cycle2cmp8" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle3" type="big_decimal">
+                <column name="cycle3cmp8" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle4" type="big_decimal">
+                <column name="cycle4cmp8" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle5" type="big_decimal">
+                <column name="cycle5cmp8" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle6" type="big_decimal">
+                <column name="cycle6cmp8" precision="8" scale="15" not-null="true" />
+            </property>
+        </component>
+   
+        <component name="cycleComponent9" class="com.metavante.cortex.domain.ccs.due.basic.BasicCycleComponent">     
+            <property name="cycle0" type="big_decimal">
+                <column name="cycle0cmp9" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle1" type="big_decimal">
+                <column name="cycle1cmp9" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle2" type="big_decimal">
+                <column name="cycle2cmp9" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle3" type="big_decimal">
+                <column name="cycle3cmp9" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle4" type="big_decimal">
+                <column name="cycle4cmp9" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle5" type="big_decimal">
+                <column name="cycle5cmp9" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="cycle6" type="big_decimal">
+                <column name="cycle6cmp9" precision="8" scale="15" not-null="true" />
+            </property>
+        </component>
+    </class>
+</hibernate-mapping>

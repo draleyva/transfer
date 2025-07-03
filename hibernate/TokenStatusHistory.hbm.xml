@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.fis.cortex.model.des.domain.tknstatushist.basic.BasicTokenStatusHistory"
+		entity-name="com.fis.cortex.model.des.domain.tknstatushist.TokenStatusHistory" table="tknstatushist"
+		dynamic-update="true" optimistic-lock="version">
+		<cache usage="read-only" />
+
+		<id name="id" type="long" column="id" />
+		
+		<many-to-one name="token" class="com.fis.cortex.model.des.domain.token.Token" cascade="none" access="field" column="token_id" />
+		<property name="fromStatus" column="from_status" type="char" not-null="true" />
+		<property name="toStatus" column="to_status" type="char" not-null="true" />
+		<property name="byWhomId" column="bywhomid" type="string" length="50" />
+		<property name="byWhomName" column="byWhomName" type="string" length="200" />
+		<property name="whenDateTime" column="whendatetime" type="timestamp" not-null="true" />
+		<many-to-one name="comments" class="com.fis.cortex.model.des.domain.comments.Comments" cascade="none" access="field" column="comments_id" />
+
+	</class>
+
+</hibernate-mapping>

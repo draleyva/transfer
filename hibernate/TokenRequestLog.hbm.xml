@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.fis.cortex.model.des.domain.tknreqlog.basic.BasicTokenRequestLog"
+		entity-name="com.fis.cortex.model.des.domain.tknreqlog.TokenRequestLog" table="tknreqlog"
+		dynamic-update="true" optimistic-lock="version">
+		<cache usage="read-only" />
+		
+		<id name="id" type="long" column="id" />
+		
+		<property name="txncode" column="txncode" type="string" not-null="true" length="4" />
+		<property name="txnsubcode" column="txnsubcode" type="string" not-null="true" length="7" />
+		<property name="whenCreated" column="whencreated" type="timestamp" not-null="true" />
+		<property name="schemeId" column="schemeid" not-null="true" type="char" />
+		<property name="requestId" column="requestid" type="string" not-null="true" length="64" />
+		<property name="tlogId" column="tlog_id" type="long" />
+		<property name="pan" column="pan" type="string" length="19" />
+		<property name="vpan" column="vpan" type="string" length="19" />
+		<property name="panSuffix" column="pansuffix" type="string" length="4"/>
+		<property name="panur" column="panur" type="string" length="48" />
+		<property name="panSeqNo" column="panseqno" type="short" />
+		<property name="token" column="token" type="string" length="19" />
+		<property name="tknRequestorId" column="tknrequestorid" type="string" length="11" />
+		<property name="tur" column="tur" type="string" length="32" />
+		<property name="tknAsslevel" column="tknasslevel" type="short" />
+		<property name="walletId" column="walletid" type="string" length="3" />
+		<property name="xmitDateTime" column="xmitdatetime" type="timestamp" />
+		<property name="correlationId" column="correlationid" type="string" length="15" />
+		<property name="accountInd" column="accountind" type="char" />
+		<property name="storagetech" column="storagetech" type="string" length="2" />
+		<property name="stipReasonCode" column="stipreasoncode" type="short" />
+		<property name="panSource" column="pansource" type="string" length="2" />
+		<property name="appInstanceId" column="appinstanceid" type="string" length="48" />
+		<property name="activeTokens" column="activetokens" type="short" />
+		<property name="inactiveTokens" column="inactivetokens" type="short" />
+		<property name="suspendedTokens" column="suspendedtokens" type="short" />
+		<property name="tknType" column="tkntype" type="string" length="2" />
+		<property name="issuerProdId" column="issuerprodid" type="string" length="32" />
+		<property name="wpAccountHash" column="wpaccounthash" type="string" length="64" />
+		<property name="wpAccountId" column="wpaccountid" type="string" length="64" />
+		<property name="wpRecom" column="wprecom" type="char" />
+		<property name="wpRecomStdver" column="wpRecomStdver" type="string" length="10" />
+		<property name="wpDevScore" column="wpdevscore" type="short" />
+		<property name="wpAccScore" column="wpaccscore" type="short" />
+		<property name="wpRecomReasons" column="wprecomreasons" type="string" length="16" />
+		<property name="finalDecision" column="finaldecision" type="char" />
+		<property name="finalDecisionInd" column="finaldecisionind" type="char" />
+		<property name="tacId" column="tacid" type="string" length="64" />
+		<property name="tacDateTime" column="tacdatetime" type="timestamp" />
+		<property name="activationAttempts" column="activationattempts" type="short" />
+		<property name="custAmType" column="custamtype" type="char" />
+		<property name="custAmValue" column="custamvalue" type="string" length="164" />
+		<property name="custAmId" column="custamid" type="string" length="32" />
+		<property name="custLang" column="custlang" type="string" length="2" />
+		<property name="otpExp" column="otpExp" type="timestamp" />
+		<property name="otpMaxreached" column="otpmaxreached" type="short" />
+		<property name="otpReason" column="otpreason" type="char" />
+		<property name="otpVerResults" column="otpverresults" type="char" />
+		<property name="devType" column="devtype" type="short" />
+		<property name="devName" column="devname" type="string" length="20" />
+		<property name="mobileNoSuffix" column="mobilenosuffix" type="string" length="15" />
+		<property name="devId" column="devid" type="string" length="48" />
+		<property name="devLocation" column="devlocation" type="string" length="25" />
+		<property name="devIpAddress" column="devipaddress" type="string" length="15" />
+		<property name="eventRequestor" column="eventrequestor" type="char" />
+		<property name="replacementPan" column="replacementpan" type="string" length="19" />
+		<property name="replacementVPan" column="replacementvpan" type="string" length="19" />
+		<property name="replacementPanSeqNo" column="replacementpanseqno" type="short" />
+		<property name="commentTxt" column="commenttxt" type="string" length="500" />
+		<property name="operatorName" column="operatorname" type="string" length="200" />
+		<property name="operatorId" column="operatorid" type="string" length="50" />
+		<property name="operatorOrg" column="operatororg" type="string" length="200" />
+		<property name="operatorPhone" column="operatorphone" type="string" length="20" />
+		<property name="lukidxNew" column="lukidxnew" type="string" length="7" />
+		<property name="lukidxOld" column="lukidxold" type="string" length="7" />
+		<property name="notifyWpInd" column="notifywpind" type="char" />
+		<property name="contactlessUsg" column="contactlessusg" type="short" />
+		<property name="cofUsg" column="cofusg" type="short" />
+		<property name="walletUsg" column="walletusg" type="short" />
+		<property name="vtsScore" column="vtsscore" type="short" />
+		<property name="vtsDecision" column="vtsdecision" type="string" length="2" />
+		<property name="tknStatus" column="tknstatus" type="char" />
+		<property name="wpConversationId" column="wpconversationid" type="string" length="64" />
+		<property name="highValueCust" column="highvaluecust" type="short" />
+		<property name="tknReasonCode" column="tknreasoncode" type="short" />
+		<property name="tid" column="tid" type="string" length="15" />
+		<property name="actionCode" column="actioncode" type="char" />
+		<property name="errorCode" column="errorcode" type="long" length="10" />
+		<property name="poscrddev" column="poscrddev" type="string" length="3" />
+		<property name="boundDeviceIndex" type="int" column="bnddevidx" not-null="true" />
+		<property name="tokenUserId" type="string" column="tknusrid" length="11" />
+		<property name="tokenUserAppType" type="int" column="tknusrapptype" />
+		<property name="merchantId" type="string" column="mrchid" length="8" />
+		<property name="merchantName" type="string" column="mrchname" length="256" />
+		<property name="originalToken" type="string" column="orgtoken" length="19" />
+		<property name="originalTokenAssuranceLvl" type="int" column="orgtknasslevel" />
+		<property name="originalTokenReqId" type="string" column="orgtknrequestorid" length="11" />
+		<property name="originalTokenRefId" type="string" column="orgtur" length="48" />
+		<property name="tokenReqSPID" type="string" column="tknreqtspid" length="11" />
+		<property name="cardholderDisabledPaymentChannel" type="string" column="crdhlddisabldpymtchn" length="3" />
+		<property name="accountEmail" type="string" column="wpAccountEmail" length="64" />
+		<property name="accountLifetime" column="accountLifetime" type="short" />
+		<property name="devStatus" column="devStatus" type="short" />
+		<property name="authDecision" column="authDecision" type="short" />		
+		<many-to-one name="comments" class="com.fis.cortex.model.des.domain.comments.Comments" cascade="none" access="field" column="comments_id" />
+		<property name="responseCode" column="responsecode" type="string" length="2" />
+		<one-to-one name="tokenResponseLog" class="com.fis.cortex.model.des.domain.tknrsplog.TokenResponseLog" />
+		
+	</class>
+
+</hibernate-mapping>

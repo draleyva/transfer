@@ -1,284 +1,41 @@
 <?xml version="1.0"?>
-
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping">
+<!-- Generated 01-Jun-2006 12:26:12 by Hibernate Tools 3.1.0.beta5 -->
 <hibernate-mapping>
-
-	<class name="com.nomadsoft.cortex.domain.card.basic.BasicCard"
-		entity-name="com.nomadsoft.cortex.domain.card.Card" table="CRDDET" dynamic-update ="true" optimistic-lock="version">
+    <class name="com.metavante.cortex.domain.crdbase.card.basic.BasicCard"
+        entity-name="com.metavante.cortex.domain.crdbase.card.Card" table="CRDDET" mutable="false"
+        optimistic-lock="version">
 
 		<id name="id" type="long">
 			<column name="id" />
 			<generator class="native">
-				<param name="sequence">${crddet_id.generator.sequence}</param>
+				<param name="sequence_name">${crddet_id.generator.sequence}</param>
 			</generator>
 		</id>
-			
-		<version name="versionNumber" column="VERNO_CTX" access="field" />
 
-		<property name="pan" type="string">
-			<column name="PAN" length="19" />
-		</property>
-		
-		<property name="sequenceNumber" type="short">
-			<column name="SEQNO" />
-		</property>
-
-		<many-to-one name="branch" class="com.nomadsoft.cortex.domain.branch.Branch"
-			cascade="none" access="field">
-			<column name="branch_id" />
-		</many-to-one>
-
-		<property name="panDisplay" type="string">
-			<column name="pan_display" length="19" not-null="true" />
-		</property>
-
-		<many-to-one name="account" class="com.nomadsoft.cortex.domain.account.Account"
-			cascade="none" access="field">
-			<column name="accdet_id" />
-		</many-to-one>
-		
-		<set name="cardXSet" inverse="true" access="field" cascade="save-update">
-     	 <key>
-       	 <column name="crddet_id" />
-     	 </key>
-     	 <one-to-many class="com.nomadsoft.cortex.domain.card.CardX" />
-   		 </set>
-   		 
-   		 <set name="cardAccSet" inverse="true" access="field" cascade="save-update">
-     	 <key>
-       	 <column name="crddet_id" />
-     	 </key>
-     	 <one-to-many class="com.nomadsoft.cortex.domain.card.CardAccount" />
-     	 
-   		 </set>
-
-		<property name="virtualPan" type="string" access="field">
-			<column name="iss_host_crdref" length="32" not-null="true" />
-		</property>
-
-		<!-- property name="currency" access="field" node="curs" insert="false" type="string" update="false" formula="(select a.currcode from accdet a where a.id = accdet_id)"/-->
-		
-		<component name="amountAuth"
-			class="com.nomadsoft.cortex.domain.money.Money">
-			<property name="amount" column="AMTAUTH" not-null="true"
-				access="field" />
-			<many-to-one name="currency"
-				class="com.nomadsoft.cortex.domain.money.Currency" cascade="none"
-				access="field" insert="false" update="false" formula="(select a.currcode from accdet a where a.id = accdet_id)">
-			</many-to-one>
-		</component>
-		
-		<component name="amountRemaining"
-			class="com.nomadsoft.cortex.domain.money.Money">
-			<property name="amount" column="AMTREM" not-null="true"
-				access="field" />
-			<many-to-one name="currency"
-				class="com.nomadsoft.cortex.domain.money.Currency" cascade="none"
-				access="field" insert="false" update="false" formula="(select a.currcode from accdet a where a.id = accdet_id)">
-			</many-to-one>
-		</component>
-		<component name="amountBlocked"
-			class="com.nomadsoft.cortex.domain.money.Money">
-			<property name="amount" column="BLKAMT" not-null="true"
-				access="field" />
-			<many-to-one name="currency"
-				class="com.nomadsoft.cortex.domain.money.Currency" cascade="none"
-				access="field" insert="false" update="false" formula="(select a.currcode from accdet a where a.id = accdet_id)">
-			</many-to-one>
-		</component>
-		<component name="amountOfflineAuth"
-			class="com.nomadsoft.cortex.domain.money.Money">
-			<property name="amount" column="OFFAUTH" not-null="true"
-				access="field" />
-			<many-to-one name="currency"
-				class="com.nomadsoft.cortex.domain.money.Currency" cascade="none"
-				access="field" insert="false" update="false" formula="(select a.currcode from accdet a where a.id = accdet_id)">
-			</many-to-one>
-		</component>
-		<component name="amountOfflineLimit"
-			class="com.nomadsoft.cortex.domain.money.Money">
-			<property name="amount" column="OFFLIM" not-null="true"
-				access="field" />
-			<many-to-one name="currency"
-				class="com.nomadsoft.cortex.domain.money.Currency" cascade="none"
-				access="field" insert="false" update="false" formula="(select a.currcode from accdet a where a.id = accdet_id)">
-			</many-to-one>
-		</component>
-		<property name="addrind" type="short">
-			<column name="addrind" not-null="true" />
-		</property>
-		<property name="additionalNumber" type="short">
-			<column name="additionalno" not-null="true" />
-		</property>
-		<property name="applicationNumber" type="int">
-			<column name="applno" not-null="true" />
-		</property>
-		<property name="appTransactionCounter" type="int">
-			<column name="atc" not-null="true" />
-		</property>
-        <!-- Char(1) should not be boolean type it contains alphanumerics e.g. C 1
-		<property name="authCharsIndicator" type="boolean">
-			<column name="aci" length="1" not-null="true" />
-		</property>
-        -->
-		<property name="cardClass" type="short">
-			<column name="classid" not-null="true" />
-		</property>
-		<property name="cardsMade" type="short">
-			<column name="crdsmade" not-null="true" />
-		</property>
-		<many-to-one name="cardProduct" column="CRDPRODUCT_ID"
-			class="com.nomadsoft.cortex.domain.card.CardProduct"
-			not-null="true" />
-		<property name="cardVerificationCode" type="string">
-			<column name="cvc" length="4" not-null="true" />
-		</property>
-		<property name="cardVerificationValue" type="string">
-			<column name="cvv" length="3" not-null="true" />
-		</property>
-		<many-to-one name="cardProgram" column="crdprogram_id"
-			class="com.nomadsoft.cortex.domain.card.basic.BasicCardProgram"
-			not-null="true" />
-		<property name="cardDesignId" type="int">
-			<column name="crddesign_id" not-null="true" />
-		</property>
-        <!-- Char(1) should not be boolean type it contains alphanumerics 0 to 4
-		<property name="corporateCard" type="boolean">
-			<column name="corp" length="1" not-null="true" />
-		</property>
-        -->
-		<property name="createdOn" type="date">
-			<column name="date_created" not-null="true" />
-		</property>
-		<property name="cscString" type="string">
-			<column name="cscs" length="12" not-null="true" />
-		</property>
-		<property name="cycleBegin" type="date">
-			<column name="cycbegin" not-null="true" />
-		</property>
-		<property name="cycleLen" type="short">
-			<column name="cyclen" not-null="true" />
-		</property>
-		<property name="discretionaryData" type="string">
-			<column name="discret" length="25" not-null="true" />
-		</property>
-		<property name="deliveryMethod" type="char">
-			<column name="dlv_method" length="1" not-null="true" />
-		</property>
-		<property name="effectiveFrom" type="date">
-			<column name="effdate" not-null="true" />
-		</property>
-		<property name="embossedName" type="string">
-			<column name="embossname" length="51" not-null="true" />
-		</property>
-		<property name="expiresOn" type="date">
-			<column name="expdate" not-null="true" />
-		</property>
-		<property name="oldExpiresOn" type="date" column="OLD_EXPDATE" />
-		<property name="fallbackCount" type="short">
-			<column name="fallbackcnt" not-null="true" />
-		</property>
-		<property name="kinshipToPrimary" type="string">
-			<column name="kinship" length="10" not-null="true" />
-		</property>
-		<property name="languageCode" type="char">
-			<column name="lang" length="1" not-null="true" />
-		</property>
-		<property name="lastStatusChange" type="date">
-			<column name="date_statchg" not-null="true" />
-		</property>
-		<property name="pinsMade" type="short">
-			<column name="pinsmade" not-null="true" />
-		</property>
-		<property name="pinVerificationKeyIndex" type="char">
-			<column name="pvki" length="1" not-null="true" />
-		</property>
-		<property name="pinVerificationValue" type="string">
-			<column name="pvv" length="4" not-null="true" />
-		</property>
-		<property name="renewalFlag" type="yes_no">
-			<column name="renew" length="1" not-null="true" />
-		</property>
-		<property name="serviceCode" type="string">
-			<column name="svccode" length="3" not-null="true" />
-		</property>
-		<property name="scriptStatus" type="short">
-			<column name="scriptstat" not-null="true" />
-		</property>
-		<many-to-one name="cardStatus" column="STATCODE"
-			class="com.nomadsoft.cortex.domain.card.basic.BasicCardStatus"
-			access="field" not-null="true" />
-		<property name="userDefinedData" type="string">
-			<column name="usrdata" length="30" not-null="true" />
-		</property>
-		<many-to-one name="batch">
-			<column name="batch" />
-		</many-to-one>
-		
-		<set name="accounts" table="CRDACC" lazy="true" >
-			<key>
-				<column name="crddet_id" />
-			</key>
-			<many-to-many
-				class="com.nomadsoft.cortex.domain.account.Account">
-				<column name="accdet_id" />
-			</many-to-many>
-		</set>
+        <version name="versionNumber" column="verno_ctx" access="field"></version>
 
 		
-		<set name="replacementCards" table="CRDRPLACE" lazy="true"
-			access="field">
-			<key>
-				<column name="old_crddet_id" />
-			</key>
-			<many-to-many
-				class="com.nomadsoft.cortex.domain.card.Card">
-				<column name="new_crddet_id" />
-			</many-to-many>
-		</set>
-		
-		<component name="cardHolder" 
-			class="com.nomadsoft.cortex.domain.card.basic.BasicCardHolder">
-			<property name="title" type="string">
-				<column name="TITLE" length="4" not-null="true" />
-			</property>
-			<property name="firstName" type="string">
-				<column name="FIRSTNAME" length="20" not-null="true" />
-			</property>
-			<property name="lastName" type="string">
-				<column name="LASTNAME" length="20" not-null="true" />
-			</property>
-            <property name="dateOfBirth" type="date">
-              <column name="DATE_BIRTH" not-null="true" />
-            </property>
-			<property name="idNumber" type="string" access="field">
-				<column name="CUST_ID_NUM" length="12" not-null="true" />
-			</property>
-		</component>
-		
-		<many-to-one name="accountHolder">
-            <column name="custdet_id" />
-		</many-to-one>
-		
-		<set name="cardStatusHistoryItems" access="field"
-			cascade="all-delete-orphan" inverse="true"
-			sort="com.nomadsoft.cortex.infrastructure.hibernate.CardStatusHistoryComparator">
-			<key>
-				<column name="crddet_id" />
-			</key>
-			<one-to-many
-				class="com.nomadsoft.cortex.domain.card.basic.BasicCardStatusHistory" />
-		</set>
-        <!-- one-to-one name="velocityCounters" class="com.nomadsoft.cortex.domain.card.CardVelocityCounters">
-          <formula>id</formula>
-          <formula>(select a.currcode from accdet a where a.id = accdet_id)</formula>
-        </one-to-one-->
-	</class>
-	<query name="Card.findAll">
-		<![CDATA[ from Card ]]>
-	</query>
-    <query name="Card.findTestCard">
-      <![CDATA[ from Card where pan = '5274421018197307' and seqno = 0 ]]>
-    </query>
+       <property name="pan" type="string" column="pan" length="19" />
+       <property name="sequenceNumber" type="short" column="seqno" />
+       <property name="accountNumber" formula="(select acct.accno from accdet acct where acct.id=accdet_id)" not-null="true" />
+        <property name="additionalNumber" column="additionalno" not-null="true" />
+        <property name="title" column="title" not-null="true" />
+        <property name="firstName" column="firstname" not-null="true" />
+        <property name="lastName" column="lastname" not-null="true" />
+        <property name="embossName" column="embossname" not-null="true" />
+        <property name="cardStatus" column="statcode" not-null="true" />
+        <property name="virtualPan" column="iss_host_crdref" />
+        <property name="displayPan" column="pan_display" />
+        <property name="accountId" column="accdet_id" />
+
+	<many-to-one name="customer" class="com.metavante.cortex.domain.crdbase.customer.Customer" access="field" fetch="select" lazy="proxy">
+		<column name="custdet_id" />
+	</many-to-one>
+    <many-to-one name="cardProductLimits" class="com.metavante.cortex.domain.crdbase.card.CardProductLimits" access="field" fetch="select" lazy="proxy" not-null="false" not-found="ignore">
+        <column name="crdproduct_id" />
+    </many-to-one>
+
+  </class>
 </hibernate-mapping>

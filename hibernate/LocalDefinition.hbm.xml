@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+  <class name="com.fis.cortex.domain.core.localdefinition.basic.BasicLocalDefinition" table="LOCALDEF" 
+	 entity-name="com.fis.cortex.domain.core.localdefinition.LocalDefinition"  
+	 dynamic-update="true" optimistic-lock="version">
+
+    <id name="id" type="long">
+			<column name="Id" />
+			<generator class="native">
+				<param name="sequence_name">${localdef_id.generator.sequence}</param>
+			</generator>
+	</id>
+    
+    <version name="versionNumber" column="VERNO_CTX" generated="always" access="field"></version>
+
+    <property name="ctxLocale" column="Ctx_locale" not-null="true"
+			type="string" length="20" access="field" />
+
+  </class>
+
+</hibernate-mapping>

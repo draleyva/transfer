@@ -1,34 +1,145 @@
-<?xml version="1.0"?>
-
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
+	<class name="com.fis.mkc.domain.model.basic.BasicUser"
+		entity-name="com.fis.mkc.domain.model.User" table="MKC_USER">
+		
+		<composite-id name="id" class="com.fis.mkc.domain.identity.UserId">
+			<key-property name="userId" type="java.lang.String">
+				<column name="ID" />
+			</key-property>
+			<key-property name="sourceId" type="java.lang.Long">
+				<column name="SOURCE_ID" />
+			</key-property>
+		</composite-id>
+		
+		<property name="userName" type="java.lang.String">
+			<column name="USERNAME" />
+		</property>
 
-	<class name="com.nomadsoft.cortex.domain.user.basic.BasicUser"
-		entity-name="com.nomadsoft.cortex.domain.user.User" table="usr"
-		dynamic-update="true" optimistic-lock="version">
-
-		<id name="userName" type="string">
-			<column name="usr" />
-		</id>
-
-		<version name="versionNumber" column="verno_ctx" generated="always" access="field" />
-
-		<property name="description" column="descr" access="field" />
-
-		<property name="encryptedPassword" column="password" access="field" />
-
-		<many-to-one name="userGroup"
-			class="com.nomadsoft.cortex.domain.user.UserGroup" cascade="none"
-			access="field">
-			<column name="usrgrp" />
+		<property name="userGroup" type="java.lang.String">
+			<column name="USERGROUP" />
+		</property>
+		
+		<property name="description" type="java.lang.String">
+			<column name="DESCRIPTION" />
+		</property>
+		
+		<property name="emailAddress" type="java.lang.String">
+			<column name="EMAIL_ADDRESS" />
+		</property>
+		
+		<many-to-one name="source"
+			entity-name="com.fis.mkc.domain.model.Source"
+			insert="false" update="false">
+			<column name="SOURCE_ID" />
 		</many-to-one>
-
-		<property name="lastLoginDate" type="date" column="lstlogdate" access="field" />
-		<property name="lastLoginTime" type="long" column="lstlogtime" access="field" />
-		<property name="lastUnsuccessfulLoginDate" type="date" column="unslogdate" access="field" />
-		<property name="lastUnsuccessfulLoginTime" type="long" column="unslogtime" access="field" />
-
-	</class>
-
+		
+		<set name="institutions" table="MKC_USR_INST" mutable="false">
+			<key>
+				<column name="USER_ID" />
+				<column name="SOURCE_ID" />
+			</key>
+			<many-to-many class="com.fis.mkc.domain.model.basic.BasicInstitution"
+				entity-name="com.fis.mkc.domain.model.Institution">
+				<column name="INST_ID" />
+				<formula>SOURCE_ID</formula>
+			</many-to-many>
+		</set>
+		
+		<set name="actionRestrictions" table="MKC_CHK_RSTR" mutable="false"  where="RESTRICTION_TYPE_ID=3">
+			<key>
+				<column name="CHECKER_ID" />
+				<column name="SOURCE_ID" />
+			</key>
+			<many-to-many entity-name="com.fis.mkc.domain.model.Action"
+                where="TYPE_ID=3">
+				<column name="RESTRICTION_ID" />
+				<formula>SOURCE_ID</formula>
+			</many-to-many>
+		</set>
+		
+		<set name="institutionRestrictions" table="MKC_CHK_RSTR" mutable="false"  where="RESTRICTION_TYPE_ID=1">
+			<key>
+				<column name="CHECKER_ID" />
+				<column name="SOURCE_ID" />
+			</key>
+			<many-to-many entity-name="com.fis.mkc.domain.model.Institution"
+                where="TYPE_ID=1">
+				<column name="RESTRICTION_ID" />
+				<formula>SOURCE_ID</formula>
+			</many-to-many>
+		</set>
+		
+		<set name="locationRestrictions" table="MKC_CHK_RSTR" mutable="false" where="RESTRICTION_TYPE_ID=2">
+			<key>
+				<column name="CHECKER_ID" />
+				<column name="SOURCE_ID" />
+			</key>
+			<many-to-many entity-name="com.fis.mkc.domain.model.Location"
+                where="TYPE_ID=2">
+				<column name="RESTRICTION_ID" />
+				<formula>SOURCE_ID</formula>
+			</many-to-many>
+		</set>
+		<set name="userGroupRestrictions" table="MKC_CHK_RSTR" mutable="false" where="RESTRICTION_TYPE_ID=4">
+			<key>
+				<column name="CHECKER_ID" />
+				<column name="SOURCE_ID" />
+			</key>
+			<many-to-many entity-name="com.fis.mkc.domain.model.UserGroup"
+                where="RESTRICTION_TYPE_ID=4">
+				<column name="RESTRICTION_ID" />
+				<formula>SOURCE_ID</formula>
+			</many-to-many>
+		</set>
+		<set name="actions" table="MKC_USR_ACTION" mutable="false">
+			<key>
+				<column name="USER_ID" />
+				<column name="SOURCE_ID" />
+			</key>
+			<many-to-many class="com.fis.mkc.domain.model.basic.BasicAction"
+				entity-name="com.fis.mkc.domain.model.Action">
+				<column name="ACTION_ID" />
+				<formula>SOURCE_ID</formula>
+			</many-to-many>
+		</set>
+		
+		<set name="locations" table="MKC_USR_LOC" mutable="false">
+			<key>
+				<column name="USER_ID" />
+				<column name="SOURCE_ID" />
+			</key>
+			<many-to-many class="com.fis.mkc.domain.model.basic.BasicLocation"
+				entity-name="com.fis.mkc.domain.model.Location">
+				<column name="LOCATION_ID" />
+				<formula>SOURCE_ID</formula>
+			</many-to-many>
+		</set>
+		
+		<set name="checkers" table="MKC_MKC" mutable="false">
+			<key>
+				<column name="MAKER_ID" />
+				<column name="SOURCE_ID" />
+			</key>
+			<many-to-many class="com.fis.mkc.domain.model.basic.BasicUser"
+				entity-name="com.fis.mkc.domain.model.User" not-found="ignore">
+				<column name="CHECKER_ID" />
+				<formula>SOURCE_ID</formula>
+			</many-to-many>
+		</set>
+		
+		<set name="makers" table="MKC_MKC" mutable="false">
+			<key>
+				<column name="CHECKER_ID" />
+				<column name="SOURCE_ID" />
+			</key>
+			<many-to-many class="com.fis.mkc.domain.model.basic.BasicUser"
+				entity-name="com.fis.mkc.domain.model.User" not-found="ignore">
+				<column name="MAKER_ID" />
+				<formula>SOURCE_ID</formula>
+			</many-to-many>
+		</set>
+</class>
 </hibernate-mapping>

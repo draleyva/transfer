@@ -1,17 +1,29 @@
 <?xml version="1.0"?>
 
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
 
-	<class name="com.nomadsoft.cortex.domain.access.basic.BasicScreen"
-		entity-name="com.nomadsoft.cortex.domain.access.Screen" table="acsitem"
+	<class name="com.fis.cortex.domain.core.access.basic.BasicScreen"
+		entity-name="com.fis.cortex.domain.core.access.Screen" table="acsitem"
 		dynamic-update="true" optimistic-lock="version">
 
 		<id name="acsItem" type="string" access="field">
 			<column name="acsItem" />
 		</id>
+		
+		<property name="acstype" column="acstype" access="field" />
+		<property name="command" column="command" access="field" />
+		
+		<bag name="userPermissions" batch-size="100" lazy="false">
+			<key column="acsitem" />
+			<one-to-many class="com.fis.cortex.domain.core.access.UserPermission" />
+		</bag>
 
+		<bag name="groupPermissions" batch-size="100" lazy="false">
+			<key column="acsitem" />
+			<one-to-many class="com.fis.cortex.domain.core.access.GroupPermission" />
+		</bag>
 	</class>
 
 </hibernate-mapping>

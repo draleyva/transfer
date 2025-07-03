@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping">
+
+<!-- author aperever -->
+<!-- version $Id$ $DateTime$ $Author$ -->
+<hibernate-mapping>
+    <class name="com.metavante.cortex.domain.ccs.temporarilylimitincrease.basic.BasicTemporaryLimitIncrease" table="ccstmplimext"
+                optimistic-lock="version">
+        <id name="accountId" type="long">
+            <column name="acc_id"  default="0" />
+        </id>
+
+        <version name="versionNumber" column="verno_ctx" access="field" /> 
+
+        <property name="limitIncrease" type="big_decimal" column="amt" not-null="true" />
+        <property name="firstDateWhenEffective" type="date" column="effdate" length="4" not-null="true" />
+        <property name="dateAdded" type="date" column="indate" length="4" not-null="true" />
+        <property name="timeAdded" type="int" column="intime" not-null="true" />
+        <property name="firstDateWhenNotEffective" type="date" column="purgedate" length="4" not-null="true" />
+        <property name="userAdded" type="string" column="usr" length="4" not-null="true" />
+    </class>
+</hibernate-mapping>

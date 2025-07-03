@@ -1,45 +1,70 @@
 <?xml version="1.0"?>
 
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping">
 
 <hibernate-mapping>
 
-	<class name="com.nomadsoft.cortex.domain.card.basic.BasicCardProduct"
-		table="CRDPRODUCT" mutable="false"
-		entity-name="com.nomadsoft.cortex.domain.card.CardProduct"
-		optimistic-lock="version">
-
-		<cache usage="nonstrict-read-write" />
-		
-		<id name="id" type="long">
+	<class name="com.fis.cortex.crdbase.domain.card.basic.BasicCardProduct"
+		entity-name="com.fis.cortex.crdbase.domain.card.CardProduct" table="crdproduct"
+		dynamic-update="true" optimistic-lock="version">
+		<id name="id" type="long" length="11">
 			<column name="id" />
 			<generator class="native">
-				<param name="sequence">${crdproduct_id.generator.sequence}</param>
+				<param name="sequence_name">${crdproduct_id.generator.sequence}</param>
 			</generator>
 		</id>
-
-		<version name="versionNumber" column="VERNO_CTX" access="field" />
 		
-		<property name="cardProduct" column="CRDPRODUCT" type="string" length="4" access="field"/>
-		
-		<many-to-one name="institution"
-			class="com.nomadsoft.cortex.domain.institution.Institution" cascade="none"
-			column="inst_id" access="field">
-		</many-to-one>
-
-    	<many-to-one name="cardFormat" class="com.nomadsoft.cortex.domain.card.CardFormat"
-        	 column="crdformat_id" cascade="none"/>
-         
-		<property name="description" column="descr" not-null="true"
-			type="string" length="30" access="field" />
-			
+		<version name="versionNumber" column="verno_ctx" generated="always"
+			access="field" />
+				
+		<property name="cardProduct" column="crdproduct" type="string"
+			length="4" not-null="false" access="field" />
 
 		<property name="affinity" column="AFFINITY" not-null="true"
-			type="com.nomadsoft.cortex.infrastructure.hibernate.types.CardProductAffinityUserEnumType"
+			type="com.fis.cortex.crdbase.infrastructure.hibernate.CardProductAffinityUserEnumType"
 			access="field" />
 			
-		<property name="cardStatusTransitionSetId" column="crdstatustransset_id" type="long"
+		<many-to-one name="cardFormat" class="com.fis.cortex.crdbase.domain.card.CardFormat" column="crdformat_id"
+			 cascade="none" access="field" not-found="ignore" not-null="true"/>
+
+		<many-to-one name="institution"
+			class="com.fis.cortex.domain.core.institution.Institution" cascade="none"
+			column="inst_id" access="field">
+		</many-to-one>
+		
+		<bag name="cardProductDescriptionList" cascade="all">
+			<key column="Crdproduct_id"/>
+			<one-to-many class="com.fis.cortex.crdbase.domain.card.CardProductDescription"/>
+		</bag>
+		
+		<property name="description" column="DESCR" type="string"
+			length="30" not-null="true" access="field" />
+			
+		<property name="cardStatusTransactionSetId" column="crdstatustransset_id" type="long"
 			not-null="true" access="field" />
+
+		<property name="options" column="OPTIONS" type="string"
+			length="64" not-null="true" access="field" />
+			
+		<property name="validity" column="validity" type="int"
+			not-null="true" access="field" />
+
+		<property name="minvalduriss" column="MINVALDURISS" type="int"
+			not-null="true" access="field" />
+		<property name="minvaldurdmg" column="MINVALDURDMG" type="int"
+			not-null="true" access="field" />
+		
+		<property name="rnwpstexpperiod" column="rnwpstexpperiod" type="int"
+			not-null="true" access="field" />
+
+		<property name="rnwpreexpperiod" column="rnwpreexpperiod" type="int"
+			not-null="true" access="field" />
+
+		<property name="rnwearlyperiod" column="rnwearlyperiod" type="int"
+			not-null="true" access="field" />
+
+		<many-to-one name="emvProfile" class="com.fis.cortex.domain.core.emv.profile.EmvProfile" column="emvprofile_id"
+			 cascade="none" access="field" not-null="true"/>
 
 	</class>
 

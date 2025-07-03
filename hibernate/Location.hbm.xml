@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.fis.mkc.domain.model.basic.BasicLocation"
+		entity-name="com.fis.mkc.domain.model.Location" table="MKC_LOC"
+		mutable="false">
+
+		<composite-id name="id"
+			class="com.fis.mkc.domain.identity.LocationId">
+			<key-property name="locationId">
+				<column name="ID" />
+			</key-property>
+			<key-property name="sourceId">
+				<column name="SOURCE_ID" />
+			</key-property>
+		</composite-id>
+
+		<property name="code" type="java.lang.String">
+			<column name="CODE" length="8" />
+		</property>
+
+		<property name="description" type="java.lang.String">
+			<column name="DESCRIPTION" length="20" />
+		</property>
+		
+		<property name="restrictionType" type="RestrictionType">
+			<column name="TYPE_ID" />
+		</property>
+		
+		<many-to-one name="source" not-null="true" insert="false"
+			update="false">
+			<column name="SOURCE_ID" />
+		</many-to-one>
+
+		<many-to-one name="institution" not-null="true" insert="false"
+			update="false">
+			<column name="INST_ID" />
+			<column name="SOURCE_ID" />
+		</many-to-one>
+		
+	</class>
+</hibernate-mapping>

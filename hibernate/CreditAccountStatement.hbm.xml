@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping">
+<hibernate-mapping>
+    <class name="com.metavante.cortex.domain.ccs.creditaccountstatement.basic.BasicCreditAccountStatement" 
+                    table="ccsstatement">
+        <id name="statementId" type="long">
+            <column name="stmt_id" />
+            <generator class="native">
+              <param name="sequence_name">${ccsstatement_id.generator.sequence}</param>
+            </generator>
+        </id>
+           
+        <property name="sequenceNumber" type="short" column="sequence_no" not-null="true" />     
+        <property name="cycleCount" type="int" column="cycle_count" not-null="true" />        
+        <property name="creditLimit" type="double" column="credit_limit" precision="8" scale="15" not-null="true" />
+        <property name="credits" type="double" column="credits" precision="8" scale="15" not-null="true" />
+        <property name="debits" type="double" column="debits" precision="8" scale="15" not-null="true" />
+        <property name="payments" type="double" column="payments" precision="8" scale="15" not-null="true" />
+        <property name="closeBalance" type="double" column="bal_close" precision="8" scale="15" not-null="true" />
+        <property name="previousBalance" type="double" column="bal_previous" precision="8" scale="15" not-null="true" />
+        <property name="previousSurplus" type="double" column="prev_surplus" precision="8" scale="15" not-null="true" />
+        <property name="beginDate" type="date" column="date_begin" length="4" not-null="true" />
+        <property name="endDate" type="date" column="date_end" length="4" not-null="true" />
+        <property name="paymentDate" type="date" column="date_pay" length="4" not-null="true" />
+        <property name="statementDate" type="date" column="date_stmt" length="4" not-null="true" />
+        <property name="minimumPayment" type="double" column="min_pay" precision="8" scale="15" not-null="true" />
+        <property name="minimumPaymentComponent1" type="double" column="minpaycmp1" precision="8" scale="15" not-null="true" />
+        <property name="minimumPaymentComponent2" type="double" column="minpaycmp2" precision="8" scale="15" not-null="true" />
+        <property name="minimumPaymentComponent3" type="double" column="minpaycmp3" precision="8" scale="15" not-null="true" />
+        <property name="delinquencyLevel" type="short" column="dlnqlvl" not-null="true" />
+        <property name="overdueCount" type="short" column="overdue_count" not-null="true" />
+        <property name="balanceComponent0" type="double" column="cmp0bal" precision="8" scale="15" not-null="true" />
+        <property name="balanceComponent1" type="double" column="cmp1bal" precision="8" scale="15" not-null="true" />
+        <property name="balanceComponent2" type="double" column="cmp2bal" precision="8" scale="15" not-null="true" />
+        <property name="balanceComponent3" type="double" column="cmp3bal" precision="8" scale="15" not-null="true" />
+        <property name="balanceComponent4" type="double" column="cmp4bal" precision="8" scale="15" not-null="true" />
+        <property name="balanceComponent5" type="double" column="cmp5bal" precision="8" scale="15" not-null="true" />
+        <property name="balanceComponent6" type="double" column="cmp6bal" precision="8" scale="15" not-null="true" />
+        <property name="balanceComponent7" type="double" column="cmp7bal" precision="8" scale="15" not-null="true" />
+        <property name="balanceComponent8" type="double" column="cmp8bal" precision="8" scale="15" not-null="true" />
+        <property name="balanceComponent9" type="double" column="cmp9bal" precision="8" scale="15" not-null="true" />
+        <property name="balanceComponent10" type="double" column="cmp10bal" precision="8" scale="15" not-null="true" />
+        <property name="balanceComponent11" type="double" column="cmp11bal" precision="8" scale="15" not-null="true" />
+        <property name="balanceComponent12" type="double" column="cmp12bal" precision="8" scale="15" not-null="true" />
+        <property name="balanceComponent13" type="double" column="cmp13bal" precision="8" scale="15" not-null="true" />
+        <property name="balanceComponent14" type="double" column="cmp14bal" precision="8" scale="15" not-null="true" />
+        <property name="debitsAdjustment" type="double" column="adjdebits" precision="8" scale="15" not-null="true" />
+        <property name="creditsAdjustment" type="double" column="adjcredits" precision="8" scale="15" not-null="true" />
+        <property name="surplus" type="double" column="surplus" precision="8" scale="15" not-null="true" />
+        <property name="debitPaymentBalance" type="double" column="bal_debit_pay" precision="8" scale="15" not-null="true" />
+        <property name="dueBalance" type="double" column="baldue" precision="8" scale="15" not-null="true" />
+        <property name="notDueBalance" type="double" column="balnd" precision="8" scale="15" not-null="true" />
+        <property name="notDueSurplus" type="double" column="surplusnd" precision="8" scale="15" not-null="true" />
+        <property name="notDueDebitPaymentBalance" type="double" column="bal_debit_paynd" precision="8" scale="15" not-null="true" />
+	    <property name="dueSurplus" type="big_decimal" column="surplusdue" not-null="true" access="field"/>
+        <property name="creditLimitExpirationDate" type="date" not-null="true" column="cledate" />
+        <property name="previousMinimumPayment" type="double" column="prev_minpay" precision="8" scale="15" not-null="true" />
+        <property name="accountInterestRate" type="double" column="accintrate" precision="8" scale="15" not-null="true" />
+        <property name="minimumPaymentPercentageOverride" type="double" column="percminpay" precision="8" scale="15" not-null="true" />
+        
+        <many-to-one name="creditAccount" class="com.metavante.cortex.domain.ccs.creditaccount.basic.BasicCreditAccount" fetch="select" lazy="false" >
+           <column name="acc_id" not-null="true" />
+        </many-to-one>
+        
+        <set name="directDebitRequested" inverse="true" cascade="save-update" lazy="extra">
+            <key>
+                <column name="stmt_id" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="com.metavante.cortex.domain.ccs.directdebit.basic.BasicDirectDebitRequested" />
+        </set>
+
+    </class>
+</hibernate-mapping>

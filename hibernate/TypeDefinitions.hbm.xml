@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <typedef name="RestrictionType"
+        class="com.fis.infrastructure.persistence.hibernate.usertype.GenericEnumUserType">
+        <param name="enumClass">com.fis.mkc.domain.model.RestrictionType</param>
+        <param name="identifierMethod">getId</param>
+    </typedef>
+    <typedef name="AuthStatusType"
+        class="com.fis.infrastructure.persistence.hibernate.usertype.GenericEnumUserType">
+        <param name="enumClass">com.fis.mkc.domain.model.AuthStatus</param>
+        <param name="identifierMethod">getId</param>
+    </typedef>
+    <typedef name="JobType"
+        class="com.fis.infrastructure.persistence.hibernate.usertype.GenericEnumUserType">
+        <param name="enumClass">com.fis.mkc.domain.model.JobType</param>
+        <param name="identifierMethod">getId</param>
+    </typedef>
+    <typedef name="ServiceType"
+        class="com.fis.infrastructure.persistence.hibernate.usertype.GenericEnumUserType">
+        <param name="enumClass">com.fis.mkc.domain.model.ServiceType</param>
+        <param name="identifierMethod">getId</param>
+    </typedef>
+    <typedef name="ClobType"
+        class="com.fis.infrastructure.persistence.hibernate.usertype.ClobUserType">
+    </typedef>
+</hibernate-mapping>

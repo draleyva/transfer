@@ -1,136 +1,30 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+"http://www.hibernate.org/dtd/hibernate-mapping">
 <!-- Generated 07-Jun-2006 15:08:54 by Hibernate Tools 3.1.0.beta5 -->
 <hibernate-mapping>
-  <class name="com.nomadsoft.cortex.domain.account.basic.BasicAccount"
-    entity-name="com.nomadsoft.cortex.domain.account.Account" table="ACCDET" node="account" optimistic-lock="version">
+  <class name="com.metavante.cortex.domain.crdbase.account.basic.BasicAccount"
+    entity-name="com.metavante.cortex.domain.crdbase.account.Account" table="ACCDET" node="account" optimistic-lock="version">
 	
 	<id name="id" type="long">
 		<column name="id" />
 		<generator class="native">
-			<param name="sequence">${accdet_id.generator.sequence}</param>
+			<param name="sequence_name">${accdet_id.generator.sequence}</param>
 		</generator>
 	</id>
     <version name="versionNumber" column="VERNO_CTX" access="field"></version>
 
-    <many-to-one name="currency" class="com.nomadsoft.cortex.domain.money.Currency"
-    	column="CURRCODE" access="field" cascade="none"/>
+    <many-to-one name="currency" class="com.metavante.cortex.domain.money.Currency"
+   	column="CURRCODE" access="field" cascade="none" fetch="select" lazy="proxy" />
     
-    <many-to-one name="institution" class="com.nomadsoft.cortex.domain.institution.Institution"
-    	column="inst_id" access="field" cascade="none"/>	
+    <many-to-one name="institution" class="com.fis.cortex.domain.core.institution.Institution"
+    	column="inst_id" access="field" cascade="none" fetch="select" lazy="proxy"/>	
 
-    <many-to-one name="branch" class="com.nomadsoft.cortex.domain.branch.Branch"
-    	column="branch_id" access="field" cascade="none"/>	
-    		
-    <property name="vip" column="VIPFLAG"/>
     <property name="accountNumber" column="accno" type="string" length="28"/>
     
-    <property name="accountType" type="string">
-      <column name="TYPECODE" length="2" not-null="true" />
-    </property>
-    <property name="accountClass" type="short">
-      <column name="CLASSID" not-null="true" />
-    </property>
     <property name="status" node="@currency" type="string">
       <column name="STATCODE" length="2" not-null="true" />
     </property>
-    <component name="amountBlocked" class="com.nomadsoft.cortex.domain.money.Money">
-    	<property name="amount" column="BLKAMT" not-null="true" access="field"/>
-    	<many-to-one name="currency" class="com.nomadsoft.cortex.domain.money.Currency"
-    		cascade="none" access="field" insert="false" update="false">
-    		<column name="CURRCODE"/>
-    	</many-to-one>
-    </component>
-    <component name="availableBalance" class="com.nomadsoft.cortex.domain.money.Money">
-    	<property name="amount" column="AVLBAL" not-null="true" access="field"/>
-    	<many-to-one name="currency" class="com.nomadsoft.cortex.domain.money.Currency"
-    		cascade="none" access="field" insert="false" update="false">
-    		<column name="CURRCODE"/>
-    	</many-to-one>
-    </component>
-    <component name="clearedBalance" class="com.nomadsoft.cortex.domain.money.Money">
-    	<property name="amount" column="CLRBAL" not-null="true" access="field"/>
-    	<many-to-one name="currency" class="com.nomadsoft.cortex.domain.money.Currency"
-    		cascade="none" access="field" insert="false" update="false">
-    		<column name="CURRCODE"/>
-    	</many-to-one>
-    </component>
-    <component name="unclearedBalance" class="com.nomadsoft.cortex.domain.money.Money">
-    	<property name="amount" column="UNCLRBAL" not-null="true" access="field"/>
-    	<many-to-one name="currency" class="com.nomadsoft.cortex.domain.money.Currency"
-    		cascade="none" access="field" insert="false" update="false">
-    		<column name="CURRCODE"/>
-    	</many-to-one>
-    </component>
-    <component name="creditLimit" class="com.nomadsoft.cortex.domain.money.Money">
-    	<property name="amount" column="CREDIT_LIMIT" not-null="true" access="field"/>
-    	<many-to-one name="currency" class="com.nomadsoft.cortex.domain.money.Currency"
-    		cascade="none" access="field" insert="false" update="false">
-    		<column name="CURRCODE"/>
-    	</many-to-one>
-    </component>
-    <component name="preauthBlk" class="com.nomadsoft.cortex.domain.money.Money">
-    	<property name="amount" column="PREAUTH_BLK" not-null="true" access="field"/>
-    	<many-to-one name="currency" class="com.nomadsoft.cortex.domain.money.Currency"
-    		cascade="none" access="field" insert="false" update="false">
-    		<column name="CURRCODE"/>
-    	</many-to-one>
-    </component>
-    <component name="preauthUnclr" class="com.nomadsoft.cortex.domain.money.Money">
-    	<property name="amount" column="PREAUTH_UNCLR" not-null="true" access="field"/>
-    	<many-to-one name="currency" class="com.nomadsoft.cortex.domain.money.Currency"
-    		cascade="none" access="field" insert="false" update="false">
-    		<column name="CURRCODE"/>
-    	</many-to-one>
-    </component>
-    <component name="preauthExpBlk" class="com.nomadsoft.cortex.domain.money.Money">
-    	<property name="amount" column="PREAUTH_EXP_BLK" not-null="true" access="field"/>
-    	<many-to-one name="currency" class="com.nomadsoft.cortex.domain.money.Currency"
-    		cascade="none" access="field" insert="false" update="false">
-    		<column name="CURRCODE"/>
-    	</many-to-one>
-    </component>
-        <component name="preauthExpUnclr" class="com.nomadsoft.cortex.domain.money.Money">
-    	<property name="amount" column="PREAUTH_EXP_UNCLR" not-null="true" access="field"/>
-    	<many-to-one name="currency" class="com.nomadsoft.cortex.domain.money.Currency"
-    		cascade="none" access="field" insert="false" update="false">
-    		<column name="CURRCODE"/>
-    	</many-to-one>
-    </component>
-    <component name="avlbalUnsent" class="com.nomadsoft.cortex.domain.money.Money">
-    	<property name="amount" column="AVLBAL_UNSENT" not-null="true" access="field"/>
-    	<many-to-one name="currency" class="com.nomadsoft.cortex.domain.money.Currency"
-    		cascade="none" access="field" insert="false" update="false">
-    		<column name="CURRCODE"/>
-    	</many-to-one>
-    </component>
-        <component name="blkamtUnsent" class="com.nomadsoft.cortex.domain.money.Money">
-    	<property name="amount" column="BLKAMT_UNSENT" not-null="true" access="field"/>
-    	<many-to-one name="currency" class="com.nomadsoft.cortex.domain.money.Currency"
-    		cascade="none" access="field" insert="false" update="false">
-    		<column name="CURRCODE"/>
-    	</many-to-one>
-    </component>
-    
-    <property name="catParams" column="CAT_PARAMS"/>
-    
-    <set name="cards" table="CRDACC">
-      <key>
-        <column name="accdet_id" />
-      </key>
-      <many-to-many class="com.nomadsoft.cortex.domain.card.Card">
-        <column name="crddet_id" />
-      </many-to-many>
-    </set>
-    <many-to-one name="accountHolder" fetch="join">
-    	<column name="custdet_id"/>
-    </many-to-one>
   </class>
-  <query name="Account.findAll">
-    <![CDATA[  from Account  ]]>
-  </query>
-  <query name="Account.findWithCards">
-    <![CDATA[  from Account a where size(a.cards) > 0 ]]>
-  </query>
+  
 </hibernate-mapping>

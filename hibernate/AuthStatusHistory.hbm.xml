@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.fis.mkc.domain.model.basic.BasicAuthStatusHistory"
+		entity-name="com.fis.mkc.domain.model.AuthStatusHistory"
+		dynamic-update="true" optimistic-lock="version" table="MKC_AUTH_STAT_H">
+		<synchronize table="JobAuthorization" />
+		<id name="id" type="java.lang.Long">
+			<column name="ID" />
+			<generator class="native">
+				<param name="sequence_name">MKC_AUTH_STAT_H_SEQUENCE</param>
+			</generator>
+		</id>
+		<version name="versionNumber" column="VERNO_CTX" access="field" />
+		<property name="dateTimeSet" type="java.util.Date">
+			<column name="DATETIME_SET" length="7" not-null="true" />
+		</property>
+		<property name="authStatus" type="AuthStatusType">
+			<column name="STAT_ID" length="5" not-null="true" />
+		</property>
+		<many-to-one name="checker" not-found="ignore"
+			entity-name="com.fis.mkc.domain.model.User">
+			<column name="CHECKER_ID" length="12" not-null="true" />
+ 			<formula>(select ja.SOURCE_ID from MKC_JOB_AUTH ja 
+				where ja.ID = JOB_AUTH_ID)</formula>
+		</many-to-one>
+		<many-to-one name="jobAuthorization"
+			entity-name="com.fis.mkc.domain.model.JobAuthorization" fetch="join">
+			<column name="JOB_AUTH_ID" precision="10" scale="0" not-null="true" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

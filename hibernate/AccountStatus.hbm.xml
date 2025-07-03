@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping">
+<!-- Generated 07-Jun-2006 15:08:54 by Hibernate Tools 3.1.0.beta5 -->
+<hibernate-mapping>
+  <class name="com.metavante.cortex.domain.crdbase.account.basic.BasicAccountStatus"
+    entity-name="com.metavante.cortex.domain.crdbase.account.AccountStatus" table="ACCSTATUS"  optimistic-lock="version">
+	<cache usage="read-only"/>
+    <id name="statusCode" column="STATCODE" access="field"/>
+    <version name="versionNumber" column="VERNO_CTX" access="field"></version>
+    
+    <property name="description" column="DESCR" not-null="true"/>
+    
+    <property name="systemDefined" column="SYSDEF" not-null="true"
+    	access="field"/>
+    	
+    <property name="priority" column="PRIORITY" not-null="true" access="field"/>
+     
+    <property name="actionCode" column="ACTIONCODE" not-null="true"
+    	access="field"/>
+    	
+    <property name="responseCode" column="RSPCODE" not-null="true"
+    	access="field"/>
+    
+     <property name="cardStatus" column="CRDSTATUS" not-null="true"
+    	access="field"/>	
+    
+     <property name="genStatement" column="GEN_STMT" not-null="true"
+    	access="field"/>
+    	
+    <property name="interestCharge" column="CHG_INTEREST" not-null="true"
+    	access="field"/>
+    		
+    <property name="suspend" column="SUSPEND" not-null="true"
+    	access="field"/>
+    	
+    <property name="report" column="REPORT" not-null="true"
+    	access="field"/>
+    	
+     <property name="collection" column="COLLECTION" not-null="true"
+    	access="field"/>
+    	
+     <property name="denySVC" column="DENYSVC" not-null="true" 	access="field"/>
+	 
+  </class>
+</hibernate-mapping>
+
+
+
+
+

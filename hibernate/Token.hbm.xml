@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.fis.cortex.model.des.domain.token.basic.BasicToken" entity-name="com.fis.cortex.model.des.domain.token.Token"
+		table="TOKEN" optimistic-lock="version" dynamic-update="true" dynamic-insert="true">
+		<cache usage="read-only" />
+		
+		<id name="id" type="long" column="id" />
+		<version name="versionNumber" column="verno_ctx" generated="always" access="field" />
+		
+		<many-to-one name="institution" class="com.nomadsoft.cortex.domain.institution.Institution" cascade="none" access="field" column="inst_id" fetch="join"/>
+		<many-to-one name="callCenter" class="com.fis.cortex.model.des.domain.callcenter.CallCenter" cascade="none" access="field" column="callcenter_id" fetch="join"/>
+		
+		<property name="crddetId" type="long" column="crddet_id" />
+		<property name="tokenExpiryDate" type="date" column="tknexpirydate" />
+		<property name="tokenRequestorId" type="string" column="tknrequestorid" length="11"/>
+		<property name="tokenUniqueReference" type="string" column="tur" length="48"/>
+		<property name="paymentAppInstId" type="string" column="appinstanceid" length="48" />
+		<property name="panSuffix" type="string" column="pansuffix" length="4" />
+		<property name="virtualPan" type="string" column="vpan" length="19" />
+		<property name="pan" type="string" column="pan" length="19" />
+		<property name="panur" type="string" column="panur" length="48" />
+		<property name="deviceName" type="string" column="devname" length="20" />
+		<property name="storageTech" type="string" column="storagetech" length="2" />
+		<property name="devType" type="int" column="devtype"/>
+		<property name="devId" type="string" column="devid" length="48" />
+		<property name="token" type="string" column="token" length="19" />
+		<property name="tokenScheme" type="char" column="schemeid"  />
+		<property name="mobileNoSuffix" type="string" column="mobilenosuffix" length="15" />
+		<property name="tokenType" type="string" column="tkntype" length="2" />
+		<property name="tokenStatus" type="char" column="tknstatus"  />
+		<property name="provisioningStatus" type="string" column="provisioningstatus" length="3" />
+		<property name="walletId" type="string" column="walletid" length="3" />
+		<property name="suspenders" type="string" column="suspenders" length="16" />
+		<property name="walletProviderRecommendation" type="char" column="wprecom" />
+		<property name="walletProviderDeviceScore" type="int" column="wpdevscore" />
+		<property name="walletProviderAccountScore" type="int" column="wpaccscore" />
+		<property name="walletProviderRecommendationReasons" type="string" column="wprecomreasons" length="16" />
+		<property name="visaTokenScore" type="int" column="vtsscore" />
+		<property name="visaTokenDecision" type="string" column="vtsdecision" length="2" />
+		<property name="tokenAssuranceLevel" type="int" column="tknasslevel" />
+
+		<property name="originalToken" type="string" column="orgtoken" length="19" />
+		<property name="originalTokenAssuranceLvl" type="int" column="orgtknasslevel" />
+		<property name="originalTokenReqId" type="string" column="orgtknrequestorid" length="11" />
+		<property name="originalTokenRefId" type="string" column="orgtur" length="48" />
+		<property name="tokenReqSPID" type="string" column="tknreqtspid" length="11" />
+
+		<property name="cardholderDisabledPaymentChannel" type="string" column="crdhlddisabldpymtchn" length="3" />
+		<property name="authReqCorrelationId" type="string" column="authReqCorrelationId" length="64" />		
+		<property name="accountEmail" type="string" column="wpAccountEmail" length="64" />
+		<property name="accountLifetime" column="accountLifetime" type="short" />		
+	</class>
+</hibernate-mapping>

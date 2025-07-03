@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping">
+
+<hibernate-mapping>
+	<class name="com.metavante.cortex.domain.ccs.msc.basic.BasicCcsMsc"
+		        entity-name="com.metavante.cortex.domain.ccs.msc.CcsMsc" table="ccsmsc"
+		        dynamic-update="true" dynamic-insert="true">
+		        
+		<cache usage="read-write"/>  
+		        
+		<composite-id name="id"
+			class="com.metavante.cortex.identities.CcsMscId">
+			<key-property name="index" type="short">
+				<column name="idx" />
+			</key-property>
+			<key-property name="tag" type="string">
+				<column name="tag" />
+			</key-property>
+		</composite-id>
+        <property name="tag" column="tag" insert="false" update="false" />
+        <property name="dateValue" column="date_t" type="date" length="4" access="field" />
+		<property name="doubleValue" type="double" column="double_t" />
+		<property name="module" type="string" column="mscmodule" />
+		<property name="description" type="string" column="descr" />
+		<property name="mask" type="short" column="mask" />
+		<property name="stringValue" type="string" column="string_t" />
+		<property name="longValue" type="long" column="long_t" />
+		<property name="shortValue" type="short" column="short_t" />
+	</class>
+</hibernate-mapping>

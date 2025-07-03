@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.fis.mkc.domain.model.basic.BasicActionMasking"
+		entity-name="com.fis.mkc.domain.model.ActionMasking" table="MKC_ACTION_MASK"
+		mutable="false">
+
+		<composite-id name="id" class="com.fis.mkc.domain.identity.ActionMaskingId">
+			<key-property name="actionId">
+				<column name="ACTION_ID" />
+			</key-property>
+			<key-property name="sourceId">
+				<column name="SOURCE_ID" />
+			</key-property>
+			<key-property name="userGroup">
+				<column name="USRGRP" />
+			</key-property>
+			<key-property name="field">
+				<column name="FIELD" />
+			</key-property>
+		</composite-id>
+
+		<many-to-one name="action"
+			entity-name="com.fis.mkc.domain.model.Action"
+			insert="false" update="false">
+			<column name="ACTION_ID" />
+			<formula>SOURCE_ID</formula>
+		</many-to-one>
+
+		<many-to-one name="source"
+			entity-name="com.fis.mkc.domain.model.Source"
+			insert="false" update="false">
+			<column name="SOURCE_ID" />
+		</many-to-one>
+
+		<property name="userGroup" type="java.lang.String" insert="false" update="false">
+			<column name="USRGRP" length="15" />
+		</property>
+
+		<property name="field" type="java.lang.String" insert="false" update="false">
+			<column name="FIELD" length="255" />
+		</property>
+
+		<property name="algorithm" type="integer" insert="false" update="false" column="ALGORITHM" />
+	</class>
+</hibernate-mapping>

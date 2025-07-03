@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping">
+
+<hibernate-mapping>
+    <class name="com.metavante.cortex.domain.ccs.bookkeeping.basic.BasicBookkeepingItem" table="ccsbkitem" 
+    dynamic-update="true" dynamic-insert="true">
+
+        <id name="id" type="long">
+            <column name="id" />
+            <generator class="native">
+                 <param name="sequence_name">${ccsbkitem_id.generator.sequence}</param>
+            </generator>
+        </id>
+        
+        <property name="cortexDate" type="date" column="ccsdate" length="4" not-null="true" />
+        <property name="bookkeepingItemType" type="short" column="bktype" not-null="true" />
+        <property name="componentCode" type="short" column="comp_code" not-null="true" />
+		<property name="accountId" type="long" column ="acc_id" not-null="true" />
+		<property name="itemValue" type="big_decimal" column="itemvalue" not-null="true" />
+		<property name="sourceProcess" type="string" column="src_process" not-null="true" />
+		<property name="creditAccountItemId" type="long" column="ccsitemid" not-null="true" />
+		<property name="bookkeepingGroup" type="long" column="bkgroup" not-null="true" />
+
+    </class>
+
+</hibernate-mapping>

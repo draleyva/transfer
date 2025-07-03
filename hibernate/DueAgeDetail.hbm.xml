@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping">
+<!-- Generated 2006-09-22 12:27:04 by Hibernate Tools 3.2.0.beta7 -->
+<hibernate-mapping>
+    <class name="com.metavante.cortex.domain.ccs.due.basic.BasicDueAgeDetail" table="ccsdueagedet" 
+                optimistic-lock="version" dynamic-update="true" dynamic-insert="true">
+
+		<id name="accountId" type="long">
+            <column name="acc_id" />
+        </id>
+
+ 		<version name="versionNumber" column="verno_ctx" access="field" generated="always" unsaved-value="undefined"/> 		 
+ 
+        <property name="payByDate0" type="date" column="paybydate0" length="4" />
+        <property name="payByDate1" type="date" column="paybydate1" length="4" />
+        <property name="payByDate2" type="date" column="paybydate2" length="4" />
+        <property name="payByDate3" type="date" column="paybydate3" length="4" />
+        <property name="payByDate4" type="date" column="paybydate4" length="4" />
+        <property name="payByDate5" type="date" column="paybydate5" length="4" />
+        <property name="payByDate6" type="date" column="paybydate6" length="4" />
+        <property name="amountOverLimitCycle0" type="big_decimal" column="amtovlimcyc0" precision="8" scale="15" />
+        <property name="amountOverLimitCycle1" type="big_decimal" column="amtovlimcyc1" precision="8" scale="15" />
+        <property name="amountOverLimitCycle2" type="big_decimal" column="amtovlimcyc2" precision="8" scale="15" />
+        <property name="amountOverLimitCycle3" type="big_decimal" column="amtovlimcyc3" precision="8" scale="15" />
+        <property name="amountOverLimitCycle4" type="big_decimal" column="amtovlimcyc4" precision="8" scale="15" />
+        <property name="amountOverLimitCycle5" type="big_decimal" column="amtovlimcyc5" precision="8" scale="15" />
+        <property name="amountOverLimitCycle6" type="big_decimal" column="amtovlimcyc6" precision="8" scale="15" />
+        <property name="totalAmountDueFromCycle0" type="big_decimal" column="amttotal0" precision="8" scale="15" />
+        <property name="totalAmountDueFromCycle1" type="big_decimal" column="amttotal1" precision="8" scale="15" />
+        <property name="totalAmountDueFromCycle2" type="big_decimal" column="amttotal2" precision="8" scale="15" />
+        <property name="totalAmountDueFromCycle3" type="big_decimal" column="amttotal3" precision="8" scale="15" />
+        <property name="totalAmountDueFromCycle4" type="big_decimal" column="amttotal4" precision="8" scale="15" />
+        <property name="totalAmountDueFromCycle5" type="big_decimal" column="amttotal5" precision="8" scale="15" />
+        <property name="totalAmountDueFromCycle6" type="big_decimal" column="amttotal6" precision="8" scale="15" />
+        <property name="dueDate0" type="date" column="duedate0" length="4" />
+        <property name="dueDate1" type="date" column="duedate1" length="4" /> 
+        <property name="dueDate2" type="date" column="duedate2" length="4" />
+        <property name="dueDate3" type="date" column="duedate3" length="4" />
+        <property name="dueDate4" type="date" column="duedate4" length="4" />
+        <property name="dueDate5" type="date" column="duedate5" length="4" />
+        <property name="dueDate6" type="date" column="duedate6" length="4" />
+
+        
+    </class>
+</hibernate-mapping>

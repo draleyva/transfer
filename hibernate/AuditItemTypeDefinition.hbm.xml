@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.fis.cortex.domain.core.audit.basic.BasicAuditItemTypeDefinition"
+		entity-name="com.fis.cortex.domain.core.audit.AuditItemTypeDefinition"
+		table="audit_typedef" dynamic-update="true" optimistic-lock="version">
+
+        <id name="id" type="long" access="field">
+            <column name="id" />
+            <generator class="native">
+                <param name="sequence_name">${audit_typedef_id.generator.sequence}</param>
+            </generator>
+        </id>
+        		            
+		<property name="objectTypeId" column="objecttype_id" type="int" not-null="true" access="field" />
+        <property name="identifier1Key" column="identifier1key" type="string" not-null="true" access="field" />
+        <property name="identifier2Key" column="identifier2key" type="string" not-null="true" access="field" />
+        <property name="identifier3Key" column="identifier3key" type="string" not-null="true" access="field" />
+        <property name="identifier4Key" column="identifier4key" type="string" not-null="true" access="field" />
+        <property name="identifier1Label" column="identifier1label" type="string" not-null="true" access="field" />
+        <property name="identifier2Label" column="identifier2label" type="string" not-null="true" access="field" />
+        <property name="identifier3Label" column="identifier3label" type="string" not-null="true" access="field" />
+        <property name="identifier4Label" column="identifier4label" type="string" not-null="true" access="field" />
+        <property name="idLabel" column="idLabel" type="string" not-null="true" access="field" />
+	</class>
+
+</hibernate-mapping>

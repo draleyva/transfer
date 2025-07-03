@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping">
+
+<hibernate-mapping>
+    <class name="com.metavante.cortex.domain.ccs.creditaccountscheme.basic.BasicCreditAccountScheme" table="ccsscheme" optimistic-lock="version">
+    
+       <cache usage="nonstrict-read-write"/>
+    
+        <composite-id name="id" class="com.metavante.cortex.identities.CreditAccountSchemeId">
+            <key-property name="creditAccountProfile" type="string">
+                <column name="chrgprfid" length="10" />
+            </key-property>
+			<key-many-to-one name="institution" class="com.fis.cortex.domain.core.institution.Institution" column="inst_id" lazy="proxy" access="field"/>      
+            <key-property name="schemeCode" type="string">
+                <column name="scheme" length="4" />
+            </key-property>
+        </composite-id>
+        
+        <version name="versionNumber" column="verno_ctx" access="field"/> 	
+        
+        <property name="defaultPaymentPlanSetId" type="long" column="dfltppset_id" length="2" not-null="true" />
+        <property name="paymentPlanCashControl" type="string" column="ppcashcntrl" length="2" not-null="true" />
+        <property name="defaultPaymentPlanLimit" type="big_decimal" column="dfltpplimit" precision="8" scale="15" not-null="true" />
+        <property name="description" type="string" column="descr" length="50" not-null="true" />
+        <property name="percentageOfExceedingLimitThatBlocksAccount" type="double" column="ovrlimblkprcnt" precision="8" scale="15" not-null="true" />
+        <property name="statusForOverLimitBlocking" type="string" column="ovrlimblkstat" length="2" not-null="true" />
+        <property name="overLimitToleranceAmount" type="big_decimal" column="ovrlimtol" precision="8" scale="15" not-null="true" />
+        <property name="minimumPaymentToleranceAmount" type="big_decimal" column="minpaytol" precision="8" scale="15" not-null="true" />
+        <property name="percentageOfLimitAllowedForCash" type="double" column="cashprcnt" precision="8" scale="15" not-null="true" />
+        <property name="delinquencyIncreaseOnlyThreshold" type="short" column="dlnqponr" not-null="true" />
+        <property name="flags" type="string" column="schflags" length="16" not-null="true" />
+        <property name="userData" type="string" column="usrdata" length="32" not-null="true" />
+        <property name="penaltyInterest" type="big_decimal" column="latepaypenint" precision="8" scale="15" not-null="true" />
+        <property name="minimumProjectedPenaltyInterestAmount" type="big_decimal" column="prjpenintmin" precision="8" scale="15" not-null="true" />
+        <property name="feeSet" type="short" column="feeset" not-null="true" />
+        <property name="dlnqincr" type="short" column="dlnqincr" not-null="true" /> 
+        <property name="corporateLimitDistributionControlType" type="short" column="limitctrl" not-null="true" />
+
+        <property name="surplusControl" type="com.metavante.cortex.infrastructure.hibernate.types.SurplusControlEnumType" 
+        	column="surpcntrl" not-null="true" />
+        <property name="dueDebtControl" type="com.metavante.cortex.infrastructure.hibernate.types.DueDebtControlEnumType" 
+        	column="duecntrl" not-null="true" />
+        <property name="debtApplyControl" type="com.metavante.cortex.infrastructure.hibernate.types.DebtApplyControlEnumType"
+        	column="debtcntrl" not-null="true" />
+        <property name="overLimitToleranceType" type="com.metavante.cortex.infrastructure.hibernate.types.OverLimitToleranceTypeEnumType"
+        	column="ovlimType" not-null="true" />
+
+        
+        <set name="components" inverse="true" fetch="join">
+            <key>
+                <column name="chrgprfid" length="10" not-null="true" />
+                <column name="inst_id" not-null="true" />
+                <column name="scheme" length="4" not-null="true" />
+            </key>
+            <one-to-many class="com.metavante.cortex.domain.ccs.component.basic.BasicComponent" />
+        </set>
+        <set name="delinquencyProfiles" inverse="true" lazy="extra">
+            <key>
+                <column name="chrgprfid" length="10" not-null="true" />
+                <column name="inst_id" not-null="true" />
+                <column name="scheme" length="4" not-null="true" />
+            </key>
+            <one-to-many class="com.metavante.cortex.domain.ccs.delinquency.basic.BasicDelinquencyProfile" />
+        </set>
+        <set name="creditAccounts" inverse="true" lazy="extra">
+            <key>
+                <column name="chrgprfid" length="10" not-null="true" />
+                <column name="inst_id" not-null="true" />
+                <column name="scheme" length="4" not-null="true" />
+            </key>
+            <one-to-many class="com.metavante.cortex.domain.ccs.creditaccount.basic.BasicCreditAccount" />
+        </set>
+        
+        <property name="creditLimitMax" type="big_decimal" column="creditlimitmax" precision="8" scale="15" not-null="true" />
+        <property name="maximumLimitIncreasePercentage" column="maxlimitincrprcnt" type="float"  not-null="false"/>
+        <property name="shadowLimitPercentage" column="shdwlimprcnt" type="float"  not-null="false"/>
+        <property name="shadowLimitAmount" type="big_decimal" column="shdwlimamt" precision="8" scale="15" not-null="true" />
+        <property name="statusForCreditLimitDateExpired" type="string" column="cledatestat" length="2" />
+        <property name="creditLimitExpirationDateExtension" type="int" column="cledateext" length="2" />
+        <property name="cycleChange" type="short" column="cycle_change" not-null="true" />
+		<property name="directDebitRequestType" type="short" column="ddreqtype" not-null="true" length="2" />
+    </class>
+
+</hibernate-mapping>

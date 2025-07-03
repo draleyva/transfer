@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.fis.cortex.model.des.domain.tkntrnsreqlog.basic.BasicTokenTransactionRequestLog"
+    entity-name="com.fis.cortex.model.des.domain.tkntrnsreqlog.TokenTransactionRequestLog" table="tkntxnreqlog" lazy="false" >
+
+	<id name="id" type="long" column="id" access="field" /> 
+	    
+    <property name="whenCreated" column="whenCreated" type="timestamp" not-null="true" access="field" />
+    <property name="tlogId" column="tlog_id" not-null="true" access="field" />    
+    <property name="txnCode" column="txncode" not-null="true" access="field" />
+    <property name="txnSubCode" column="txnsubcode" not-null="true"  access="field" />
+	<property name="functionCode" column="functioncode" not-null="true" access="field" />
+	<property name="afe" column="afe" not-null="true" access="field" />
+	<property name="ife" column="ife" not-null="true" access="field" />
+	<property name="xmitDateTime" column="xmitdatetime" type="timestamp" not-null="true" access="field" />
+	<property name="pan" column="pan" not-null="true" access="field" />
+	<property name="vpan" column="vpan"  access="field" />
+	<property name="panSuffix" column="pansuffix" not-null="true" access="field" />
+	<property name="token" column="token" not-null="true" access="field" />
+	<property name="tknRequestorId" column="tknrequestorid" access="field" />
+	<property name="walletId" column="walletid"  access="field" />
+	<property name="accountInd" column="accountind"  access="field" />
+	<property name="tknassLevel" column="tknasslevel"  access="field" />
+	<property name="tknType" column="tkntype"  access="field" />
+	
+	<property name="devCvm" column="devcvm"  access="field" />
+	<property name="posCrdDev" column="poscrddev"  access="field" />
+	<property name="devType" column="devtype"  access="field" />
+	<property name="addAnlsTxnDisp" column="addanlstxndisp"  access="field" />
+	<property name="addAnlsRes" column="addanlsres"  access="field" />
+	<property name="atcValue" column="atcvalue"  access="field" />
+	<property name="atcDiscValue" column="atcdiscvalue"  access="field" />
+	<property name="atcDiscInd" column="atcdiscind"  access="field" />
+	<property name="schemeId" column="schemeid"  access="field" />
+	
+	<property name="storageTech" column="storagetech"  access="field" />
+	<property name="trn" column="trn" not-null="true" access="field" />
+	<property name="tknTxnId" column="tkntxnid" access="field" />
+	<property name="aiid" column="aiid" not-null="true" access="field" />
+	
+	<property name="mcc" column="mcc" not-null="true" access="field" />
+	
+	<property name="cardAcceptorId" column="cardAcceptorId" not-null="true" access="field" />
+	<property name="cardAcceptorName" column="cardacceptorname" not-null="true" access="field" />
+	<property name="cardAcceptorStreet" column="cardacceptorstreet"  access="field" />
+	<property name="cardAcceptorCity" column="cardacceptorcity" access="field" />
+	<property name="cardAcceptorPostCode" column="cardacceptorpostcode" access="field" />
+	<property name="cardAcceptorRegion" column="cardacceptorregion"  access="field" />
+	<property name="cardAcceptorCountry" column="cardacceptorcountry" not-null="true"  access="field" />
+	<property name="amtTxn" column="amttxn"  access="field" />
+	<property name="curTxn" column="curtxn"  access="field" />
+	<property name="amtTraded" column="amttraded"  access="field" />
+	<property name="curTraded" column="curtraded"  access="field" />
+	<property name="actionCode" column="actioncode"  access="field" />
+	<property name="responseCode" column="responsecode"  access="field" />
+	<property name="reasonCode" column="reasoncode"  access="field" />
+	<property name="midOrg" column="midorg"  access="field" />
+	<property name="amtTxnOrg" column="amttxnorg"  access="field" />
+	<property name="amtTradedOrg" column="amttradedorg"  access="field" />
+	<property name="trnOrg" column="trnorg"  access="field" />
+	<property name="poscDim" column="poscdim"  access="field" />
+	<property name="statusCode" column="CRDSTATUSCODE" access="field" />
+	<property name="boundDeviceIndex" type="int" column="bnddevidx" not-null="true" />
+	<property name="tokenUserId" type="string" column="tknusrid" length="11" />
+	<property name="tokenUserAppType" type="int" column="tknusrapptype" />
+	<property name="tokenAuthFactA" type="int" column="tknauthfacta" />
+	<property name="tokenAuthFactB" type="int" column="tknauthfactb" />
+	<property name="tokenAuthAmt" column="tknauthamt"  access="field" />
+	<property name="tokenReqSPID" type="string" column="tknreqtspid" length="11" />
+	
+  </class>
+  
+  </hibernate-mapping>
+
+
+

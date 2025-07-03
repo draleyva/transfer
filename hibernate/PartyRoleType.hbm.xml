@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.fis.cortex.party.domain.partyrole.basic.BasicPartyRoleType"
+		entity-name="com.fis.cortex.party.domain.partyrole.PartyRoleType" table="PRT_PRT" optimistic-lock="version">
+		<id name="id" type="long">
+			<column name="ID" />
+		</id>
+		<version name="versionNumber" column="VERNO_CTX" access="field" />
+		<property name="shortDesc" column="SHORT_DESCR" type="string" not-null="true"/>
+		<property name="description" column="DESCR" type="string"/>
+	</class>
+</hibernate-mapping>

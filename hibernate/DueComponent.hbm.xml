@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping">
+<!-- Generated 2006-09-22 12:27:04 by Hibernate Tools 3.2.0.beta7 -->
+<hibernate-mapping>
+    <class name="com.metavante.cortex.domain.ccs.due.basic.BasicDueComponent" table="ccsduecmp" dynamic-update="true" 
+                optimistic-lock="version" dynamic-insert="true">
+        <id name="id" type="long">
+            <column name="acc_id" />
+        </id>
+        
+        <version name="versionNumber" column="verno_ctx" access="field" generated="always" unsaved-value="undefined"/> 	
+        
+        <many-to-one name="creditAccount" class="com.metavante.cortex.domain.ccs.creditaccount.basic.BasicCreditAccount" update="false" 
+                insert="false"  fetch="select" lazy="proxy">
+            <column name="acc_id" not-null="true" />
+        </many-to-one>
+        
+        <component name="singleComponent0" class="com.metavante.cortex.domain.ccs.due.basic.BasicSingleComponent">
+            <property name="currentTimeBand" type="big_decimal">
+                <column name="bandcur0" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="previousTimeBand" type="big_decimal">
+                <column name="bandprv0" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="oldTimeBand" type="big_decimal">
+                <column name="bandold0" precision="8" scale="15" not-null="true" />
+            </property>
+        </component>
+
+        <component name="singleComponent1" class="com.metavante.cortex.domain.ccs.due.basic.BasicSingleComponent">
+    		<property name="currentTimeBand" type="big_decimal">
+                <column name="bandcur1" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="previousTimeBand" type="big_decimal">
+                <column name="bandprv1" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="oldTimeBand" type="big_decimal">
+                <column name="bandold1" precision="8" scale="15" not-null="true" />
+            </property>  
+        </component>  
+
+        <component name="singleComponent2" class="com.metavante.cortex.domain.ccs.due.basic.BasicSingleComponent">
+            <property name="currentTimeBand" type="big_decimal">
+                <column name="bandcur2" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="previousTimeBand" type="big_decimal">
+                <column name="bandprv2" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="oldTimeBand" type="big_decimal">
+                <column name="bandold2" precision="8" scale="15" not-null="true" />
+            </property>
+        </component>
+
+        <component name="singleComponent3" class="com.metavante.cortex.domain.ccs.due.basic.BasicSingleComponent">
+            <property name="currentTimeBand" type="big_decimal">
+                <column name="bandcur3" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="previousTimeBand" type="big_decimal">
+                <column name="bandprv3" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="oldTimeBand" type="big_decimal">
+                <column name="bandold3" precision="8" scale="15" not-null="true" />
+            </property>
+        </component>
+
+        <component name="singleComponent4" class="com.metavante.cortex.domain.ccs.due.basic.BasicSingleComponent">        
+            <property name="currentTimeBand" type="big_decimal">
+                <column name="bandcur4" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="previousTimeBand" type="big_decimal">
+                <column name="bandprv4" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="oldTimeBand" type="big_decimal">
+                <column name="bandold4" precision="8" scale="15" not-null="true" />
+            </property>
+        </component>
+
+        <component name="singleComponent5" class="com.metavante.cortex.domain.ccs.due.basic.BasicSingleComponent">        
+            <property name="currentTimeBand" type="big_decimal">
+                <column name="bandcur5" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="previousTimeBand" type="big_decimal">
+                <column name="bandprv5" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="oldTimeBand" type="big_decimal">
+                <column name="bandold5" precision="8" scale="15" not-null="true" />
+            </property>
+        </component>
+
+        <component name="singleComponent6" class="com.metavante.cortex.domain.ccs.due.basic.BasicSingleComponent">        
+            <property name="currentTimeBand" type="big_decimal">
+                <column name="bandcur6" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="previousTimeBand" type="big_decimal">
+                <column name="bandprv6" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="oldTimeBand" type="big_decimal">
+                <column name="bandold6" precision="8" scale="15" not-null="true" />
+            </property>
+        </component>
+
+        <component name="singleComponent7" class="com.metavante.cortex.domain.ccs.due.basic.BasicSingleComponent">        
+            <property name="currentTimeBand" type="big_decimal">
+                <column name="bandcur7" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="previousTimeBand" type="big_decimal">
+                <column name="bandprv7" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="oldTimeBand" type="big_decimal">
+                <column name="bandold7" precision="8" scale="15" not-null="true" />
+            </property>
+        </component>
+
+        <component name="singleComponent8" class="com.metavante.cortex.domain.ccs.due.basic.BasicSingleComponent">
+            <property name="currentTimeBand" type="big_decimal">
+                <column name="bandcur8" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="previousTimeBand" type="big_decimal">
+                <column name="bandprv8" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="oldTimeBand" type="big_decimal">
+                <column name="bandold8" precision="8" scale="15" not-null="true" />
+            </property>
+        </component>
+
+        <component name="singleComponent9" class="com.metavante.cortex.domain.ccs.due.basic.BasicSingleComponent">
+            <property name="currentTimeBand" type="big_decimal">
+                <column name="bandcur9" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="previousTimeBand" type="big_decimal">
+                <column name="bandprv9" precision="8" scale="15" not-null="true" />
+            </property>
+            <property name="oldTimeBand" type="big_decimal">
+                <column name="bandold9" precision="8" scale="15" not-null="true" />
+            </property>
+        </component>
+    </class>
+</hibernate-mapping>

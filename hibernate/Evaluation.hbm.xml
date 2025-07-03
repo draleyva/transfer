@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
 
@@ -11,7 +11,7 @@
 		<id name="id" type="long">
 			<column name="id" />
 			<generator class="native">
-				<param name="sequence">${rule_evalset_id.generator.sequence}</param>
+				<param name="sequence_name">${rule_evalset_id.generator.sequence}</param>
 			</generator>
 		</id>
 

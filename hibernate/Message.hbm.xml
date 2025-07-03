@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping">
+
+<hibernate-mapping>
+    <class name="com.metavante.cortex.domain.ccs.message.basic.BasicMessage"
+        entity-name="com.metavante.cortex.domain.ccs.message.Message" 
+        table="CCSMSG" lazy="false" optimistic-lock="version">
+
+        <cache usage="read-only"/>
+
+        <composite-id name="id" class="com.metavante.cortex.identities.MessageId">
+            <key-property name="messageId" column="MSGID" />
+			<key-many-to-one name="institution" class="com.fis.cortex.domain.core.institution.Institution" column="inst_id" access="field"/>      
+            <key-property name="language" column="LANG" />
+        </composite-id>
+        
+        <version name="versionNumber" column="VERNO_CTX" access="field"></version>
+
+        <property name="messageText" column="MSGTXT" not-null="true" />
+
+        <property name="language" column="LANG" not-null="true" insert="false" update="false" />
+    </class>
+</hibernate-mapping>

@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
 
-	<class name="com.nomadsoft.cortex.domain.access.basic.BasicGroupPermission"
-		entity-name="com.nomadsoft.cortex.domain.access.GroupPermission" table="grpperm"
+	<class name="com.fis.cortex.domain.core.access.basic.BasicGroupPermission"
+		entity-name="com.fis.cortex.domain.core.access.GroupPermission" table="grpperm"
 		dynamic-update="true" optimistic-lock="version">
 
 		<composite-id name="id"
-			class="com.nomadsoft.cortex.domain.access.basic.GroupPermissionId" access="field">
+			class="com.fis.cortex.domain.core.access.basic.GroupPermissionId" access="field">
 			<key-property name="screen" type="string" access="field">
 				<column name="acsitem" length="15" />
 			</key-property>
@@ -21,14 +21,16 @@
 
 		<version name="versionNumber" column="verno_ctx" access="field" />
 
-		<many-to-one name="screen"
-			class="com.nomadsoft.cortex.domain.access.Screen" cascade="none"
+		<property name="mask" column="mask" not-null="true" type="org.hibernate.type.YesNoType" access="field"/>
+		
+		<many-to-one name="accessible"
+			class="com.fis.cortex.domain.core.access.Screen" cascade="none"
 			access="field" insert="false" update="false">
 			<column name="acsitem" />
 		</many-to-one>
 
-		<many-to-one name="userGroup"
-			class="com.nomadsoft.cortex.domain.user.UserGroup" cascade="none"
+		<many-to-one name="restrictable"
+			class="com.fis.cortex.domain.core.user.UserGroup" cascade="none"
 			access="field" insert="false" update="false">
 			<column name="usrgrp" />
 		</many-to-one>

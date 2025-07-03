@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping">
+<hibernate-mapping>
+	<class
+		name="com.fis.cortex.crdbase.domain.card.basic.BasicCardProductDescription"
+		entity-name="com.fis.cortex.crdbase.domain.card.CardProductDescription"
+		table="CRDPRODUCTD" lazy="false" optimistic-lock="version">
+		<cache usage="nonstrict-read-write" />
+
+		<composite-id
+			class="com.fis.cortex.crdbase.domain.card.CardProductDescriptionId"
+			name="cardProductDescriptionId">
+			<key-property name="cardProductId" access="field"
+				column="Crdproduct_id" type="long" />
+			<key-many-to-one name="localDefinition" column="localedef_id"
+				class="com.fis.cortex.domain.core.localdefinition.LocalDefinition" />
+		</composite-id>
+
+		<version name="versionNumber" column="verno_ctx" generated="always"
+			access="field" />
+
+		<property name="description" column="Descr" type="string"
+			not-null="true" />
+
+		<property name="shortDescription" column="Short_descr" type="string"
+			not-null="true" access="field" />
+
+	</class>
+
+	<query name="CardProductDescription.getCardProductDescriptionLocalDef">
+    <![CDATA[  select crdp.cardProduct, crdp.description,  cardProductDescription.shortDescription ,  
+               cardProductDescription.description from CardProduct as crdp inner join crdp.institution  
+               as inst left outer join crdp.cardProductDescriptionList as cardProductDescription inner 
+               join cardProductDescription.cardProductDescriptionId.localDefinition as localDefinition 
+               where inst.institutionCode = :instCode and localDefinition.ctxLocale = :locale order by crdp.cardProduct 
+    ]]>
+	</query>
+
+</hibernate-mapping>
+
+
+
+
+

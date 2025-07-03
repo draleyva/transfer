@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping">
+<hibernate-mapping>
+    <class name="com.metavante.cortex.domain.ccs.directdebit.basic.BasicDirectDebitRequested" table="ccsddreqamt" optimistic-lock="version">
+       <composite-id name="id" class="com.metavante.cortex.identities.DirectDebitRequestedId">
+            <key-property name="accountId" type="long">
+                <column name="acc_id" not-null="true"/>
+            </key-property>
+	        <key-property name="dateValue" type="date">
+	            <column name="date_value" length="4" not-null="true"/>
+	        </key-property>
+	        <key-property name="componentGroup" type="string">
+	            <column name="cmpgrp" length="3" not-null="true"/>
+	        </key-property>
+        </composite-id>
+       
+       <version name="versionNumber" column="verno_ctx" access="field"/> 
+
+        <property name="cycleEndDate" type="date">
+            <column name="date_end" length="4" not-null="true" />
+        </property>
+        <property name="directDebitAmount" column="amt" not-null="true" />
+        <property name="directDebitAmountCurrency" type="string">
+            <column name="currcode" length="3" not-null="true" />
+        </property>
+        <property name="accountNumber" type="string">
+            <column name="ddaccno" length="28" not-null="true" />
+        </property>
+        <property name="directDebitApplyCurrency" type="string">
+            <column name="ddcurrcode" length="3" not-null="true" />
+        </property>
+        <property name="posted" type="int">
+            <column name="posted" not-null="true" />
+        </property>
+        <property name="extracted" type="int">
+            <column name="extracted" not-null="true" />
+        </property>
+		
+		<many-to-one name="institution" class="com.fis.cortex.domain.core.institution.Institution" column="inst_id" access="field"  fetch="select" lazy="proxy"/>      
+    </class>
+</hibernate-mapping>
