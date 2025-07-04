@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.nomadsoft.cortex.domain.card.basic.BasicCardStatus"
+    table="CRDSTATUS" lazy="false" optimistic-lock="version">
+    <cache usage="nonstrict-read-write"/>
+    
+    <id name="statusCode" column="STATCODE" type="string" access="field"/>
+    <version name="versionNumber" column="VERNO_CTX" type="integer" access="field"></version>
+  
+    <property name="actionCode" column="ACTIONCODE" type="character" not-null="true" access="field"/>
+    
+    <property name="description" column="DESCR" type="string" not-null="true"/>
+    
+    <property name="responseCode" column="RSPCODE" type="string" not-null="true" access="field"/>
+    
+    <property name="cancelled" column="CANCELED" type="boolean" not-null="true" access="field"/>
+
+    <property name="systemDefined" column="SYSDEF" type="boolean" not-null="true" access="field"/>
+  </class>
+</hibernate-mapping>

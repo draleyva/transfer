@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.nomadsoft.cortex.domain.common.basic.BasicCycle"
+		entity-name="com.nomadsoft.cortex.domain.common.Cycle" table="cycledet"
+		dynamic-update="true" optimistic-lock="version">
+
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="${id.generator.class}">
+				<param name="sequence_name">${cycledet_id.generator.sequence}</param>
+			</generator>
+		</id>
+
+		<version name="versionNumber" column="verno_ctx" generated="always" access="field" />
+
+		<property name="description" column="descr" access="field" />
+
+		<property name="cycleLength" column="cycle_len" not-null="true"
+			type="short" access="field" />
+			
+		<property name="cycleBegin" column="cycle_begin" not-null="true"
+			type="short" access="field" />
+
+		<property name="institutionId" column="inst_id" insert="false" update="false" type="long" access="field" />
+
+		<many-to-one name="institution"
+			class="com.nomadsoft.cortex.domain.institution.Institution"  column="inst_id"
+			 lazy="proxy" fetch="select" not-found="ignore" cascade="none" access="field"/>
+
+		<filter name="noCTX0" />
+
+	</class>
+
+</hibernate-mapping>

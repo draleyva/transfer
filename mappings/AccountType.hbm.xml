@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.nomadsoft.cortex.domain.account.basic.BasicAccountType"
+		entity-name="com.nomadsoft.cortex.domain.account.AccountType" table="ACCTYPE" optimistic-lock="version">
+	<composite-id name="id" class="com.nomadsoft.cortex.domain.account.basic.AccountTypeId">
+		  <key-property name="instId" column="INST_ID" type="long"/>
+		  <key-property name="accountType" column="TYPECODE" type="string"/>
+	</composite-id>	
+		<version name="versionNumber" column="VERNO_CTX" access="field" />
+		<property name="ISOCode" column="ISOCODE" type="int"  />
+		<property name="bankAccCode" column="BANKACCCODE" type="string"  />
+		<property name="description" column="DESCR" type="string"  />
+							
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.nomadsoft.cortex.domain.card.basic.BasicCardAccount"
+		entity-name="com.nomadsoft.cortex.domain.card.CardAccount" table="CRDACC"
+		optimistic-lock="version">
+		<composite-id name="id"
+			class="com.nomadsoft.cortex.domain.card.CardAccountId">
+			<key-many-to-one name="card"
+				class="com.nomadsoft.cortex.domain.card.Card" column="crddet_id"
+				access="field" />
+			<key-many-to-one name="account"
+				class="com.nomadsoft.cortex.domain.account.Account" column="accdet_id"
+				access="field" />
+		</composite-id>
+
+		<version name="versionNumber" column="VERNO_CTX" access="field"></version>
+
+		<property name="isoCode" column="ISOCODE" access="field"
+			length="5" />
+		<property name="typeCode" column="TYPECODE" type="string"
+			access="field" length="2" />
+		<property name="roleId" column="ROLEID" type="string" access="field"
+			length="4" />
+
+
+
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.nomadsoft.cortex.domain.user.basic.BasicUser"
+		entity-name="com.nomadsoft.cortex.domain.user.User" table="usr"
+		dynamic-update="true" optimistic-lock="version">
+
+		<id name="userName" type="string">
+			<column name="usr" />
+		</id>
+
+		<version name="versionNumber" column="verno_ctx" generated="always" access="field" />
+
+		<property name="description" column="descr" access="field" />
+
+		<property name="encryptedPassword" column="password" access="field" />
+
+		<many-to-one name="userGroup"
+			class="com.nomadsoft.cortex.domain.user.UserGroup" cascade="none"
+			access="field">
+			<column name="usrgrp" />
+		</many-to-one>
+
+		<property name="lastLoginDate" type="date" column="lstlogdate" access="field" />
+		<property name="lastLoginTime" type="long" column="lstlogtime" access="field" />
+		<property name="lastUnsuccessfulLoginDate" type="date" column="unslogdate" access="field" />
+		<property name="lastUnsuccessfulLoginTime" type="long" column="unslogtime" access="field" />
+
+	</class>
+
+</hibernate-mapping>

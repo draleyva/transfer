@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.nomadsoft.cortex.domain.country.basic.BasicCountry" entity-name="com.nomadsoft.cortex.domain.country.Country"
+    table="COUNTRY" optimistic-lock="version">
+    <cache usage="nonstrict-read-write" />
+    <id name="isoCode" column="ISOCODE" access="field" type="string" />
+    <version name="versionNumber" column="VERNO_CTX" access="field"></version>
+
+    <property name="countryCode" column="ALPHA2" access="field" />
+    <property name="longCountryCode" column="ALPHA3" not-null="true" access="field" />
+    <properties name="langTransRef">
+      <property name="tag" column="DESCRTAG" access="field" not-null="true" insert="false" update="false" />
+    </properties>
+    <map name="langTranslations" access="field" lazy="false" fetch="join" order-by="DESCR">
+      <key property-ref="langTransRef">
+        <column name="DESCRTAG" />
+      </key>
+      <map-key formula="LOWER(TRIM(LANG))" type="string" />
+      <one-to-many class="com.nomadsoft.cortex.domain.langtranslation.LangTranslation" />
+    </map>
+  </class>
+</hibernate-mapping>
