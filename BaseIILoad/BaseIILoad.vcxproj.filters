@@ -27,6 +27,9 @@
     <ClCompile Include="BaseIILoadLast.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BaseIILoadMemory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="BaseIILoad.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
