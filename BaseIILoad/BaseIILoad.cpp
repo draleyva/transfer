@@ -224,6 +224,10 @@ static long sldtm_yddd2date_ext(const std::string& yddd_str, int current_yy /*0-
   if (day >= 1 && day <= 31 && month >= 1 && month <= 12) {
     ret = 10000L * full_year + 100L * month + day;
   }
+  else {
+    std::cout << " detecting error!" << "'\n";
+  }
+
   return ret;
 }
 
