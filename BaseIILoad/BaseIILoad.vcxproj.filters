@@ -21,6 +21,12 @@
     <ClCompile Include="BaseIILoadGroup.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BaseIILoadOK.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseIILoadLast.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="BaseIILoad.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
