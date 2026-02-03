@@ -81,6 +81,8 @@
 #define ITF_REMOVE_POS1             3
 #define ITF_REMOVE_LEN              2
 
+#define E4 0
+
 // =============================
 
 enum class FileFormat { CTF, ITF };
@@ -267,6 +269,7 @@ static std::optional<long> anchor_yddd_to_yyyymmdd(const std::string& yddd, int 
 struct GroupMin {
   long long group_id{};
   long long start_record_index{};
+  std::string raw;
   std::string arn;
   std::string purdate_mmdd;
   std::string cpd_yddd;
@@ -333,6 +336,7 @@ static void analyze_group(GroupMin& g, int anchorYear) {
   compare_anchor("TCR1.currconvdate", g.currconv_yddd);
   compare_anchor("ARN+7", g.arn_embedded_yddd);
 
+  #if E4 > 0
   // E4: YYMMDD copied raw
   if (!trim_copy(g.dateterm_yymmdd).empty()) {
     if (g.dateterm_yymmdd.size() < 6 || !is_digits(g.dateterm_yymmdd.substr(0, 6))) {
@@ -357,6 +361,7 @@ static void analyze_group(GroupMin& g, int anchorYear) {
       }
     }
   }
+  #endif
 }
 
 static void print_group_report(const GroupMin& g) {
@@ -367,7 +372,8 @@ static void print_group_report(const GroupMin& g) {
   std::cout << "  TCR0.cpd (YDDD)           : '" << g.cpd_yddd << "'   [pos " << TC05_TCR0_POS_CPD << " len " << TC05_TCR0_LEN_CPD << "]\n";
   std::cout << "  ARN+7 embedded (YDDD)     : '" << g.arn_embedded_yddd << "'   [ARN ofs0 " << TC05_TCR0_ARN_EMBED_OFS0 << " len " << TC05_TCR0_ARN_EMBED_LEN << "]\n";
   std::cout << "  TCR1.currconvdate (YDDD)  : '" << g.currconv_yddd << "'   [pos " << TC05_TCR1_POS_CURRCONVDATE << " len " << TC05_TCR1_LEN_CURRCONVDATE << "]\n";
-  std::cout << "  TCR7.datetermtxn (YYMMDD) : '" << g.dateterm_yymmdd << "'   [pos " << TC05_TCR7_POS_DATETERM << " len " << TC05_TCR7_LEN_DATETERM << "]\n\n";
+  std::cout << "  TCR7.datetermtxn (YYMMDD) : '" << g.dateterm_yymmdd << "'   [pos " << TC05_TCR7_POS_DATETERM << " len " << TC05_TCR7_LEN_DATETERM << "]\n";
+  std::cout << "  RAW                       : [" << g.raw << "]\n\n";
 
   if (g.errors.empty()) {
     std::cout << "No date-formatting issues detected by this streaming reproducer.\n\n";
@@ -465,11 +471,16 @@ int main(int argc, char** argv) {
     std::optional<GroupMin> current;
     long long gid = 0;
     long long record_index = 0;
+    int errors = 0;
 
     auto flush = [&]() {
       if (!current) return;
       analyze_group(*current, anchorYear);
-      print_group_report(*current);
+      if (!current->errors.empty())
+      {
+        print_group_report(*current);
+        ++errors;
+      }
       current.reset();
       };
 
@@ -490,6 +501,7 @@ int main(int argc, char** argv) {
       if (tcrch == '0') {
         flush();
         GroupMin g;
+        g.raw = rawRec;
         g.group_id = ++gid;
         g.start_record_index = record_index;
 
@@ -516,6 +528,8 @@ int main(int argc, char** argv) {
     }
 
     flush();
+
+    std::cout << "Errors: " << errors << "\n";
     return 0;
   }
   catch (const std::exception& ex) {
