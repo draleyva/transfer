@@ -371,3 +371,74 @@ FFeciIndicator(FBFR *p_fb,
     return SUCCEED;
 }
 
+/*------------------------------------------------------------------------
+ *
+ * Function  : FFcavvResult
+ *
+ * Purpose   : Map Visa CAVV Results Code (Field 44.13, V_CAVVRSCODE)
+ *             to DBTRAN25.cavvResult (1-byte field).
+ *
+ * Input     : p_fb  - main FB buffer (already parsed ISO/Visa)
+ *             out   - pointer to output field in DBTRAN25 record
+ *             len   - length of DBTRAN25 field (expected 1)
+ *             p_ctx - DBTRAN25 context (unused here)
+ *
+ * Returns   : SUCCEED / FAIL
+ *
+ * Comments  :
+ *   - If V_CAVVRSCODE is present and readable, we copy its first
+ *     character into out[0].
+ *   - If the field is absent or CF_get fails, we leave the field
+ *     as spaces.
+ *   - We never copy uninitialized data.
+ *
+ *------------------------------------------------------------------------*/
+ctxprivate int
+FFcavvResult(FBFR *p_fb,
+             char *out,
+             size_t len,
+             DBTRAN25_Context_t *p_ctx)
+{
+    char   tmpbuf[64];
+    size_t i;
+    char   val;
+
+    (void)p_ctx;  /* not used */
+
+    if (!out || len == 0) {
+        return FAIL;
+    }
+
+    /* Default: blank field */
+    for (i = 0; i < len; ++i) {
+        out[i] = ' ';
+    }
+
+    /* If Visa CAVV Results Code is not present, nothing else to do */
+    if (!F_pres(p_fb, V_CAVVRSCODE, 0)) {
+        return SUCCEED;
+    }
+
+    /* Get V_CAVVRSCODE as string */
+    if (SUCCEED != CF_get(p_fb, V_CAVVRSCODE, 0, tmpbuf, 0L, FLD_STRING)) {
+        DBG_PRINTF((dbg_syserr,
+                    "FFcavvResult: Failed to get V_CAVVRSCODE from FB"));
+        return FAIL;
+    }
+
+    /* Use the first character only */
+    val = tmpbuf[0];
+
+    /* Optional: sanity check – CAVV Results Code is defined as a digit. */
+    if (val < '0' || val > '9') {
+        /* If you prefer, you can still copy it, but blanking is safer: */
+        DBG_PRINTF((dbg_proginfo,
+                    "FFcavvResult: V_CAVVRSCODE='%c' out of expected range, "
+                    "leaving cavvResult blank", val));
+        return SUCCEED;
+    }
+
+    out[0] = val;
+
+    return SUCCEED;
+}
