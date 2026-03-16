@@ -1,0 +1,153 @@
+# .sete5706717
+# -------------- environment setting for e5706717
+
+# ANSI	Meaning
+# 0	Normal
+# 1	Bold
+# 4	Underlined
+# 5	Blinking
+# 7	Reverseda
+#
+# Colour	Foreground	Background
+# Black		30		40
+# Red		31		41
+# Green		32		42
+# Yellow	33		43
+# Blue		34		44
+# Magenta	35		45
+# Cyan		36		46
+# White		37		47
+# bold red
+
+# bold red
+BRED="[1;31;10m"
+# bold blue
+BBLUE="[1;34;10m"
+
+# Set the terminal
+##export TERM=vt220
+
+export HOSTNAME=`ctxhostname`;
+#if [ "bruce" = $HOSTNAME ] || [ "renoir" = $HOSTNAME ]; then
+#	export TERM=xterm ;
+#fi
+
+# Set the path
+function addtopath
+{
+	toadd=$1;
+	oldpath=`echo $PATH | sed -e "s#$toadd##"`
+	export PATH=$toadd:$oldpath
+}
+addtopath /home/e5706717/bin
+addtopath /share/homes/utilities/preserve/scripts/db_extractor
+
+# Get the username from id
+username=`id | sed -e 's!).*!!' | sed -e 's!.*(!!'`;
+
+# Set up the prompt
+
+SGR01=`/usr/bin/tput sgr 0 1`     #turn off standout; turn on underline
+SGR00=`/usr/bin/tput sgr 0 0`     #turn off standout; turn off underline
+SGR11=`/usr/bin/tput sgr 1 1`     #turn on standout; turn on underline
+SGR10=`/usr/bin/tput sgr 1 0`     #turn on standout; turn off underline
+bold=`tput smso`
+offbold='tput rmso'
+
+OFF=`/usr/bin/tput sgr0`
+BOLD=`tput bold`
+REV=`tput rev`
+
+PS1='! '${BRED}${LOGNAME}\@${HOSTNAME}${OFF}' ${BBLUE}${PWD}${OFF} '`/usr/bin/echo "\n\$ \c"`
+#PS1='! '${REV}${LOGNAME}\@${HOSTNAME}${OFF}' ${REV}${BOLD}${PWD}${OFF} '`/usr/bin/echo "\n\$ \c"`
+
+#mytrail=`usertrail -m 4 | sed -e "s/>[^>]*$//" | sed -e "s/\([^>]*\)$/$BOLD3\1/"`;
+
+#PS1="$BOLD"'- '"$BOLD4$mytrail"'@'`ctxhostname`"$OFF"' '"$BOLD2"'${PWD#$HOME/}'"$OFF"'\n$ '
+
+# Editor settings
+EDITOR=vim
+FCEDIT=$EDITOR
+VISUAL=$EDITOR
+EDIT=$EDITOR
+DBEDIT=$EDITOR
+PAGER=less
+export EDITOR FCEDIT VISUAL EDIT PAGER
+
+export S=". /home/e5706717/.sete5706717"
+
+export BASE=${CTXUSR}/base
+export SRC=${CTXUSR}/src
+
+export VIMINIT="so /home/e5706717/.vimrc"
+
+# Aliases
+alias check='echo PWD=$PWD; echo CTXUSR=$CTXUSR; echo BACKINGTREE=$BACKINGTREE; echo WORKINGTREE=$WORKINGTREE;'
+alias gerp=grep
+alias glim='glim $CTXUSR'
+alias glm='/opt/bin/glim'
+alias ls='ls -CF'
+alias vi='vim'
+alias l='ls -l'
+alias lr='ls -lrt'
+alias ll='ls -la'
+alias pmi='ps -fe | grep -v grep | grep'
+alias fin='find . -name'
+alias evi='touch ~/.viscript.vi; vim -s ~/.viscript.vi'
+alias visc='vim ~/.viscript.vi'
+alias rmo='rm *.o'
+alias dbq='cat | db'
+alias cont='kill -s SIGCONT'
+alias ud='$TUXDIR/bin/ud'
+alias bold='sed -e "s/^/*/" |sed -e "s/$/*/"'
+alias p4file='sed -e "s/.*\///" |sed -e "s/#.*//"'
+
+alias dbs='function mydbsfun
+{
+	cmd=$1;
+	if [ "$DBTYPE" = "INFORMIX" ]; then
+		dbschema -d $DBNAME -ss -t $cmd;
+	else
+		echo "describe $cmd;"|db ;
+	fi;
+}
+
+mydbsfun '
+
+alias cd='function chti
+{
+cd $*
+changetitle
+}
+chti'
+
+alias iterate='function my_iter {
+        perlcmd="for \$n ($1) { \$out = \"$2\" ; \$out =~ s/%%%/\$n/; print \" \
+$out \"; } print \"\n\";";
+        perl -e "$perlcmd";
+}
+my_iter '
+
+
+# Set VI
+set -o vi
+
+# Set terminal settings
+if [ $# == 0 ]
+then
+#	stty rows 61
+#	stty cols 80
+	stty ispeed 115000
+	stty ospeed 115000
+	stty erase 
+	stty werase ^W
+	stty susp ^Z
+	#stty dsusp ^Y
+	stty intr 
+fi
+
+#export UNICAP=/ctxtools/accell/lib/unicap
+
+export MANPATH=$MANPATH:/opt/ansic/share/man
+
+stty kill 

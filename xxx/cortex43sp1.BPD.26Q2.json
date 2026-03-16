@@ -1,0 +1,413 @@
+{
+	"client" : "bpd",
+	"hostname" : "lltcemeapsora.fisdev.local",
+	"p4root": "/share/ctxps/e5706717/BPD/26Q2",
+	"p4client": "cortex43sp126Q2",
+	"p4sync" : "p4 sync -f -q",
+	"target" : "/prod/cortex/c",
+	"util" : "bin-4.4",
+	"documentation" : 
+	[
+		"https://fiswiki.fis.dev/display/CTXREL/Release+dependencies+for+CMN+and+CMNFNC",
+		"https://fiswiki.fis.dev/display/CTXREL/Release+Notes+Listing"
+	],
+	"revision" :
+	{
+		"26Q2" : 
+		{
+			"date" : "20260304",
+			"request" : "Raúl Torres"
+		}
+	},
+	"entry" :
+	{
+		"util" :
+		[
+			{
+				"name" : "util",
+				"p4" : "//utils/bin/bin-4.4/...",
+				"target" : "/prod/cortex/c/bin-4.4/..."
+			}
+		],
+		"base" :
+		[
+			{
+				"name" : "Makefile",
+				"p4" : "//prod/cortex/c/modules/Makefile",
+				"target" : "/prod/cortex/c/modules/Makefile"
+			},
+			{
+				"name" : "combined",
+				"p4" : "//prod/cortex/c/combined/...",
+				"target" : "/prod/cortex/c/combined/..."
+			}
+		],
+		"module" :
+		[
+			{
+				"name" : "CMN",
+				"module" : "modules_common",
+				"version" : "6.4.49",
+				"comment" : "v01,fiswiki,26Q2",
+				"p4" : "//prod/cortex/c/modules/common/common-6.4/...",
+				"target" : "/prod/cortex/c/modules/common/...",
+				"labels" : 
+				[
+					{
+						"label":"CMN-6.4.49",
+						"compatibility":
+						[
+							"ACS-6.4.15", "AMX-6.4.26", "ATM-6.4.29", "AU-6.4.45",
+							"CRD-6.4.30", "CO-6.4.45", "CCS-6.4.20", "DES-6.4.31",
+							"DFC-6.4.24", "INTEG-6.4.26", "ISS-6.4.27", "ISO-6.4.40",
+							"MMB-6.4.21", "POS-6.4.36", "TU-6.4.19", "VI-6.4.46"
+						]
+					},
+					{
+						"label":"CMN-6.4.48",
+						"compatibility":
+						[
+							"MC-6.4.45"
+						]
+					},
+					{
+						"label":"CMN-6.4.47",
+						"compatibility":
+						[
+							"FDS-6.4.23", "SW-6.4.19"
+						]
+					},
+					{
+						"label":"CMN-6.4.43",
+						"compatibility":
+						[
+							"AD-6.4.10", "PAR-6.4.8", "PAY-6.4.6", "UPI-6.4.14"
+						]
+					},
+					{
+						"label":"CMN-6.4.37",
+						"compatibility":
+						[
+							"ACS-6.4.12","AMX-6.4.20","ATM-6.4.21","AU-6.4.33",
+							"CRD-6.4.21","CO-6.4.34","CCS-6.4.14","DES-6.4.23",
+							"DFC-6.4.17","FDS-6.4.16","INTEG-6.4.19","ISS-6.4.19",
+							"ISO-6.4.31","MC-6.4.33","MMB-6.4.15","POS-6.4.27",
+							"SW-6.4.13","TU-6.4.13","VI-6.4.33"
+						]
+					},
+					{
+						"label":"CMN-6.4.35",
+						"compatibility":
+						[
+							"AU-6.4.31"
+						]
+					},
+					{
+						"label":"CMN-6.4.34",
+						"compatibility":
+						[
+							"AD-6.4.6","AMX-6.4.19","ATM-6.4.20","CRD-6.4.20",
+							"CO-6.4.32","CCS-6.4.13","DES-6.4.21","DFC-6.4.16",
+							"FDS-6.4.15","INTEG-6.4.17"
+						]
+					},
+					{
+						"label":"CMN-6.4.31",
+						"compatibility":
+						[
+							"IFM-6.4.10"
+						]
+					},
+					{
+						"label":"CMN-6.4.30",
+						"compatibility":
+						[
+							"ACS-6.4.11","UPI-6.4.11"
+						]
+					}
+				]
+			},
+			{
+				"name" : "CMNFNC",
+				"module" : "modules_commfunc",
+				"version" : "6.4.16",
+				"comment" : "v01,fiswiki,26Q2",
+				"p4": "//prod/cortex/c/modules/commfunc/commfunc-6.4/...",
+				"target" : "/prod/cortex/c/modules/commfunc/...",
+				"labels" :
+				[
+					{
+						"label" : "CMNFNC-6.4.16",
+						"compatibility" :
+						[
+							"ACS-6.4.15", "AD-6.4.10", "AMX-6.4.26", "ATM-6.4.29",
+							"AU-6.4.45", "CRD-6.4.30", "CO-6.4.45", "CCS-6.4.20",
+							"DFC-6.4.24", "FDS-6.4.23", "INTEG-6.4.26", "ISS-6.4.27",
+							"ISO-6.4.40", "MC-6.4.45", "MMB-6.4.21", "PAR-6.4.8",
+							"PAY-6.4.6", "POS-6.4.36", "SW-6.4.19", "TU-6.4.19",
+							"UPI-6.4.14", "VI-6.4.46"
+						]
+					},
+					{
+						"label" : "CMNFNC-6.4.15",
+						"compatibility" :
+						[
+							"DES-6.4.30"
+						]
+					},
+					{
+						"label" : "CMNFNC-6.4.13",
+						"compatibility" :
+						[
+							"ACS-6.4.12","AMX-6.4.20","ATM-6.4.21","AU-6.4.33",
+							"CRD-6.4.21","CO-6.4.34","CCS-6.4.14","DES-6.4.23",
+							"DFC-6.4.17","FDS-6.4.16","INTEG-6.4.19","ISS-6.4.19",
+							"ISO-6.4.31","MC-6.4.33","MMB-6.4.15","POS-6.4.27",
+							"SW-6.4.13","TU-6.4.13","VI-6.4.33"
+						]
+					},
+					{
+						"label" : "CMNFNC-6.4.12",
+						"compatibility" :
+						[
+							"AU-6.4.31"
+						]
+					},
+					{
+						"label" : "CMNFNC-6.4.11",
+						"compatibility" :
+						[
+							"ACS-6.4.11","AD-6.4.6","AMX-6.4.19","ATM-6.4.20",
+							"CRD-6.4.20","CO-6.4.32","CCS-6.4.13","DES-6.4.21",
+							"DFC-6.4.16","FDS-6.4.15","INTEG-6.4.17","IFM-6.4.10",
+							"UPI-6.4.11"
+						]
+					}
+				]
+			},
+			{
+				"name" : "ACS",
+				"module" : "modules_access",
+				"version" : "6.4.15",
+				"comment" : "v01,fiswiki,25Q2,26Q2",
+				"p4" : "//prod/cortex/c/modules/access/access-6.4/...",
+				"target" : "/prod/cortex/c/modules/access/..."
+			},
+			{
+				"name" : "AD",
+				"module" : "modules_admin",
+				"version" : "6.4.10",
+				"comment" : "v01,fiswiki,25Q2,26Q2",
+				"p4" : "//prod/cortex/c/modules/admin/admin-6.4/...",
+				"target" : "/prod/cortex/c/modules/admin/..."
+			},
+			{
+				"name" : "AMX",
+				"module" : "modules_amex",
+				"version" : "6.4.26",
+				"comment" : "v01,fiswiki,25Q2,26Q2",
+				"p4" : "//prod/cortex/c/modules/amex/amex-6.4/...",
+				"target" : "/prod/cortex/c/modules/amex/..."
+			},
+			{
+				"name" : "ATM",
+				"module" : "modules_atm",
+				"version" : "6.4.29",
+				"comment" : "v01,fiswiki,25Q2,26Q2",
+				"p4" : "//prod/cortex/c/modules/atm/atm-6.4/...",
+				"target" : "/prod/cortex/c/modules/atm/..."
+			},
+			{
+				"name" : "AU",
+				"module" : "modules_auth",
+				"version" : "6.4.45",
+				"comment" : "v01,fiswiki,25Q2,26Q2",
+				"p4" : "//prod/cortex/c/modules/auth/auth-6.4/...",
+				"target" : "/prod/cortex/c/modules/auth/..."
+			},
+			{
+				"name" : "CRD",
+				"module" : "modules_crdbase",
+				"version" : "6.4.30",
+				"comment" : "v01,fiswiki,25Q2,26Q2",
+				"p4" : "//prod/cortex/c/modules/crdbase/crdbase-6.4/...",
+				"target" : "/prod/cortex/c/modules/crdbase/..."
+			},
+			{
+				"name" : "CO",
+				"module" : "modules_core",
+				"version" : "6.4.45",
+				"comment" : "v01,fiswiki,25Q2,26Q2",
+				"p4" : "//prod/cortex/c/modules/core/core-6.4/...",
+				"target" : "/prod/cortex/c/modules/core/..."
+			},
+			{
+				"name" : "CCS",
+				"module" : "modules_ccs",
+				"version" : "6.4.20",
+				"comment" : "v01,fiswiki,25Q2,26Q2",
+				"p4" : "//prod/cortex/c/modules/ccs/ccs-6.4/...",
+				"target" : "/prod/cortex/c/modules/ccs/..."
+			},
+			{
+				"name" : "DES",
+				"module" : "modules_des",
+				"version" : "6.4.31",
+				"comment" : "v01,fiswiki,25Q2,26Q2",
+				"p4" : "//prod/cortex/c/modules/des/des-6.4/...",
+				"target" : "/prod/cortex/c/modules/des/..."
+			},
+			{
+				"name" : "DFC",
+				"module" : "modules_feebase",
+				"version" : "6.4.24",
+				"comment" : "v01,fiswiki,25Q2,26Q2",
+				"p4" : "//prod/cortex/c/modules/dynamicfee/dynamicfee-6.4/...",
+				"target" : "/prod/cortex/c/modules/feebase/..."
+			},
+			{
+				"name" : "FDS",
+				"module" : "modules_fds",
+				"version" : "6.4.23",
+				"comment" : "v01,fiswiki,25Q2,26Q2",
+				"p4" : "//prod/cortex/c/modules/fds/fds-6.4/...",
+				"target" : "/prod/cortex/c/modules/fds/..."
+			},
+			{
+				"name" : "INTEG",
+				"module" : "modules_integra",
+				"version" : "6.4.26",
+				"comment" : "v01,fiswiki,25Q2,26Q2",
+				"p4" : "//prod/cortex/c/modules/integra/integra-6.4/...",
+				"target" : "/prod/cortex/c/modules/integra/..."
+			},
+			{
+				"name" : "ISS",
+				"module" : "modules_issuer",
+				"version" : "6.4.27",
+				"comment" : "v01,fiswiki,25Q2,26Q2",
+				"p4" : "//prod/cortex/c/modules/issuer/issuer-6.4/...",
+				"target" : "/prod/cortex/c/modules/issuer/..."
+			},
+			{
+				"name" : "IFM",
+				"module" : "modules_ifm",
+				"version" : "6.4.10",
+				"comment" : "v01,fiswiki,25Q2,26Q2",
+				"p4" : "//prod/cortex/c/modules/ifm/ifm-6.4/...",
+				"target" : "/prod/cortex/c/modules/ifm/..."
+			},
+			{
+				"name" : "ISO",
+				"module" : "modules_iso93",
+				"version" : "6.4.40",
+				"comment" : "v01,fiswiki,25Q2,26Q2",
+				"p4" : "//prod/cortex/c/modules/iso93/iso93-6.4/...",
+				"target" : "/prod/cortex/c/modules/iso93/..."
+			},
+			{
+				"name" : "MC",
+				"module" : "modules_mc",
+				"version" : "6.4.45",
+				"comment" : "v01,fiswiki,25Q2,26Q2",
+				"p4" : "//prod/cortex/c/modules/mc/mc-6.4/...",
+				"target" : "/prod/cortex/c/modules/mc/..."
+			},
+			{
+				"name" : "MMB",
+				"module" : "modules_mrchbase",
+				"version" : "6.4.21",
+				"comment" : "v01,fiswiki,25Q2,26Q2",
+				"p4" : "//prod/cortex/c/modules/mrchbase/mrchbase-6.4/...",
+				"target" : "/prod/cortex/c/modules/mrchbase/..."
+			},
+			{
+				"name" : "PAR",
+				"module" : "modules_party",
+				"version" : "6.4.8",
+				"comment" : "v01,fiswiki,25Q2,26Q2",
+				"p4" : "//prod/cortex/c/modules/party/party-6.4/...",
+				"target" : "/prod/cortex/c/modules/party/..."
+			},
+			{
+				"name" : "PAY",
+				"module" : "modules_paylater",
+				"version" : "6.4.6",
+				"comment" : "v01,fiswiki,25Q2,26Q2",
+				"p4" : "//prod/cortex/c/modules/paylater/paylater-6.4/...",
+				"target" : "/prod/cortex/c/modules/paylater/..."
+			},
+			{
+				"name" : "POS",
+				"module" : "modules_pos",
+				"version" : "6.4.36",
+				"comment" : "v01,fiswiki,25Q2,26Q2",
+				"p4" : "//prod/cortex/c/modules/pos/pos-6.4/...",
+				"target" : "/prod/cortex/c/modules/pos/..."
+			},
+			{
+				"name" : "SW",
+				"module" : "modules_switch",
+				"version" : "6.4.19",
+				"comment" : "v01,fiswiki,25Q2,26Q2",
+				"p4" : "//prod/cortex/c/modules/switch/switch-6.4/...",
+				"target" : "/prod/cortex/c/modules/switch/..."
+			},
+			{
+				"name" : "TU",
+				"module" : "modules_topup",
+				"version" : "6.4.19",
+				"comment" : "v01,fiswiki,25Q2,26Q2",
+				"p4" : "//prod/cortex/c/modules/topup/topup-6.4/...",
+				"target" : "/prod/cortex/c/modules/topup/..."
+			},
+			{
+				"name" : "UPI",
+				"module" : "modules_upi",
+				"version" : "6.4.14",
+				"comment" : "v01,fiswiki,25Q2,26Q2",
+				"p4" : "//prod/cortex/c/modules/upi/upi-6.4/...",
+				"target" : "/prod/cortex/c/modules/upi/..."
+			},
+			{
+				"name" : "VI",
+				"module" : "modules_visa",
+				"version" : "6.4.46",
+				"comment" : "v01,fiswiki,25Q2,26Q2",
+				"p4" : "//prod/cortex/c/modules/visa/visa-6.4/...",
+				"target" : "/prod/cortex/c/modules/visa/..."
+			}
+		],
+		"custom" : 
+		[
+			{
+				"name" : "cust_prod",
+				"base" : "BPD",
+				"version" : "4.0.12",
+				"module" : "cust_prod",
+				"moduleversion" : "4.0.14",
+				"comment" : "26Q2",
+				"p4" : "//ps/cortex/latam/bpd/c/bpd-4.0/cust_prod/...",
+				"target" : "/prod/cortex/c/bpd/cust_prod/..."
+			},
+			{
+				"name" : "src",
+				"base" : "BPD",
+				"version" : "4.0.12",
+				"module" : "src",
+				"moduleversion" : "4.0.14",
+				"comment" : "26Q2",
+				"p4" : "//ps/cortex/latam/bpd/c/bpd-4.0/src/...",
+				"target" : "/prod/cortex/c/bpd/src/..."
+			},
+			{
+				"name" : "glimpse_index",
+				"base" : "BPD",
+				"version" : "4.0.12",
+				"comment" : "26Q2",
+				"p4" : "//ps/cortex/latam/bpd/c/bpd-4.0/glimpse_index/...",
+				"target" : "/prod/cortex/c/bpd/glimpse_index/..."
+			}
+		]
+	}
+}

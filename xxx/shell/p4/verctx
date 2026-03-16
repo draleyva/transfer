@@ -1,0 +1,54 @@
+#***********************************************************************
+# File: verctx
+#
+# Purpose: To direct 'p4 sync [-n] [-f] default [...| files ] to which
+#          labels code areas should be synchronised to.
+#
+# Label options: A label can be one of the following:
+#          latest       (this will synchronise to the latest revisions)
+#
+#          label        (where label has the following format)
+#
+# Label format:
+#       (code section)_(cortex code branch)
+#       .(major).(minor).(point release)-(consolidated patch).(patch)
+#
+#       e.g. visa_main.1.0.0-0.2 , new_bph25.1.0.0-0.2 ,
+#            ep_main.1.1.0-0.3 , common_main.2.5.1-0.4 ,
+#            custom_main.1.1.0-0.3 , custom_bph25.1.0.0-0.2
+#
+# NOTE: The code section custom refers to module src
+#       If modules are not mentioned here , they will not by sync'd
+#***********************************************************************
+#
+#code area      label
+#
+modules_access          ACS-6.2.15
+modules_admin           AD-6.2.17
+modules_amex            AMX-6.2.40
+modules_atm             ATM-6.2.43
+modules_auth            AU-6.2.86
+modules_ccs             CCS-6.2.24
+modules_commfunc        CMNFNC-6.2.25
+modules_common          CMN-6.2.98
+modules_core            CO-6.2.90
+modules_crdbase         CRD-6.2.56
+modules_des             DES-6.2.24
+modules_feebase         DFC-6.2.36
+modules_fds             FDS-6.2.27
+modules_ifm             IFM-6.2.23
+modules_integra         INTEG-6.2.33
+modules_iso93           ISO-6.2.61
+modules_issuer          ISS-6.2.38
+modules_mc              MC-6.2.73
+modules_mrchbase        MMB-6.2.19
+modules_party           PAR-6.2.14
+modules_paylater        PAY-6.2.11
+modules_pos             POS-6.2.47
+modules_switch          SW-6.2.22
+modules_topup           TU-6.2.27
+modules_visa            VI-6.2.92
+src                     BRE-2.0.10
+cust_prod               BRE-2.0.10
+
+
